@@ -1,2 +1,0 @@
-# ReddyWang
-A BLOG
