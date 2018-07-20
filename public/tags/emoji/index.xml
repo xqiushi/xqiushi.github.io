@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emoji on 睿递网</title>
+    <link>/tags/emoji/</link>
+    <description>Recent content in Emoji on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/emoji/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emoji表情，美化Typecho</title>
+      <link>/post/2017-07-03-emoji-for-typecho/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-07-03-emoji-for-typecho/</guid>
+      <description>1.前言 我天真的以为Emoji表情都是那可爱呢。天天哭着闹着想在微信或QQ里发Emoji表情。 2.typecho支持Emoji 于是通过修改据</description>
+    </item>
+    
+  </channel>
+</rss>

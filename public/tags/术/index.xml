@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>术 on 睿递网</title>
+    <link>/tags/%E6%9C%AF/</link>
+    <description>Recent content in 术 on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>已安装好的office 2016从零售版转成批量授权版</title>
+      <link>/post/2017-09-05-office-2016-vol/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-09-05-office-2016-vol/</guid>
+      <description>前言 众所周知，windows系统一般都可以分别是Retail（零售）版和VOL（批量授权）版。其实office套装也是这样的。 VOL版: VO</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之BBR</title>
+      <link>/post/2017-08-08google-bbr/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-08-08google-bbr/</guid>
+      <description>1.前言 互联网+让我们的家用宽带基本上都是100M左右,但是总还能听到抱怨:我都100M的光纤宽带,打个游戏,卡;看个视频,卡;浏览个网页还</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之Brotli</title>
+      <link>/post/2017-08-07-google-brotli/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-08-07-google-brotli/</guid>
+      <description>前言 相信大家对Gzip非常地熟悉,它是一种流行的文件压缩算法，现在在Linux平台下的应用十分广泛。它对纯文本文的压缩率可高达70％以上.因</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之pagespeed</title>
+      <link>/post/2017-08-06-google-pagespeed/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-08-06-google-pagespeed/</guid>
+      <description>前言 google,也许你还没有听过这个公司呢.简单地说她是以互联网搜索引擎为著名的公司.搜索引擎网站与门户网站的区别就在于: 搜索引擎公司不产</description>
+    </item>
+    
+    <item>
+      <title>支付宝免费提现的方法</title>
+      <link>/post/2017-07-24-alipay-free-withdrawal-method/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-07-24-alipay-free-withdrawal-method/</guid>
+      <description>前言 如图示:&amp;ldquo;No lights,no power,instant stone age.&amp;rdquo;. 电,网和移动支付是组成生活的最基本单位了,简直可以和光,空气,水,土壤齐名了.加菲猫所说过Master</description>
+    </item>
+    
+    <item>
+      <title>Ngrok实现访问内网的远程桌面和web服务器</title>
+      <link>/post/2017-07-15-ngrok-for-remote-desktops-webservers/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-07-15-ngrok-for-remote-desktops-webservers/</guid>
+      <description>ngrok介绍 看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</title>
+      <link>/post/2017-07-05-lnmpa-firewall-rules-in-centos-7/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-07-05-lnmpa-firewall-rules-in-centos-7/</guid>
+      <description>1.前言 以前介绍过了，我的网站使用人称“军哥”维护的LNMP一键安装包(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LN</description>
+    </item>
+    
+    <item>
+      <title>Emoji表情，美化Typecho</title>
+      <link>/post/2017-07-03-emoji-for-typecho/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-07-03-emoji-for-typecho/</guid>
+      <description>1.前言 我天真的以为Emoji表情都是那可爱呢。天天哭着闹着想在微信或QQ里发Emoji表情。 2.typecho支持Emoji 于是通过修改据</description>
+    </item>
+    
+    <item>
+      <title>解决路由端阿里DDNS失效的方法</title>
+      <link>/post/2017-06-17-solution-aliddns-failure/</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-06-17-solution-aliddns-failure/</guid>
+      <description>1.前言 现在倡导互联网+观念，我们享受着无尽的网络风暴。家庭网络带宽不断在增长，我就亲身经历过，2000年左右的网是256kb的拨号上网，到</description>
+    </item>
+    
+    <item>
+      <title>Typecho博客利用Mysql语句批量替换内容</title>
+      <link>/post/2017-06-11-typecho-mysql/</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-06-11-typecho-mysql/</guid>
+      <description>1.前言 我博客搬远无数次家,好多图片都是记录了不同网址。有ArcGIS.me xqiushi.cn等等。导致的问题就是图片都是原来的地址。 要想</description>
+    </item>
+    
+  </channel>
+</rss>

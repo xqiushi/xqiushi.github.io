@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AliDDNS on 睿递网</title>
+    <link>/tags/aliddns/</link>
+    <description>Recent content in AliDDNS on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/aliddns/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>解决路由端阿里DDNS失效的方法</title>
+      <link>/post/2017-06-17-solution-aliddns-failure/</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-06-17-solution-aliddns-failure/</guid>
+      <description>1.前言 现在倡导互联网+观念，我们享受着无尽的网络风暴。家庭网络带宽不断在增长，我就亲身经历过，2000年左右的网是256kb的拨号上网，到</description>
+    </item>
+    
+  </channel>
+</rss>

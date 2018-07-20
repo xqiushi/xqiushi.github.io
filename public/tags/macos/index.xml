@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on 睿递网</title>
+    <link>/tags/macos/</link>
+    <description>Recent content in MacOS on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Chrome 59 浏览器macOS版及禁用flash插件的方法</title>
+      <link>/post/2017-06-25-google-chrome-block-flash/</link>
+      <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2017-06-25-google-chrome-block-flash/</guid>
+      <description>1.前言 众所周知，Chrome可以算是当今天最优秀的浏览器之一，其实几乎可以省略后面的之一。但是由于第三方插件Flash是Chrome的朋友</description>
+    </item>
+    
+  </channel>
+</rss>

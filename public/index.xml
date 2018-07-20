@@ -1,391 +1,338 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Huabing Blog</title>
+    <title>睿递网</title>
     <link>/</link>
-    <description>Recent content on Huabing Blog</description>
+    <description>Recent content on 睿递网</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Feb 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Istio v1aplha3 routing API介绍(译文）</title>
-      <link>/2018/06/04/introducing-the-istio-v1alpha3-routing-api.html</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Windows Server 2016中文版评估版转VOL版</title>
+      <link>/post/2018-02-23-windows-server-2016-vol/</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/04/introducing-the-istio-v1alpha3-routing-api.html</guid>
-      <description>&lt;p&gt;到目前为止，Istio提供了一个简单的API来进行流量管理，该API包括了四种资源：RouteRule，DestinationPolicy，EgressRule和Ingress（直接使用了Kubernets的Ingress资源）。借助此API，用户可以轻松管理Istio服务网格中的流量。该API允许用户将请求路由到特定版本的服务，为弹性测试注入延迟和失败，添加超时和断路器等等，所有这些功能都不必更改应用程序本身的代码。&lt;/p&gt;</description>
+      <guid>/post/2018-02-23-windows-server-2016-vol/</guid>
+      <description>1.前言 约六个月前，我在微软官网申请了评估版（valuation版）。申请过程也非常简单，自己打开官网随便填一填资料。然而真的只可以用180</description>
     </item>
     
     <item>
-      <title>Bitcoin Script</title>
-      <link>/2018/06/03/cryptocurrency_week3_bitcoin_script.html</link>
-      <pubDate>Sun, 03 Jun 2018 00:00:00 +0000</pubDate>
+      <title>synergy共享鼠标和键盘</title>
+      <link>/post/2017-09-07-shared-keyboard-mouse/</link>
+      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/03/cryptocurrency_week3_bitcoin_script.html</guid>
-      <description>This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.
- Bitcoin Script is using to transfer coins instead of just signature and public key address, which allows more flexibilities for Bitcoin transactions.
-A Standard Transaction Let&amp;rsquo;s say Alice wants to spend some coins she received from a previous transaction, this is how the procedure looks like. * Alice receives some coins from a previous transaction.</description>
+      <guid>/post/2017-09-07-shared-keyboard-mouse/</guid>
+      <description>前言 自从有了共享单车后，“共享”这一词频繁出现在生活，共享床，共享汽车、共享车位等都属于共享经济的新概念。但是今天说的共享鼠标和键盘而不是这</description>
     </item>
     
     <item>
-      <title>Istio 0.8 Release发布</title>
-      <link>/2018/06/02/istio08.html</link>
-      <pubDate>Sat, 02 Jun 2018 00:00:00 +0000</pubDate>
+      <title>已安装好的office 2016从零售版转成批量授权版</title>
+      <link>/post/2017-09-05-office-2016-vol/</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/02/istio08.html</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：
-&lt;/p&gt;</description>
+      <guid>/post/2017-09-05-office-2016-vol/</guid>
+      <description>前言 众所周知，windows系统一般都可以分别是Retail（零售）版和VOL（批量授权）版。其实office套装也是这样的。 VOL版: VO</description>
     </item>
     
     <item>
-      <title>Distributed Consensus</title>
-      <link>/2018/05/26/cryptocurrency_week2_distributed_consenus/</link>
-      <pubDate>Sun, 27 May 2018 00:00:00 +0000</pubDate>
+      <title>介绍Google神器之BBR</title>
+      <link>/post/2017-08-08google-bbr/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/26/cryptocurrency_week2_distributed_consenus/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.
-&lt;/p&gt;</description>
+      <guid>/post/2017-08-08google-bbr/</guid>
+      <description>1.前言 互联网+让我们的家用宽带基本上都是100M左右,但是总还能听到抱怨:我都100M的光纤宽带,打个游戏,卡;看个视频,卡;浏览个网页还</description>
     </item>
     
     <item>
-      <title>Incentives and Proof of Work</title>
-      <link>/2018/05/26/cryptocurrency_week2_incentives_and_proof_of_work.html</link>
-      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      <title>介绍Google神器之Brotli</title>
+      <link>/post/2017-08-07-google-brotli/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/26/cryptocurrency_week2_incentives_and_proof_of_work.html</guid>
-      <description>This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.
- Incentive The mechanism to motivate nodes join the Bitcoin network and create blocks.
-Incentive 1: Block Reward Creator of block gets to * include special coin-creation transaction in the block * choose reciptient address of this transaction (Of course, it is the miner&amp;rsquo;s address)
-Explanation: Because the coin-creation transaction is just like other transaction in that block, it will only be valid if the created block ends up in the consensus chain, it&amp;rsquo;s the incentive which encourages the nodes to be honest, otherwise they can&amp;rsquo;t get their rewards.</description>
+      <guid>/post/2017-08-07-google-brotli/</guid>
+      <description>前言 相信大家对Gzip非常地熟悉,它是一种流行的文件压缩算法，现在在Linux平台下的应用十分广泛。它对纯文本文的压缩率可高达70％以上.因</description>
     </item>
     
     <item>
-      <title>Everything about Setting Up My Ubuntu Desktop</title>
-      <link>/2018/05/24/set_up_my_ubuntu_desktop/</link>
-      <pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
+      <title>介绍Google神器之pagespeed</title>
+      <link>/post/2017-08-06-google-pagespeed/</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/24/set_up_my_ubuntu_desktop/</guid>
-      <description>Generate SSH Key Pair ssh-keygen -C &amp;quot;zhaohuabing@gmail.com&amp;quot;  Shadowsocks Install shadowsokcs
-sudo apt-get install python3-pip sudo pip3 install shadowsocks  Create config at config/shadowsocks.json, with the following content:
-{ &amp;quot;server&amp;quot;:&amp;quot;remote-shadowsocks-server-ip-addr&amp;quot;, &amp;quot;server_port&amp;quot;:443, &amp;quot;local_address&amp;quot;:&amp;quot;127.0.0.1&amp;quot;, &amp;quot;local_port&amp;quot;:1080, &amp;quot;password&amp;quot;:&amp;quot;your-passwd&amp;quot;, &amp;quot;timeout&amp;quot;:300, &amp;quot;method&amp;quot;:&amp;quot;aes-256-cfb&amp;quot;, &amp;quot;fast_open&amp;quot;:false, &amp;quot;workers&amp;quot;:1 }  Start a local socks proxy
-sudo sslocal -c config/shadowsocks.json -d start  In case there is an openssl error, modify shadowsocks source file.
-sudo vi /usr/local/lib/python3.6/dist-packages/shadowsocks/crypto/openssl.py :%s/cleanup/reset/gc  Convert shadowsocks socks proxy to http proxy</description>
+      <guid>/post/2017-08-06-google-pagespeed/</guid>
+      <description>前言 google,也许你还没有听过这个公司呢.简单地说她是以互联网搜索引擎为著名的公司.搜索引擎网站与门户网站的区别就在于: 搜索引擎公司不产</description>
     </item>
     
     <item>
-      <title>微服务安全沉思录之三</title>
-      <link>/2018/05/23/external_system_auth/</link>
-      <pubDate>Wed, 23 May 2018 18:00:00 +0000</pubDate>
+      <title>支付宝免费提现的方法</title>
+      <link>/post/2017-07-24-alipay-free-withdrawal-method/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/23/external_system_auth/</guid>
-      <description>外部系统访问控制 除用户访问和微服务之间的相互访问外，外部的第三方系统也可能需要访问系统内部的微服务。例如在上一篇博客的网上商店例子中，外部的</description>
+      <guid>/post/2017-07-24-alipay-free-withdrawal-method/</guid>
+      <description>前言 如图示:&amp;ldquo;No lights,no power,instant stone age.&amp;rdquo;. 电,网和移动支付是组成生活的最基本单位了,简直可以和光,空气,水,土壤齐名了.加菲猫所说过Master</description>
     </item>
     
     <item>
-      <title>微服务安全沉思录之二</title>
-      <link>/2018/05/23/service_2_service_auth/</link>
-      <pubDate>Wed, 23 May 2018 15:00:00 +0000</pubDate>
+      <title>Ngrok服务器与客户端开机自动启动</title>
+      <link>/post/2017-07-17-ngrok-server-automatically/</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/23/service_2_service_auth/</guid>
-      <description>&lt;h2 id=&#34;服务间认证与鉴权&#34;&gt;服务间认证与鉴权&lt;/h2&gt;
-
-&lt;p&gt;除来自用户的访问请求以外，微服务应用中的各个微服务相互之间还有大量的访问，包括下述场景：
-* 用户间接触发的微服务之间的相互访问&lt;BR&gt;
-  例如在一个网上商店应用中，用户访问购物车微服务进行结算时，购物车微服务可能需要访问用户评级微服务获取用户的会员级别，以得到用户可以享受购物折扣。
-* 非用户触发的微服务之间的相互访问&lt;BR&gt;
-  例如数据同步或者后台定时任务导致的微服务之间的相互访问。&lt;/p&gt;
-
-&lt;p&gt;根据应用系统的数据敏感程度的不同，对于系统内微服务的相互访问可能有不同的安全要求。
-&lt;/p&gt;</description>
+      <guid>/post/2017-07-17-ngrok-server-automatically/</guid>
+      <description>前言 上文中实现了不使用teamviewer或anydesk等工具,便可访问内网远程桌面.但是有个缺点就是,这些工具不是自行化的.特别是win</description>
     </item>
     
     <item>
-      <title>微服务安全沉思录之一</title>
-      <link>/2018/05/22/user_authentication_authorization/</link>
-      <pubDate>Wed, 23 May 2018 10:00:00 +0000</pubDate>
+      <title>Ngrok实现访问内网的远程桌面和web服务器</title>
+      <link>/post/2017-07-15-ngrok-for-remote-desktops-webservers/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/22/user_authentication_authorization/</guid>
-      <description>这段时间对之前微服务安全相关的一些想法进行了进一步总结和归纳，理清了在之前文章里面没有想得太清楚的地方，例如服务间的认证与鉴权以及用户身份在</description>
+      <guid>/post/2017-07-15-ngrok-for-remote-desktops-webservers/</guid>
+      <description>ngrok介绍 看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的</description>
     </item>
     
     <item>
-      <title>Istio Sidecar自动注入原理</title>
-      <link>/2018/05/23/istio-auto-injection-with-webhook/</link>
-      <pubDate>Wed, 23 May 2018 00:00:00 +0000</pubDate>
+      <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</title>
+      <link>/post/2017-07-05-lnmpa-firewall-rules-in-centos-7/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/23/istio-auto-injection-with-webhook/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;Kubernets 1.9版本引入了Admission Webhook(web 回调)扩展机制，通过Webhook,开发者可以非常灵活地对Kubernets API Server的功能进行扩展，在API Server创建资源时对资源进行验证或者修改。&lt;/p&gt;
-
-&lt;p&gt;使用webhook的优势是不需要对API Server的源码进行修改和重新编译就可以扩展其功能。插入的逻辑实现为一个独立的web进程，通过参数方式传入到kubernets中，由kubernets在进行自身逻辑处理时对扩展逻辑进行回调。&lt;/p&gt;
-
-&lt;p&gt;Istio 0.7版本就利用了Kubernets webhook实现了sidecar的自动注入。
-&lt;/p&gt;</description>
+      <guid>/post/2017-07-05-lnmpa-firewall-rules-in-centos-7/</guid>
+      <description>1.前言 以前介绍过了，我的网站使用人称“军哥”维护的LNMP一键安装包(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LN</description>
     </item>
     
     <item>
-      <title>Programming Assignment: Scrooge Coin</title>
-      <link>/2018/05/20/cryptocurrency_week1_scroogecoin/</link>
-      <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
+      <title>一个完美的神经病</title>
+      <link>/post/2017-07-04-a-different-person/</link>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/20/cryptocurrency_week1_scroogecoin/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <guid>/post/2017-07-04-a-different-person/</guid>
+      <description>1. 前言 一直以来，我几乎都是给自己正面的评价的，这也是必要的，从某种意义上可以称之为自信的表现。但是近些年，发现理想与现实差250条街，这便是</description>
     </item>
     
     <item>
-      <title>Digital Signature and Public Key as Identities</title>
-      <link>/2018/05/12/cryptocurrency_week1_digital_signature/</link>
-      <pubDate>Tue, 15 May 2018 00:00:00 +0000</pubDate>
+      <title>Emoji表情，美化Typecho</title>
+      <link>/post/2017-07-03-emoji-for-typecho/</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/12/cryptocurrency_week1_digital_signature/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.
-&lt;/p&gt;</description>
+      <guid>/post/2017-07-03-emoji-for-typecho/</guid>
+      <description>1.前言 我天真的以为Emoji表情都是那可爱呢。天天哭着闹着想在微信或QQ里发Emoji表情。 2.typecho支持Emoji 于是通过修改据</description>
     </item>
     
     <item>
-      <title>Hash Pointers and Data Structures</title>
-      <link>/post/2018-05-12-cryptocurrency_week1_hash_pointer_and_data_structures/</link>
-      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      <title>Google Chrome 59 浏览器macOS版及禁用flash插件的方法</title>
+      <link>/post/2017-06-25-google-chrome-block-flash/</link>
+      <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/2018-05-12-cryptocurrency_week1_hash_pointer_and_data_structures/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;hash-pointer&#34;&gt;Hash Pointer&lt;/h2&gt;
-
-&lt;p&gt;Hash Pointer is comprised of two parts:
-* Pointer to where some information is stored
-* Cryptographic hash of that information&lt;br /&gt;
-The pointer can be used to get the information, the hash can be used to verify that information hasn&amp;rsquo;t been changed&lt;br /&gt;
-&lt;img src=&#34;http://img.zhaohuabing.com/in-post/2018-05-12-cryptocurrency_week1_hash_pointer_and_data_structures/hashpointet.png&#34; alt=&#34;hashpointer&#34; /&gt;
-&lt;/p&gt;</description>
+      <guid>/post/2017-06-25-google-chrome-block-flash/</guid>
+      <description>1.前言 众所周知，Chrome可以算是当今天最优秀的浏览器之一，其实几乎可以省略后面的之一。但是由于第三方插件Flash是Chrome的朋友</description>
     </item>
     
     <item>
-      <title>Cryptographic Hash Function</title>
-      <link>/2018/05/07/cryptocurrency_week1_cryptographic_hash_function/</link>
-      <pubDate>Wed, 09 May 2018 22:00:00 +0000</pubDate>
+      <title>解决路由端阿里DDNS失效的方法</title>
+      <link>/post/2017-06-17-solution-aliddns-failure/</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/07/cryptocurrency_week1_cryptographic_hash_function/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;hash-function&#34;&gt;Hash Function&lt;/h2&gt;
-
-&lt;p&gt;Hash function is a mathematical function:&lt;em&gt;H(X)=Y&lt;/em&gt;
-* H:  A hash function which takes an input value and calculates an output value
-* X: Input of the hash function, it could be any data of any length
-* Y: Output of the hash function: a fix-size bit(, it can be 256, 384, 516 &amp;hellip;, Bitcoin uses 256)
-&lt;/p&gt;</description>
+      <guid>/post/2017-06-17-solution-aliddns-failure/</guid>
+      <description>1.前言 现在倡导互联网+观念，我们享受着无尽的网络风暴。家庭网络带宽不断在增长，我就亲身经历过，2000年左右的网是256kb的拨号上网，到</description>
     </item>
     
     <item>
-      <title>Introduction to crypto and cryptocurrencies</title>
-      <link>/2018/05/06/cryptocurrency_week1/</link>
-      <pubDate>Sun, 06 May 2018 00:00:00 +0000</pubDate>
+      <title>Typecho博客利用Mysql语句批量替换内容</title>
+      <link>/post/2017-06-11-typecho-mysql/</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/06/cryptocurrency_week1/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;This series of articles are my notes of &amp;ldquo;Bitcoin and Cryptocurrency Technologies&amp;rdquo; online course.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;how-did-i-get-into-this&#34;&gt;How did I get into this?&lt;/h2&gt;
-
-&lt;p&gt;I have noticed the buzzwords “Bitcoin” and “Blockchain” for a while. There are lots of articles, news, and talks around them. It seems that many people believe that cryptocurrency is the future of online payment, some even claim that blockchain would become the fundamental technology of the next generation of the Internet.
-&lt;/p&gt;</description>
+      <guid>/post/2017-06-11-typecho-mysql/</guid>
+      <description>1.前言 我博客搬远无数次家,好多图片都是记录了不同网址。有ArcGIS.me xqiushi.cn等等。导致的问题就是图片都是原来的地址。 要想</description>
     </item>
     
     <item>
-      <title>川西秘境探险</title>
-      <link>/2018/05/01/may-day-jiulonghu/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      <title>为什么关闭了朋友圈</title>
+      <link>/post/2017-02-4-friend/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/01/may-day-jiulonghu/</guid>
-      <description>&lt;h2 id=&#34;寻浮云牧场不遇&#34;&gt;寻浮云牧场不遇&lt;/h2&gt;
-
-&lt;p&gt;五一节前的一周内，几个朋友就纷纷坐不住了，一个二个不再安心上班，开始在微信群里讨论过节要到哪里耍。
-大家思来想去，最后决定还是去理县方向。因为根据多年自驾的经验，只要出了汶川，沿途都是风景。&lt;/p&gt;</description>
+      <guid>/post/2017-02-4-friend/</guid>
+      <description>1. 引言 值得注意的是：我这是又来装逼了！如果感不适，尽快?+W（或Ctrl+W）。 &amp;gt; 读别人的书，是浪费自己的生命，你读得越多，浪费生命越多，所</description>
     </item>
     
     <item>
-      <title>Helm介绍</title>
-      <link>/2018/04/16/using-helm-to-deploy-to-kubernetes/</link>
-      <pubDate>Mon, 16 Apr 2018 15:00:00 +0000</pubDate>
+      <title>真烂死于数理化</title>
+      <link>/post/2017-02-03-killjzl/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/04/16/using-helm-to-deploy-to-kubernetes/</guid>
-      <description>前言 Helm是Kubernetes生态系统中的一个软件包管理工具。本文将介绍为何要使用Helm进行Kubernetes软件包管理，澄清Hel</description>
+      <guid>/post/2017-02-03-killjzl/</guid>
+      <description>1. 背景 我只是看来近来没有啥写的，就瞎写一点，以减轻心灵的纠结。这是一个虚构的故事，发生在2025年的月球上，若有雷同纯属抄袭。 2. 主角与配角 故</description>
     </item>
     
     <item>
-      <title>Service Mesh 和 API Gateway的关系探讨（译文）</title>
-      <link>/2018/04/11/service-mesh-vs-api-gateway/</link>
-      <pubDate>Wed, 11 Apr 2018 09:32:00 +0000</pubDate>
+      <title>成为老司机——中级篇</title>
+      <link>/post/2017-01-22-become-old-driver-2/</link>
+      <pubDate>Sun, 22 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/04/11/service-mesh-vs-api-gateway/</guid>
-      <description>Service Mesh vs API Gateway 在前一篇关于Service Mesh的文章中,我提到了几个关于Service Mesh和API Gateway之间关系的问题，在本篇文章</description>
+      <guid>/post/2017-01-22-become-old-driver-2/</guid>
+      <description>1. 前言 2015年12月30日取得C1驾照资格，时间上算来，并不能算一个老司机，但你可知道得道无先后，达则为师的道理么！是时候总结一下成为“老</description>
     </item>
     
     <item>
-      <title>谈谈微服务架构中的基础设施：Service Mesh与Istio</title>
-      <link>/2018/03/29/what-is-service-mesh-and-istio/</link>
-      <pubDate>Thu, 29 Mar 2018 12:00:00 +0000</pubDate>
+      <title>我的2017年</title>
+      <link>/post/2017-02-4-2017oneday/</link>
+      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/29/what-is-service-mesh-and-istio/</guid>
-      <description>&lt;h2 id=&#34;微服务架构的演进&#34;&gt;微服务架构的演进&lt;/h2&gt;
-
-&lt;p&gt;作为一种架构模式，微服务将复杂系统切分为数十乃至上百个小服务，每个服务负责实现一个独立的业务逻辑。这些小服务易于被小型的软件工程师团队所理解和修改，并带来了语言和框架选择灵活性，缩短应用开发上线时间，可根据不同的工作负载和资源要求对服务进行独立缩扩容等优势。&lt;/p&gt;
-
-&lt;p&gt;另一方面，当应用被拆分为多个微服务进程后，进程内的方法调用变成了了进程间的远程调用。引入了对大量服务的连接、管理和监控的复杂性。
- 
-&lt;img src=&#34;http://img.zhaohuabing.com/in-post/2018-03-29-what-is-service-mesh-and-istio/microservice.PNG&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;</description>
+      <guid>/post/2017-02-4-2017oneday/</guid>
+      <description>一、引言 时间真的过得很快，2016年不知不觉中有没有。而我的这些年是肿么过的呢？我同样会给出一个符合中国历史传统的主题情感：忧伤，欢乐苦短，</description>
     </item>
     
     <item>
-      <title>如何配置docker使用HTTP代理</title>
-      <link>/2018/03/13/use-docker-behind-http-proxy/</link>
-      <pubDate>Tue, 13 Mar 2018 18:00:00 +0000</pubDate>
+      <title>成为老司机——初级篇</title>
+      <link>/post/2016-08-30-become-old-driver/</link>
+      <pubDate>Tue, 30 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/13/use-docker-behind-http-proxy/</guid>
-      <description>&lt;h2 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h2&gt;
-
-&lt;h3 id=&#34;设置docker使用http-proxy&#34;&gt;设置docker使用http proxy&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo /etc/default/docker
-
-export http_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export https_proxy=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export HTTP_PROXY=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-export HTTPS_PROXY=&amp;quot;http://127.0.0.1:3128/&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;/p&gt;</description>
+      <guid>/post/2016-08-30-become-old-driver/</guid>
+      <description>1. 前言 时日太快，以前的2B只是一个考试规定用的铅笔硬度。在考试中我们常常的表现就是傻，所以现在2B现在也不仅是铅笔这样简单了。 老司机也不是仅</description>
     </item>
     
     <item>
-      <title>Vim Tips</title>
-      <link>/2018/02/09/vim-tips/</link>
-      <pubDate>Fri, 09 Feb 2018 11:00:00 +0000</pubDate>
+      <title>生活不止眼前的苟且</title>
+      <link>/post/2016-08-13-better-in-the-future/</link>
+      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2018/02/09/vim-tips/</guid>
-      <description>&lt;h2 id=&#34;vim-graphical-cheat-sheet&#34;&gt;vim graphical cheat sheet&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&#34;/https://img.zhaohuabing.com/in-post/2018-02-09-vim-tips/vi-vim-cheat-sheet.svg&#34; alt=&#34;&#34; /&gt;
-&lt;/p&gt;</description>
+      <guid>/post/2016-08-13-better-in-the-future/</guid>
+      <description>1.引言 最近超喜欢这个歌。觉得他是专门为中年危险的人所写。我曾经就是那个少年，多年后我又关心我膝下的少年。 &amp;gt; 你赤手空拳来到人世间，为找到那片</description>
     </item>
     
     <item>
-      <title>如何使用非root用户执行docker命令</title>
-      <link>/2018/02/09/docker-without-sudo/</link>
-      <pubDate>Fri, 09 Feb 2018 10:00:00 +0000</pubDate>
+      <title>如何选一个男朋友</title>
+      <link>/post/2016-07-30-how-to-choose-a-boyfriend/</link>
+      <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2018/02/09/docker-without-sudo/</guid>
-      <description> Add the docker group if it doesn&amp;rsquo;t already exist: sudo groupadd docker
-Add the connected user &amp;ldquo;$USER&amp;rdquo; to the docker group. Change the user name to match your preferred user if you do not want to use your current user: sudo gpasswd -a $USER docker
-Either do a newgrp docker or log out/in to activate the changes to groups. </description>
+      <guid>/post/2016-07-30-how-to-choose-a-boyfriend/</guid>
+      <description>1.男生需要看吗 必须的。是女生，要看。是男生，更要看。女生看的原因在于知道我如何去选择。而男生看的意义更大了，关于你如何被选中的答案。 2.我</description>
     </item>
     
     <item>
-      <title>如何构建安全的微服务应用？</title>
-      <link>/2018/05/22/user_authentication_authorization/</link>
-      <pubDate>Sat, 03 Feb 2018 12:00:00 +0000</pubDate>
+      <title>对不起，你是一个好人。所以我们....</title>
+      <link>/post/2016-07-23-you-are-a-backup/</link>
+      <pubDate>Sat, 23 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/22/user_authentication_authorization/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;微服务架构的引入为软件应用带来了诸多好处：包括小开发团队，缩短开发周期，语言选择灵活性，增强服务伸缩能力等。与此同时，也引入了分布式系统的诸多复杂问题。其中一个挑战就是如何在微服务架构中实现一个灵活，安全，高效的认证和鉴权方案。本文将尝试就此问题进行一次比较完整的探讨。
-&lt;/p&gt;</description>
+      <guid>/post/2016-07-23-you-are-a-backup/</guid>
+      <description>1.引言 电商时代，我们经常可以看到这样的对话： C:老板，东西收到了，做工不错，颜色我也喜欢。 S:谢谢您的肯定和支持 C:但是，我想退了…… S:</description>
     </item>
     
     <item>
-      <title>Nginx开源Service Mesh组件Nginmesh安装指南</title>
-      <link>/2018/01/02/nginmesh-install/</link>
-      <pubDate>Tue, 02 Jan 2018 12:00:00 +0000</pubDate>
+      <title>算命术</title>
+      <link>/post/2016-07-22-fortune-telling/</link>
+      <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/02/nginmesh-install/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;Nginmesh是NGINX的Service Mesh开源项目，用于Istio服务网格平台中的数据面代理。它旨在提供七层负载均衡和服务路由功能，与Istio集成作为sidecar部署，并将以“标准，可靠和安全的方式”使得服务间通信更容易。Nginmesh在今年底已经连续发布了0.2和0.3版本，提供了服务发现，请求转发，路由规则，性能指标收集等功能。
-
-&lt;img src=&#34;https://raw.githubusercontent.com/nginmesh/nginmesh/master/images/nginx_sidecar.png&#34; alt=&#34;Nginmesh sidecar proxy&#34; /&gt;&lt;/p&gt;</description>
+      <guid>/post/2016-07-22-fortune-telling/</guid>
+      <description>0.前言 “我不是天桥上算命的，唠不出那些你爱听的磕” “我可以不同意你的三观，但我誓死捍卫你表达的三观的权力” “我写作不是为了流量，也不是为了</description>
     </item>
     
     <item>
-      <title>如何从外部访问Kubernetes集群中的应用？</title>
-      <link>/2017/11/28/access-application-from-outside/</link>
-      <pubDate>Tue, 28 Nov 2017 12:00:00 +0000</pubDate>
+      <title>这个世界都是假的(三)</title>
+      <link>/post/2016-07-16-this-world-is-fake-3/</link>
+      <pubDate>Sat, 16 Jul 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/28/access-application-from-outside/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;</description>
+      <guid>/post/2016-07-16-this-world-is-fake-3/</guid>
+      <description>假作真时真亦假！前面结束了由哥白尼毁灭了旧的世界，牛顿进一步稳固了新世界的位置。从而我们进入全新的“真”世界，近代经典力学时代。那个么这世界</description>
     </item>
     
     <item>
-      <title>使用脚本和定时任务自动设置windows HTTP 代理服务器</title>
-      <link>/2017/11/23/windows-proxy-scripts/</link>
-      <pubDate>Thu, 23 Nov 2017 00:00:00 +0000</pubDate>
+      <title>这个世界都是假的(二)</title>
+      <link>/post/2016-06-19-this-world-is-fake-2/</link>
+      <pubDate>Sun, 19 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/23/windows-proxy-scripts/</guid>
-      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;</description>
+      <guid>/post/2016-06-19-this-world-is-fake-2/</guid>
+      <description>接上一篇所说，日心说的世界，不会因为宗教的杀戮而推迟！他是一个全新的世界，具有顽强的生命力。无论我们是多么的不愿意看到地心说的世界假了，但他</description>
     </item>
     
     <item>
-      <title>采用Istio实现灰度发布(金丝雀发布)</title>
-      <link>/2017/11/08/istio-canary-release/</link>
-      <pubDate>Wed, 08 Nov 2017 15:00:00 +0000</pubDate>
+      <title>再见，在也不见</title>
+      <link>/post/2016-06-08-distance-between-people/</link>
+      <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/08/istio-canary-release/</guid>
-      <description>灰度发布（又名金丝雀发布）介绍 当应用上线以后，运维面临的一大挑战是如何能够在不影响已上线业务的情况下进行升级。做过产品的同学都清楚，不管在发</description>
+      <guid>/post/2016-06-08-distance-between-people/</guid>
+      <description>再见，在也不见！首先说本文不是影评类的文章，只可以算是一个茶余饭后杂谈，当然也不讨论吻戏了。 导演: 忻钰坤 / 陈世杰 / 西瓦罗·孔萨 编剧: 忻钰坤 /</description>
     </item>
     
     <item>
-      <title>使用Istio实现应用流量转移</title>
-      <link>/2017/11/07/istio-traffic-shifting/</link>
-      <pubDate>Tue, 07 Nov 2017 00:00:00 +0000</pubDate>
+      <title>好久不见</title>
+      <link>/post/2016-06-17-long-time-no-write/</link>
+      <pubDate>Wed, 08 Jun 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/07/istio-traffic-shifting/</guid>
-      <description>&lt;p&gt;关于Istio的更多内容请参考&lt;a href=&#34;http://istio.doczh.cn/&#34;&gt;istio中文文档&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;原文参见&lt;a href=&#34;https://istio.io/docs/tasks/traffic-management/traffic-shifting.html&#34;&gt;Traffic Shifting&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;本任务将演示如何将应用流量逐渐从旧版本的服务迁移到新版本。通过Istio，可以使用一系列不同权重的规则（10%，20%，··· 100%）将流量平缓地从旧版本服务迁移到新版本服务。
-
-为简单起见，本任务将采用两步将流量从&lt;code&gt;reviews:v1&lt;/code&gt; 迁移到 &lt;code&gt;reviews:v3&lt;/code&gt;，权重分别为50%，100%。&lt;/p&gt;</description>
+      <guid>/post/2016-06-17-long-time-no-write/</guid>
+      <description>时间真快，离上次说我只想安静地做个美男子已经是一年半的时间了。 同时也说了，我写作不是为了特定的读者，只是为了光阴流逝使我安心。 正因为这一点，</description>
     </item>
     
     <item>
-      <title>Istio及Bookinfo示例程序安装试用笔记</title>
-      <link>/2017/11/04/istio-install_and_example/</link>
-      <pubDate>Sat, 04 Nov 2017 12:00:00 +0000</pubDate>
+      <title>这个世界都是假的(一)</title>
+      <link>/post/2016-05-24-this-world-is-fake/</link>
+      <pubDate>Tue, 24 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/04/istio-install_and_example/</guid>
-      <description>&lt;h2 id=&#34;服务网格简介&#34;&gt;服务网格简介&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;服务网格&lt;/strong&gt;（Service Mesh）是为解决微服务的通信和治理而出现的一种&lt;strong&gt;架构模式&lt;/strong&gt;。&lt;/p&gt;
-
-&lt;p&gt;服务网格将服务间通讯以及与此相关的管理控制功能从业务程序中下移到一个基础设施层，从而彻底隔离了业务逻辑和服务通讯两个关注点。采用服务网格后，应用开发者只需要关注并实现应用业务逻辑。服务之间的通信，包括服务发现，通讯的可靠性，通讯的安全性，服务路由等由服务网格层进行处理，并对应用程序透明。&lt;/p&gt;</description>
+      <guid>/post/2016-05-24-this-world-is-fake/</guid>
+      <description>在你乌黑明亮的眼的这个世界里的一切都是假的，这是真的。 过去的时代： 在过去很长的一个时期里，都是以地心说为主导思想的时代。当时的地心说，并不是</description>
     </item>
     
     <item>
-      <title>Welcome to Zhaohuabing Blog</title>
-      <link>/2017/11/03/hello-world/</link>
-      <pubDate>Sat, 04 Nov 2017 00:00:00 +0000</pubDate>
+      <title>我只想安静地做个美男子</title>
+      <link>/post/2015-01-16-be-a-quiet-man/</link>
+      <pubDate>Fri, 16 Jan 2015 00:00:00 +0000</pubDate>
       
-      <guid>/2017/11/03/hello-world/</guid>
-      <description>  “Yeah It&amp;rsquo;s on. ”
- Hello World! </description>
+      <guid>/post/2015-01-16-be-a-quiet-man/</guid>
+      <description>Okay,I just want to be a quiet and handsome man. 看吧，想象与现实的差别总是这么巨大。 百度Pretty strenuous。但是结果呢，也是醉了（Are you kidding me?/I become crazy)</description>
+    </item>
+    
+    <item>
+      <title>天下苦英语久矣</title>
+      <link>/post/2014-05-05-hard-to-learn-english/</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2014-05-05-hard-to-learn-english/</guid>
+      <description>这个“天下”可以特指我的“天下”，我也泛指那些英语不好的孩子的“天下”。如图吧：{:height=&amp;ldquo;500px&amp;rdquo;} P</description>
+    </item>
+    
+    <item>
+      <title>是药七分毒</title>
+      <link>/post/2016-04-19-some-drug-is-poisonous/</link>
+      <pubDate>Sat, 19 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2016-04-19-some-drug-is-poisonous/</guid>
+      <description>人为什么会生病？机体之间以及机体与外界环境之间保持着动态平衡，这个平衡一定被致病因素（见中国公众健康网）所打破，人表现病理变化即生病。因此可</description>
+    </item>
+    
+    <item>
+      <title>不积跬步，无以至千里；不积小流，无以成江海</title>
+      <link>/post/2014-03-29-events-change-little-by-little/</link>
+      <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2014-03-29-events-change-little-by-little/</guid>
+      <description>坚持就是这是一个亘古的名言。但很不幸，以前我几乎不是一个可以坚持的人。就拿办个Blog来说吧，以前的那个域名收录情况还是比较乐观的。但是由于</description>
+    </item>
+    
+    <item>
+      <title>丢失</title>
+      <link>/post/2011-07-11-lose/</link>
+      <pubDate>Mon, 11 Jul 2011 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2011-07-11-lose/</guid>
+      <description>今天是2011年7月11日星期一，世界人口日，天气是阴天。本来应该和往常一样：黑色的星期一(要开始上班工作)。但是今天更黑，因为是阴天。 就在</description>
+    </item>
+    
+    <item>
+      <title>这是绝对的等值交换</title>
+      <link>/post/2010-07-19-not-equivalent-exchange/</link>
+      <pubDate>Mon, 19 Jul 2010 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2010-07-19-not-equivalent-exchange/</guid>
+      <description>也许很多朋友跟我一样：来自边远的农村（在此我也不以这一点为悲，更不以这一点为喜）；都是经过父母艰辛的努力取得来到大城市的机遇；都有差不多一样</description>
+    </item>
+    
+    <item>
+      <title>光阴似箭</title>
+      <link>/post/2007-01-18-begin/</link>
+      <pubDate>Thu, 18 Jan 2007 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2007-01-18-begin/</guid>
+      <description>我一直一直都想弄个自己的东西，可是一拖再拖，时间如飞啊！今天有朋友建议我没事就写些这些，对自己有好处。我嘛最爱听有用的话，就开始写了哦！让它</description>
     </item>
     
     <item>

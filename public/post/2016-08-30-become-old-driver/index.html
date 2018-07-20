@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="我是一只牛, 以牛的精神自居, 学了很久英语和Python无果, 放弃了! 最近又喜欢心理学、地理学 ">
+    
+    <meta name="keyword"  content="xqiushi, GIS, Python, Qgis, 心理学, 地理信息系统, 我是一只牛, 博客, 个人网站, MacOS">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>成为老司机——初级篇-睿递网 | Reddy.Wang</title>
+
+    <link rel="canonical" href="/post/2016-08-30-become-old-driver/">
+
+    <link rel="stylesheet" href="css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="css/syntax.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="js/jquery.min.js"></script>
+    
+    
+    <script src="js/bootstrap.min.js"></script>
+    
+    
+    <script src="js/hux-blog.min.js"></script>
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">睿递网</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="categories/note">Note</a>
+                    </li>
+                    
+
+                    
+		            <li>
+                        <a href="search">SEARCH <img src="img/search.png" height="15" style="cursor: pointer;"></a>
+		            </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/2016" title="2016">
+                           2016
+                        </a>
+                        
+                       <a class="tag" href="/tags/%E9%81%93" title="道">
+                           道
+                        </a>
+                        
+                    </div>
+                    <h1>成为老司机——初级篇</h1>
+                    <h2 class="subheading">老司机不一定是好司机</h2>
+                    <span  class="meta">Posted by xqiushi on Tuesday, August 30, 2016
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+		
+		
+
+<h3 id="1-前言">1. 前言</h3>
+
+<p>时日太快，以前的2B只是一个考试规定用的铅笔硬度。在考试中我们常常的表现就是傻，所以现在2B现在也不仅是铅笔这样简单了。
+老司机也不是仅仅是驾驶技术超群的人了。可以指（任何）行业老手，对各种规则、内容以及技术、玩法经验老道的人。但我今天还是要说说驾驶技术上的老司机。
+很多时候，我自称：我都开过X(3至8之间的数字)个月车的老司机了好吗！其实学驾照的过程也是很折腾的，我慢慢道来。</p>
+
+<h3 id="2-第一次">2. 第一次</h3>
+
+<p>2014年4月28日报名后就开始直接上车。</p>
+
+<p>首先，我给我自己一个肯定：我这个人比对容易把信任抛给别人，因为我的依恋关系是：世界很美，我亦优秀（安全型）<a name="-1"></a><sup><a href="#1">[1]</a>。</p>
+
+<p>再次，给汪师傅一个肯定：他的教学方法略有不同，第一课只教<strong>不要紧张</strong>，让我听着音乐开。</p>
+
+<p>我现在只要一上驾驶室就得开音乐。所以当我某天上车不开音乐的时候，请挡住我，让我先放松一下再起步。我原来以为我不怎么喜欢驾驶的，甚至有点讨厌开车的这类情绪。这样的第一次消除了负面情绪，还给我一点点小享受。就这样，第一次就没了。</p>
+
+<p>另外，汪师傅还教我在开车门时如何正确的使用车门上的把手、打开车前舱引擎盖、加油盖以及后储备箱。这是给从零开始学车的学徒最好的教程，让一个简单的小成功（知识点或技巧）带动入门兴趣，让我对车产生一点兴趣。</p>
+
+<h3 id="3-中断">3. 中断</h3>
+
+<p>再接下来就练倒车了，先直着倒，练习内容就是倒的时候车子左右两边必须等距。新后根本就很慢做到的，汪师傅的秘诀就是：左右边看勤点（看勤点：看的频次高一点）。经过一个月的练习，实际上也就四个周末。基本可以完成这个操作。
+然后，就是右飞。这是绝对的核心技术。我从6月一直开始练习。才开始，大家都一样笨，永远找不到师傅所说的那个位置。这里没有技巧可言，苦练到8月份的时候感觉大大的好了，基本上都不会有失误。
+但是，每天都是这样的内容，枯燥乏味。进入8月以后成都的天气太闷热了，经常35度左右，车内空间狭小，很多师傅都不让人开空调。如果当天学的人少，一定会有人热死在车里。但是人多也会热死在车外。这时完全就是打的时间战和心理战。其实我明白<strong>永恒的敌人就是“时光的消逝”</strong>，<strong>永远的对手就是那个“傻逼一样的自己”</strong>。傻的程度就是：都不知道自己是傻逼了。再加上暑假，学车的人太多，基本上一天都只是在晒太阳。所以8月底秋后处斩，我愚蠢的一刀，3万点暴击，就斩杀了学车这事。</p>
+
+<h3 id="4-归来">4. 归来</h3>
+
+<p>因为的确需要增加一个司机。又是一个4月，又是一个艳阳天，我重返驾校。可是我不想像以前那样子浪费时光，而且我也需要更快的拿到驾照。转成VIP班了，因为以前的汪师傅已不在这个驾校了，所以换成老板蒋师傅亲自教了。商议结果是先复习倒车同时准备科目一，科目通过了后，随时可以来学其他项目。补了费用和体验表，复习倒车，看科目一题库。
+有些人总是怕老板教，觉得老板会很爱护自己的车，操作失误会引起他的愤怒。当是我真正的要老板教的时候，我才明白：老板亲自己教的好处就是他什么都不教。每次老板都提前给我打电话（VIP待遇）催我快去学车，他等着我。可是等我去了后，连人影子都没有看到。我又打电话给他，说门卫那去拿钥匙。我自己先开，他一会儿就过来。我科目二全过程都是在很自由的情况下，放着CD听着音乐，随意练习按自己的想法练习。
+因此在后来实战过程中，我非常地不习惯有人指挥着我开车，我始终保持着自己判断的线路前进。我觉得这种方式很有美感，所以把这种行为进行推广，当我坐副驾时，从来只是观众，从来不干预别人的线路。如果别人真的有错误的操作，仅且仅当停车后，我才把自己观察到的现象跟别人交流，如果她也能意识到那是错误，我再提出改进意见<a name="-2"></a><sup><a href="#2">[2]</a>。</p>
+
+<h3 id="5-考试">5. 考试</h3>
+
+<p>这时的心态有点变化，以前对拿驾照的兴趣不大，可有可无，现在是势在必得。所以我在手机上反复的练习科目一，练的目标就只有一个：不要让我看到99分的样子。经过大量的练习，手机上的模拟考试结果真的没有99分出现过了。我觉得可以考试了，遂让老板给我约了科目一考试。可是学驾照的人真的多，要考试的人更多。好在科目一是在本驾校考，或许因为是VIP的身份，可以提前进考场。虽然去得晚，排在第三轮。但是考试的人真的太多太多，而且驾校流程也比较多，等候区都是几个呢。不管怎样，终于到了科目一的机器上，奋“鼠”疾“输”。
+结果真的不想的那么优美，不当我做到88题的时候，不知道肿么选错了。要是根据我年轻的时候脾气，我会马上放弃第一次机会，马上完美地开始第二次机会。中年的我明白一个道理：<strong>放弃比强行起装逼，前者是更难能可贵的品质</strong>。所以我继续做89、90、91和92，到92的时候，监考员也就提醒我可以交卷了，我欣然同意人他的建议，交卷出考场了。一身轻松。
+不知不觉，断断续续就到了10月底了，科目二的考试开始了。又是一个长长的队伍和焦急地等待后，我终于上了10号车，那天微冷吧，我记得踩离合的脚都在抖动，再加上紧张，结果就抖得不行了，车上又不可以有音乐。所我从驾驶位上又出来跺了几下脚再上去。协考员说的基本上都听不进去了，马上想开走。第一个项目倒车入库，这个是我练习时间最长，最熟练地，信手拈来完全没有问题。马上就是侧方停车了，结果在我根本就不明白地情况下，语音就报不合格了。简直懵了。协考员马上过来告诉我，做完后面的补做这个就可以了。完成后面的后，又从倒车入库开始，可是奇迹发生了，奇迹发生了，那么熟练的倒车入库，在第二次机会的时候就失败了。这，这，这完全让人想不到，一个深刻的打击，暴击值超过3万，还带破甲buff。</p>
+
+<h3 id="6-驾照">6. 驾照</h3>
+
+<p>第一次的科目二的确是一个意外，因为我始终找不到合理的原因。大数据时代，有时候原因真的不重要，我们要的就是现在与未来。后来我并没有再去练科目二的内容，只是电话跟胡师傅（第三个师傅）说10号车，太难开了，镜子基本看到。他说你哈（傻）啊，用手指戳镜子呀。闲聊时告诉我4号车是最好开的车。等到半个月后，第二考试的机会，感觉等上了一生一世的那一天终于到来了。结果还真是4号车，这绝对地随机数，绝对不会是VIP待遇。此时，我兴奋不已，上车就开始起步，结果可恶的语言又出来了：未正确使用安全带，考试不合格。果然“胜利”充晕了头脑，这是最基本的常识呀。系上完全带，马上又是一个机会，结果熄火了……。几口深呼吸后，我我异常冷静，想想对手就是SB的自己，再次平稳起步，平稳结果。最终90分通过科目二了。
+科目三又换了一位师傅，因为你知道老板的教法就是什么都不教，科目三要实战上路，他还真没法教了。一位胡姓的师傅上场了。很多时候，<strong>你给别人的是某种情绪，而你得到的反馈也是相同的情绪</strong>。你对别人生气，别人用生气回击你，你给别人微笑，而你同样得到微笑。幽默也一样。长途实战那天，我们师徒五人幽默地上路了。
+某女学员开在闹事区：
+&gt; 胡：看到前面那辆开得慢的车了吗？开快点撞上去。
+&gt; 女学员：我不敢，追尾我全责。
+&gt; 胡：那你TMD还不踩刹车
+&gt; 女学员直接拉了手刹
+&gt; ……</p>
+
+<p>我开在某个弯道处：
+&gt; 胡：弯道要慢点，如果我不帮你踩一脚，那个摩托车司机会怎样？
+&gt; 我：他会进医院，然后你给他换辆新车
+&gt; 全车人笑……</p>
+
+<p>我开某个悬崖边：
+&gt; 胡：向左边开一点。
+&gt; 我：你怕掉下去了吗？那你拉着我的衣襟或抱我大脚吧。
+&gt; 全车又笑……</p>
+
+<p>我开某个直首上：
+&gt; 胡：开快点，70-80不算快
+&gt; 我猛踩油门
+&gt; 胡：小雨天100太快了
+&gt; 我：那你自己来开吧
+&gt; 全车再笑…………</p>
+
+<p>科目三模拟考的时候还有个插曲，练完很晚了，我本打算走一段找找直达的公交呢，结果那地方在修路，一走好几十公里没有公交站，悲剧的是手机没电了，让家人担心得不得了，最悲剧地是脚走痛了。第二天考的时候，还算不是很痛。考完后成绩没有出来，只有等成绩出来的的第二天才可以考科目三的理论考试。就这样2015年12月30日拿到C1驾照，开启了老司机之旅游。</p>
+
+<h2 id="参考与注释">参考与注释</h2>
+
+<p><a name="1"></a>[1]. <a href="http://reddy.wang/2016/07/23/sorry-you-are-a-good-man.html">对不起，你是一个好人。所以我们……</a>。<a href="#-1">↩</a>
+<a name="2"></a>[2]. “老司机”做事说话都是讲究方式方法。<a href="#-2">↩</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/2017-02-4-2017oneday/" data-toggle="tooltip" data-placement="top" title="我的2017年">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2016-08-13-better-in-the-future/" data-toggle="tooltip" data-placement="top" title="生活不止眼前的苟且">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xqiushi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                     
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2014" title="2014">
+                                2014
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2016" title="2016">
+                                2016
+                            </a>
+                        
+                    
+                        
+                            <a href="/tags/2017" title="2017">
+                                2017
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/google" title="Google">
+                                Google
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%8A%80" title="技">
+                                技
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%9C%AF" title="术">
+                                术
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E9%81%93" title="道">
+                                道
+                            </a>
+                        
+                    
+                    </div>
+                </section>
+
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href="" rel="alternate" type="application/rss+xml" title="睿递网" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:gisxqs@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xqiushi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 睿递网 , 2016
+                    <br>
+                    CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
