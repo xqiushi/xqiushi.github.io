@@ -52,7 +52,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="https://Reddy.Wang//">睿递网</a>
+            <a class="navbar-brand" href="https://Reddy.Wang/">睿递网</a>
         </div>
 
         
@@ -372,29 +372,25 @@ pause
                 </ul>
 
             
-<div id="disqus-comment"></div>
-
-<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "i-am-an-ox" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
+            
+            
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+            <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+            <div id="gitalk-container"></div>     <script type="text/javascript">
+                var gitalk = new Gitalk({
+                id: '2017-09-05 00:00:00 \x2b0000 UTC',
+                title: '已安装好的office 2016从零售版转成批量授权版',
+                clientID: '565701a617b09943da05',
+                clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
+                repo: 'xqiushi.github.io',
+                owner: 'xqiushi',
+                admin: ['xqiushi'],
+                body: decodeURI(location.href),
+      });
+      gitalk.render('gitalk-container');
+    });
+    gitalk.render('gitalk-container');
+</script> 
 
 
             </div>
