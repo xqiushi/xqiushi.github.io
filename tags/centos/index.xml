@@ -13,10 +13,10 @@
     
     <item>
       <title>Ngrok实现访问内网的远程桌面和web服务器</title>
-      <link>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers.html</link>
+      <link>https://Reddy.Wang/2017/07/15/2017-07-15-ngrok-for-remote-desktops-webservers/</link>
       <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers.html</guid>
+      <guid>https://Reddy.Wang/2017/07/15/2017-07-15-ngrok-for-remote-desktops-webservers/</guid>
       <description>ngrok介绍 看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的</description>
     </item>
     
