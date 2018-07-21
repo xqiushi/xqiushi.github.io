@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pagespeed on 睿递网</title>
+    <link>https://Reddy.Wang/tags/pagespeed/</link>
+    <description>Recent content in Pagespeed on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Reddy.Wang/tags/pagespeed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>介绍Google神器之pagespeed</title>
+      <link>https://Reddy.Wang/2017/08/06/google-pagespeed.html</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/06/google-pagespeed.html</guid>
+      <description>前言 google,也许你还没有听过这个公司呢.简单地说她是以互联网搜索引擎为著名的公司.搜索引擎网站与门户网站的区别就在于: 搜索引擎公司不产</description>
+    </item>
+    
+  </channel>
+</rss>

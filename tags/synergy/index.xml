@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Synergy on 睿递网</title>
-    <link>/tags/synergy/</link>
+    <link>https://Reddy.Wang/tags/synergy/</link>
     <description>Recent content in Synergy on 睿递网</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 07 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/synergy/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Reddy.Wang/tags/synergy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>synergy共享鼠标和键盘</title>
-      <link>/2017/09/07/synergy%E5%85%B1%E4%BA%AB%E9%BC%A0%E6%A0%87%E5%92%8C%E9%94%AE%E7%9B%98/</link>
+      <link>https://Reddy.Wang/2017/09/07/shared-keyboard-mouse.html</link>
       <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/07/synergy%E5%85%B1%E4%BA%AB%E9%BC%A0%E6%A0%87%E5%92%8C%E9%94%AE%E7%9B%98/</guid>
+      <guid>https://Reddy.Wang/2017/09/07/shared-keyboard-mouse.html</guid>
       <description>前言 自从有了共享单车后，“共享”这一词频繁出现在生活，共享床，共享汽车、共享车位等都属于共享经济的新概念。但是今天说的共享鼠标和键盘而不是这</description>
     </item>
     

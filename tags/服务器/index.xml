@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>服务器 on 睿递网</title>
+    <link>https://Reddy.Wang/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+    <description>Recent content in 服务器 on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Reddy.Wang/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>介绍Google神器之BBR</title>
+      <link>https://Reddy.Wang/2017/08/08/google-bbr.html</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/08/google-bbr.html</guid>
+      <description>1.前言 互联网+让我们的家用宽带基本上都是100M左右,但是总还能听到抱怨:我都100M的光纤宽带,打个游戏,卡;看个视频,卡;浏览个网页还</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之Brotli</title>
+      <link>https://Reddy.Wang/2017/08/07/google-brotli.html</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/07/google-brotli.html</guid>
+      <description>前言 相信大家对Gzip非常地熟悉,它是一种流行的文件压缩算法，现在在Linux平台下的应用十分广泛。它对纯文本文的压缩率可高达70％以上.因</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</title>
+      <link>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7.html</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7.html</guid>
+      <description>1.前言 以前介绍过了，我的网站使用人称“军哥”维护的LNMP一键安装包(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LN</description>
+    </item>
+    
+  </channel>
+</rss>

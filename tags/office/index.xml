@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Office on 睿递网</title>
-    <link>/tags/office/</link>
+    <link>https://Reddy.Wang/tags/office/</link>
     <description>Recent content in Office on 睿递网</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/office/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Reddy.Wang/tags/office/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>已安装好的office 2016从零售版转成批量授权版</title>
-      <link>/2017/09/05/%E5%B7%B2%E5%AE%89%E8%A3%85%E5%A5%BD%E7%9A%84office-2016%E4%BB%8E%E9%9B%B6%E5%94%AE%E7%89%88%E8%BD%AC%E6%88%90%E6%89%B9%E9%87%8F%E6%8E%88%E6%9D%83%E7%89%88/</link>
+      <link>https://Reddy.Wang/2017/09/05/office-2016-vol.html</link>
       <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/09/05/%E5%B7%B2%E5%AE%89%E8%A3%85%E5%A5%BD%E7%9A%84office-2016%E4%BB%8E%E9%9B%B6%E5%94%AE%E7%89%88%E8%BD%AC%E6%88%90%E6%89%B9%E9%87%8F%E6%8E%88%E6%9D%83%E7%89%88/</guid>
+      <guid>https://Reddy.Wang/2017/09/05/office-2016-vol.html</guid>
       <description>前言 众所周知，windows系统一般都可以分别是Retail（零售）版和VOL（批量授权）版。其实office套装也是这样的。 VOL版: VO</description>
     </item>
     

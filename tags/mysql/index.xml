@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on 睿递网</title>
+    <link>https://Reddy.Wang/tags/mysql/</link>
+    <description>Recent content in Mysql on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Jun 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Reddy.Wang/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Typecho博客利用Mysql语句批量替换内容</title>
+      <link>https://Reddy.Wang/2017/06/11/typecho-mysql.html</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/06/11/typecho-mysql.html</guid>
+      <description>1.前言 我博客搬远无数次家,好多图片都是记录了不同网址。有ArcGIS.me xqiushi.cn等等。导致的问题就是图片都是原来的地址。 要想</description>
+    </item>
+    
+  </channel>
+</rss>

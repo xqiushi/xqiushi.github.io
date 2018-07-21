@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chrome on 睿递网</title>
-    <link>/tags/chrome/</link>
+    <link>https://Reddy.Wang/tags/chrome/</link>
     <description>Recent content in Chrome on 睿递网</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 25 Jun 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://Reddy.Wang/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Google Chrome 59 浏览器macOS版及禁用flash插件的方法</title>
-      <link>/2017/06/25/google-chrome-59-%E6%B5%8F%E8%A7%88%E5%99%A8macos%E7%89%88%E5%8F%8A%E7%A6%81%E7%94%A8flash%E6%8F%92%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <link>https://Reddy.Wang/2017/06/25/google-chrome-block-flash.html</link>
       <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/06/25/google-chrome-59-%E6%B5%8F%E8%A7%88%E5%99%A8macos%E7%89%88%E5%8F%8A%E7%A6%81%E7%94%A8flash%E6%8F%92%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://Reddy.Wang/2017/06/25/google-chrome-block-flash.html</guid>
       <description>1.前言 众所周知，Chrome可以算是当今天最优秀的浏览器之一，其实几乎可以省略后面的之一。但是由于第三方插件Flash是Chrome的朋友</description>
     </item>
     

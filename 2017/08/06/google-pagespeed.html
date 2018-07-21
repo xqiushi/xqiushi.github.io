@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="我是一只牛, 以牛的精神自居, 学了很久英语和Python无果, 放弃了! 最近又喜欢心理学、地理学 ">
+    
+    <meta name="keyword"  content="xqiushi, GIS, Python, Qgis, 心理学, 地理信息系统, 我是一只牛, 博客, 个人网站, MacOS">
+    <link rel="shortcut icon" href="https://Reddy.Wang/img/favicon.ico">
+
+    <title>介绍Google神器之pagespeed-睿递网 | Reddy.Wang</title>
+
+    <link rel="canonical" href="https://Reddy.Wang/2017/08/06/google-pagespeed.html">
+
+    <link rel="stylesheet" href="https://Reddy.Wang/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/syntax.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="https://Reddy.Wang/js/jquery.min.js"></script>
+    
+    
+    <script src="https://Reddy.Wang/js/bootstrap.min.js"></script>
+    
+    
+    <script src="https://Reddy.Wang/js/hux-blog.min.js"></script>
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://Reddy.Wang//">睿递网</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://Reddy.Wang//">首</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E5%AD%A6">学</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E6%96%87">文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E9%81%93">道</a>
+                    </li>
+                    
+
+                    
+		            <li>
+                        <a href="https://Reddy.Wang/search">搜 <img src="https://Reddy.Wang/img/search.png" height="15" style="cursor: pointer;"></a>
+		            </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('https://Reddy.Wang/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/2017" title="2017">
+                           2017
+                        </a>
+                        
+                       <a class="tag" href="/tags/pagespeed" title="pagespeed">
+                           pagespeed
+                        </a>
+                        
+                       <a class="tag" href="/tags/google" title="Google">
+                           Google
+                        </a>
+                        
+                    </div>
+                    <h1>介绍Google神器之pagespeed</h1>
+                    <h2 class="subheading">留给需要的人</h2>
+                    <span  class="meta">Posted by xqiushi on Sunday, August 6, 2017
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+		
+		
+
+<h2 id="前言">前言</h2>
+
+<p>google,也许你还没有听过这个公司呢.简单地说她是以互联网搜索引擎为著名的公司.搜索引擎网站与门户网站的区别就在于: <strong>搜索引擎公司不产生内容,只是内容的搬运工</strong>.你是不是会觉得搬运工会有什么了不起的吧.那是当然,天下没有相同的两片叶子,同样是搬砖的,当别人一天只能搬3万块砖,而你却可以搬2亿吨砖😱.她的神器真的不少.我以前也不有听过agespeed,是<a href="https://blog.gazer.win/">Stargazer</a>告诉我的.</p>
+
+<h2 id="pagespeed介绍">pagespeed介绍</h2>
+
+<p>工欲善其事，必先利其器.你要是觉得搬2亿吨砖是手工搬的,那你就SB了.BBR、Brotli等利器外,今天就说说pagespeed.顾名思义:pagespeed,是关于网页速度的.打开<a href="https://developers.google.com/speed/pagespeed/insights/?hl=zh-CN">PageSpeed Insights</a>先测试一下你的网站.然后根据提示更改,我个人觉得特别好用的是:有些图片帮你压缩后好了,下载替换就可.</p>
+
+<h2 id="pagespeed安装-a-name-1-a-sup-1-1-sup">pagespeed安装<a name="-1"></a><sup><a href="#1">[1]</a></sup></h2>
+
+<p>经过我多次的折腾,发现安装都非常方便.基本上三个步骤就搞定:</p>
+
+<blockquote>
+<p>1 下载源码</p>
+</blockquote>
+
+<p>一般在github上下载源码到本机</p>
+
+<blockquote>
+<p>2 编译</p>
+</blockquote>
+
+<p>主要是在nginx以前的参数上加上新的参数,然后重新编译.偶尔下载的源码需要单独编译成小模块.</p>
+
+<blockquote>
+<p>3 配置参数</p>
+</blockquote>
+
+<p>对新添加到的程序进行参数配置,让他个性化的工作起来.主要位置是xiangqiushi.com.conf.</p>
+
+<p>今天在CentOS7下,安装ngx_pagespeed也是这个过程.</p>
+
+<h3 id="下载源码">下载源码</h3>
+
+<pre><code>NPS_VERSION=1.12.34.2-stable
+cd
+wget https://github.com/pagespeed/ngx_pagespeed/archive/v${NPS_VERSION}.zip
+unzip v${NPS_VERSION}.zip
+cd ngx_pagespeed-${NPS_VERSION}/
+NPS_RELEASE_NUMBER=${NPS_VERSION/beta/}
+NPS_RELEASE_NUMBER=${NPS_VERSION/stable/}
+psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz
+[ -e scripts/format_binary_url.sh ] &amp;&amp; psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
+wget ${psol_url}
+tar -xzvf $(basename ${psol_url})  # extracts to psol/
+</code></pre>
+
+<h3 id="编译nginx">编译nginx</h3>
+
+<p>在以前的参数上加上&rdquo;&ndash;add-module=[你的ngx_pagespeed位置]&ldquo;例如:
+&ndash;add-module=/root/ngx_pagespeed-1.12.34.2-stable</p>
+
+<pre><code>cd /usr/local/src/nginx-1.13.3
+./configure --user=www --group=www --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module --with-http_v2_module --with-http_gzip_static_module --with-ipv6 --with-http_sub_module --with-openssl=/root/lnmp1.4/src/openssl-1.1.0f --with-ld-opt='-ljemalloc' --add-module=/usr/local/src/ngx_brotli --add-module=/root/ngx_pagespeed-1.12.34.2-stable
+make &amp;&amp; make install
+</code></pre>
+
+<h3 id="配置参数">配置参数</h3>
+
+<p>nginx的配置文件server{}中增加
+xiangqiushi.com.conf</p>
+
+<pre><code>		# on 启用，off 关闭
+        pagespeed on;
+        # 重置 http Vary 头
+        pagespeed RespectVary on;
+        # html字符转小写
+        pagespeed LowercaseHtmlNames on;
+        # 压缩带 Cache-Control: no-transform 标记的资源
+        pagespeed DisableRewriteOnNoTransform off;
+        # 相对URL
+        pagespeed PreserveUrlRelativity on;
+        # X-Header 值，用于判断是否生效
+        pagespeed XHeaderValue &quot;Powered By xqiushi&quot;;
+
+        # 配置服务器缓存位置和自动清除触发条件（空间大小、时限）
+        pagespeed FileCachePath &quot;/var/ngx_pagespeed_cache/&quot;;
+        pagespeed FileCacheSizeKb 2048000;
+        pagespeed FileCacheCleanIntervalMs 43200000;
+        pagespeed FileCacheInodeLimit 500000;
+        # 过滤规则
+        pagespeed RewriteLevel PassThrough;
+
+        # 过滤WordPress的后台(可选配置，可参考使用)
+        pagespeed Disallow &quot;*/admin/*&quot;;
+        pagespeed Disallow &quot;*/login.php*&quot;;
+
+        # 移除不必要的url前缀，开启可能会导致某些自动加载功能失效
+        pagespeed EnableFilters trim_urls;
+        # 移除 html 空白
+        pagespeed EnableFilters collapse_whitespace;
+        # 移除 html 注释
+        pagespeed EnableFilters remove_comments;
+        # DNS 预加载
+        pagespeed EnableFilters insert_dns_prefetch;
+        # 压缩CSS
+        pagespeed EnableFilters rewrite_css;
+        # 合并CSS
+        pagespeed EnableFilters combine_css;
+        # 重写CSS，优化加载渲染页面的CSS规则
+        pagespeed EnableFilters prioritize_critical_css;
+        # google字体直接写入html 目的是减少浏览器请求和DNS查询
+        pagespeed EnableFilters inline_google_font_css;
+        # 压缩js
+        pagespeed EnableFilters rewrite_javascript;
+        # 合并js
+        pagespeed EnableFilters combine_javascript;
+        # 优化内嵌样式属性
+        pagespeed EnableFilters rewrite_style_attributes;
+        # 压缩图片
+        pagespeed EnableFilters rewrite_images;
+        # 不加载显示区域以外的图片
+        pagespeed LazyloadImagesAfterOnload off;
+        # 图片预加载
+        pagespeed EnableFilters inline_preview_images;
+        # 移动端图片自适应重置
+        pagespeed EnableFilters resize_mobile_images;
+        # 图片延迟加载
+        pagespeed EnableFilters lazyload_images;
+        # 雪碧图片，图标很多的时候很有用
+        pagespeed EnableFilters sprite_images;
+        # 扩展缓存 改善页面资源的可缓存性
+        pagespeed EnableFilters extend_cache;
+        # 启用JavaScript库卸载 
+        pagespeed EnableFilters canonicalize_javascript_libraries; 
+        # 删除带默认属性的标签 
+        pagespeed EnableFilters elide_attributes; 
+        # 更换被导入文件的@import，精简CSS文件 
+        pagespeed EnableFilters flatten_css_imports; 
+
+        # 将 meta 转换为 header 
+        location ~ &quot;\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+&quot; { add_header &quot;&quot; &quot;&quot;; }
+        location ~ &quot;^/ngx_pagespeed_static/&quot; { }
+        location ~ &quot;^/ngx_pagespeed_beacon$&quot; { }
+        location /ngx_pagespeed_statistics { allow 127.0.0.1; deny all; }
+        location /ngx_pagespeed_message { allow 127.0.0.1; deny all; }
+</code></pre>
+
+<h3 id="重启nginx">重启nginx</h3>
+
+<p>再次检测是否正常并重启</p>
+
+<pre><code>nginx -t
+systemctl restart nginx
+</code></pre>
+
+<p>chrome打开网站某页.打开&rdquo;发者工具&rdquo;,netwoek中查看X-Header有如下,说明已经安装好了:</p>
+
+<pre><code>x-page-speed:Powered By xqiushi
+</code></pre>
+
+<p>或者,使用如下命令查看:</p>
+
+<pre><code>curl -I  https://xiangqiushi.com  | grep X-Page-Speed
+</code></pre>
+
+<p>同样会返回值:</p>
+
+<pre><code>X-Page-Speed: Powered By xqiushi
+</code></pre>
+
+<h2 id="redis支持">Redis支持</h2>
+
+<p>如果有Redis,也可以将pagespeed添加到Redis中.这样的好处在于图片也可以写入到内存中,大大的提高访问速度.(PS:实际上这个并不完美,有BUG).</p>
+
+<p>在上述位置,也就是xiangqiushi.com.conf的server{}中添加.</p>
+
+<pre><code># redis支持
+pagespeed RedisServer &quot;127.0.0.1:6379&quot;;
+</code></pre>
+
+<h2 id="小结">小结</h2>
+
+<p>其实呢,提速效果还是不明显,而且,图片到加速方面还有许多bug,暂时我的能力解决不了.
+所以我们 <strong>有时候的折腾并不是为了有一个明显增益的结果,而是享受这个折腾的过程,人生的一切就是这样无聊地折腾着,我们只需要评价,某次折腾是否是愉快的.</strong></p>
+
+<h2 id="参考与注释">参考与注释</h2>
+
+<p><a name="1"></a>[1]. <a href="https://modpagespeed.com/doc/build_ngx_pagespeed_from_source">Build ngx_pagespeed From Source</a> PageSpeed <a href="#-1">↩</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="2017/08/07/Google-Brotli.html" data-toggle="tooltip" data-placement="top" title="介绍Google神器之Brotli">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="2017/07/24/Alipay-free-withdrawal-method.html" data-toggle="tooltip" data-placement="top" title="支付宝免费提现的方法">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xqiushi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                     
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2014" title="2014">
+                                2014
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2016" title="2016">
+                                2016
+                            </a>
+                        
+                    
+                        
+                            <a href="/tags/2017" title="2017">
+                                2017
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/google" title="Google">
+                                Google
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2" title="博客">
+                                博客
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6" title="心理学">
+                                心理学
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" title="服务器">
+                                服务器
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E7%89%A9%E7%90%86" title="物理">
+                                物理
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E7%A7%91%E5%AD%A6" title="科学">
+                                科学
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </div>
+                </section>
+
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href="" rel="alternate" type="application/rss+xml" title="睿递网" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:gisxqs@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xqiushi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 睿递网 , 2017
+                    <br>
+                    CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

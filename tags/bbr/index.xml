@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BBR on 睿递网</title>
+    <link>https://Reddy.Wang/tags/bbr/</link>
+    <description>Recent content in BBR on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Reddy.Wang/tags/bbr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>介绍Google神器之BBR</title>
+      <link>https://Reddy.Wang/2017/08/08/google-bbr.html</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/08/google-bbr.html</guid>
+      <description>1.前言 互联网+让我们的家用宽带基本上都是100M左右,但是总还能听到抱怨:我都100M的光纤宽带,打个游戏,卡;看个视频,卡;浏览个网页还</description>
+    </item>
+    
+  </channel>
+</rss>

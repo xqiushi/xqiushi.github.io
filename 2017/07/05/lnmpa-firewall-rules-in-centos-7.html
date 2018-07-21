@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="我是一只牛, 以牛的精神自居, 学了很久英语和Python无果, 放弃了! 最近又喜欢心理学、地理学 ">
+    
+    <meta name="keyword"  content="xqiushi, GIS, Python, Qgis, 心理学, 地理信息系统, 我是一只牛, 博客, 个人网站, MacOS">
+    <link rel="shortcut icon" href="https://Reddy.Wang/img/favicon.ico">
+
+    <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法-睿递网 | Reddy.Wang</title>
+
+    <link rel="canonical" href="https://Reddy.Wang/2017/07/05/LNMPA-firewall-rules-in-CentOS-7.html">
+
+    <link rel="stylesheet" href="https://Reddy.Wang/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="https://Reddy.Wang/css/syntax.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="https://Reddy.Wang/js/jquery.min.js"></script>
+    
+    
+    <script src="https://Reddy.Wang/js/bootstrap.min.js"></script>
+    
+    
+    <script src="https://Reddy.Wang/js/hux-blog.min.js"></script>
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="https://Reddy.Wang//">睿递网</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://Reddy.Wang//">首</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E5%AD%A6">学</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E6%96%87">文</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://Reddy.Wang/categories/%E9%81%93">道</a>
+                    </li>
+                    
+
+                    
+		            <li>
+                        <a href="https://Reddy.Wang/search">搜 <img src="https://Reddy.Wang/img/search.png" height="15" style="cursor: pointer;"></a>
+		            </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('https://Reddy.Wang/img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/centos-7" title="CentOS 7">
+                           CentOS 7
+                        </a>
+                        
+                       <a class="tag" href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" title="服务器">
+                           服务器
+                        </a>
+                        
+                       <a class="tag" href="/tags/lnmpa" title="LNMPA">
+                           LNMPA
+                        </a>
+                        
+                    </div>
+                    <h1>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</h1>
+                    <h2 class="subheading">CentOS中有时候命令不好用就用这个方法</h2>
+                    <span  class="meta">Posted by xqiushi on Wednesday, July 5, 2017
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+		
+		
+
+<h3 id="1-前言">1.前言</h3>
+
+<p>以前介绍过了，我的网站使用人称“军哥”维护的<a href="http://lnmp.org">LNMP一键安装包</a>(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LNMPA以及无法添加端口的处理办法方法。</p>
+
+<h3 id="2-名词术语">2.名词术语</h3>
+
+<blockquote>
+<p>Nginx:（发音同engine x）是一个网页服务器软件，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。<a name="-1"></a><sup><a href="#1">[1]</a></sup></p>
+
+<p>Apache:（Apache HTTP Server的简称）是一个开放源码的网页服务器软件。由于其跨平台和安全性，被广泛使用。是最流行的Web服务器软体之一。可通过简单的API扩充，将Perl／Python等直译器编译到服务器中。<a name="-2"></a><sup><a href="#2">[2]</a></sup></p>
+</blockquote>
+
+<p>Linux与Mysql就不复制粘贴了。自己查一下。下面说重主要的</p>
+
+<blockquote>
+<p>LAMP：是指Linux下Apache、MySQL、PHP这种网站服务器架构；</p>
+
+<p>LNMP：是指Linux下Nginx、MySQL、PHP这种网站服务器架构；</p>
+
+<p>LNMPA：是指Linux下Nginx、MySQL、PHP、Apache这种网站服务器架构</p>
+</blockquote>
+
+<h3 id="3-工作模式-a-name-3-a-sup-3-3-sup">3.工作模式<a name="-3"></a><sup><a href="#3">[3]</a></sup></h3>
+
+<p>相信军哥已经说明白了这种结构的安装要求。可以简单的理解工作模式如下：
+&gt; Nginx年轻，身材苗条，反应快但不喜欢动脑。</p>
+
+<blockquote>
+<p>Apache年长，身材微胖，稳重喜欢脑力活动。</p>
+</blockquote>
+
+<p>所以，我们安排年轻身材好的Nginx在前线工作，与客户交流，能满足客户需要的js，jpg静态类的请求，并能同时搞定多个客户的类似简单请求。这就类似于人脑中的快思考，但是可能出现速则不达的情况。当超级大量的客户，并提出需要一些动态的php,asp等类的请求，她只级交给成熟稳重、经历丰富在后台工作的Apache。</p>
+
+<p>所以窃以为，只是她们同时好好工作，才算一个好网站，于是采用这样的结构。</p>
+
+<h3 id="4-centos7的防火墙">4.CentOS7的防火墙</h3>
+
+<p>CentOS7下的防火墙已经由iptables改为firewall，
+&gt; 启动防火墙服务</p>
+
+<pre><code>systemctl start firewalld.service
+</code></pre>
+
+<blockquote>
+<p>启动防火墙服</p>
+</blockquote>
+
+<pre><code>systemctl enable firewalld
+</code></pre>
+
+<blockquote>
+<p>开启80端口（http）、443端口（https）、开启22端口（ssh）：</p>
+</blockquote>
+
+<pre><code>firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=443/tcp --permanent
+firewall-cmd --zone=public --add-port=22/tcp --permanent
+</code></pre>
+
+<blockquote>
+<p><a name="firewall-reload">重新加载防火墙</a></p>
+</blockquote>
+
+<pre><code>firewall-cmd --reload
+</code></pre>
+
+<blockquote>
+<p>查看防火墙状态</p>
+</blockquote>
+
+<pre><code>firewall-cmd --list-all
+</code></pre>
+
+<h3 id="5-其他端口">5.其他端口</h3>
+
+<p>因为80、443和22都是默认开启的。当是我有时候要用其他端口，比如：Redis的6379，他会报错：Error: INVALID_SERVICE: &lsquo;nginx&rsquo; not among existing services</p>
+
+<pre><code>[root@CentOS ~]# firewall-cmd --zone=public --add-port=6379/tcp --permanent
+Error: INVALID_SERVICE: 'nginx' not among existing services
+</code></pre>
+
+<p>我试着关掉nginx也不行。</p>
+
+<pre><code>[root@CentOS ~]# lnmp nginx stop
++-------------------------------------------+
+|    Manager for LNMP, Written by Licess    |
++-------------------------------------------+
+|              https://lnmp.org             |
++-------------------------------------------+
+Stoping nginx...  done
+[root@CentOS ~]# sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
+Error: INVALID_SERVICE: 'nginx' not among existing services
+</code></pre>
+
+<p>我试着关掉LNMPA还是不行。</p>
+
+<pre><code>[root@CentOS ~]# lnmp stop
++-------------------------------------------+
+|    Manager for LNMP, Written by Licess    |
++-------------------------------------------+
+|              https://lnmp.org             |
++-------------------------------------------+
+Stoping LNMPA...
+Stoping nginx...  done
+Shutting down MySQL. SUCCESS! 
+stop apache...  done
+[root@CentOS ~]# sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
+Error: INVALID_SERVICE: 'nginx' not among existing services
+</code></pre>
+
+<h3 id="6-解决办法">6.解决办法</h3>
+
+<p>最终使用cyberduck（MacOS下的WinSCP）登陆服务器，编辑/etc/firewalld/zones下的public.xml。如下：</p>
+
+<pre><code class="language-&lt;?xml">&lt;zone&gt;
+  &lt;short&gt;Public&lt;/short&gt;
+  &lt;description&gt;For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accepted.&lt;/description&gt;
+  &lt;service name=&quot;dhcpv6-client&quot;/&gt;
+  &lt;service name=&quot;http&quot;/&gt;
+  &lt;service name=&quot;ssh&quot;/&gt;
+  &lt;service name=&quot;https&quot;/&gt;
+  &lt;port protocol=&quot;tcp&quot; port=&quot;6379&quot;/&gt; # 关键修改的位置
+  &lt;service name=&quot;nginx&quot;/&gt;
+&lt;/zone&gt;
+</code></pre>
+
+<blockquote>
+<p>别忘了<a href="#firewall-reload">重新加载防火墙</a></p>
+</blockquote>
+
+<p>如果您有更好的方法，回帖告知。</p>
+
+<h2 id="参考与注释">参考与注释</h2>
+
+<p><a name="1"></a>[1]. <a href="https://zh.wikipedia.org/zh-hans/Nginx">nginx</a> 维基百科<a href="#-1">↩</a></p>
+
+<p><a name="2"></a>[2]. <a href="https://zh.wikipedia.org/zh-hans/Apache_HTTP_Server">Apache HTTP服务器</a> 维基百科<a href="#-2">↩</a></p>
+
+<p><a name="3"></a>[3]. <a href="https://lnmp.org/lnmpa.html">LNMPA</a> LNMP一键包官方<a href="#-3">↩</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="2017/07/15/Ngrok-for-remote-desktops-webservers.html" data-toggle="tooltip" data-placement="top" title="Ngrok实现访问内网的远程桌面和web服务器">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="2017/07/04/a-different-person.html" data-toggle="tooltip" data-placement="top" title="一个完美的神经病">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xqiushi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                     
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2014" title="2014">
+                                2014
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2016" title="2016">
+                                2016
+                            </a>
+                        
+                    
+                        
+                            <a href="/tags/2017" title="2017">
+                                2017
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/google" title="Google">
+                                Google
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E5%8D%9A%E5%AE%A2" title="博客">
+                                博客
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E5%BF%83%E7%90%86%E5%AD%A6" title="心理学">
+                                心理学
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8" title="服务器">
+                                服务器
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E7%89%A9%E7%90%86" title="物理">
+                                物理
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E7%A7%91%E5%AD%A6" title="科学">
+                                科学
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                    </div>
+                </section>
+
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href="" rel="alternate" type="application/rss+xml" title="睿递网" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:gisxqs@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xqiushi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 睿递网 , 2017
+                    <br>
+                    CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

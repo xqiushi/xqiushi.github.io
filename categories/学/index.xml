@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学 on 睿递网</title>
+    <link>https://Reddy.Wang/categories/%E5%AD%A6/</link>
+    <description>Recent content in 学 on 睿递网</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://Reddy.Wang/categories/%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows Server 2016中文版评估版转VOL版</title>
+      <link>https://Reddy.Wang/2018/02/23/windows-server-2016-vol.html</link>
+      <pubDate>Fri, 23 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2018/02/23/windows-server-2016-vol.html</guid>
+      <description>1.前言 约六个月前，我在微软官网申请了评估版（valuation版）。申请过程也非常简单，自己打开官网随便填一填资料。然而真的只可以用180</description>
+    </item>
+    
+    <item>
+      <title>synergy共享鼠标和键盘</title>
+      <link>https://Reddy.Wang/2017/09/07/shared-keyboard-mouse.html</link>
+      <pubDate>Thu, 07 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/09/07/shared-keyboard-mouse.html</guid>
+      <description>前言 自从有了共享单车后，“共享”这一词频繁出现在生活，共享床，共享汽车、共享车位等都属于共享经济的新概念。但是今天说的共享鼠标和键盘而不是这</description>
+    </item>
+    
+    <item>
+      <title>已安装好的office 2016从零售版转成批量授权版</title>
+      <link>https://Reddy.Wang/2017/09/05/office-2016-vol.html</link>
+      <pubDate>Tue, 05 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/09/05/office-2016-vol.html</guid>
+      <description>前言 众所周知，windows系统一般都可以分别是Retail（零售）版和VOL（批量授权）版。其实office套装也是这样的。 VOL版: VO</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之BBR</title>
+      <link>https://Reddy.Wang/2017/08/08/google-bbr.html</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/08/google-bbr.html</guid>
+      <description>1.前言 互联网+让我们的家用宽带基本上都是100M左右,但是总还能听到抱怨:我都100M的光纤宽带,打个游戏,卡;看个视频,卡;浏览个网页还</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之Brotli</title>
+      <link>https://Reddy.Wang/2017/08/07/google-brotli.html</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/07/google-brotli.html</guid>
+      <description>前言 相信大家对Gzip非常地熟悉,它是一种流行的文件压缩算法，现在在Linux平台下的应用十分广泛。它对纯文本文的压缩率可高达70％以上.因</description>
+    </item>
+    
+    <item>
+      <title>介绍Google神器之pagespeed</title>
+      <link>https://Reddy.Wang/2017/08/06/google-pagespeed.html</link>
+      <pubDate>Sun, 06 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/08/06/google-pagespeed.html</guid>
+      <description>前言 google,也许你还没有听过这个公司呢.简单地说她是以互联网搜索引擎为著名的公司.搜索引擎网站与门户网站的区别就在于: 搜索引擎公司不产</description>
+    </item>
+    
+    <item>
+      <title>支付宝免费提现的方法</title>
+      <link>https://Reddy.Wang/2017/07/24/alipay-free-withdrawal-method.html</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/24/alipay-free-withdrawal-method.html</guid>
+      <description>前言 如图示:&amp;ldquo;No lights,no power,instant stone age.&amp;rdquo;. 电,网和移动支付是组成生活的最基本单位了,简直可以和光,空气,水,土壤齐名了.加菲猫所说过Master</description>
+    </item>
+    
+    <item>
+      <title>Ngrok服务器与客户端开机自动启动</title>
+      <link>https://Reddy.Wang/2017/07/17/ngrok-server-automatically.html</link>
+      <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/17/ngrok-server-automatically.html</guid>
+      <description>前言 上文中实现了不使用teamviewer或anydesk等工具,便可访问内网远程桌面.但是有个缺点就是,这些工具不是自行化的.特别是win</description>
+    </item>
+    
+    <item>
+      <title>Ngrok实现访问内网的远程桌面和web服务器</title>
+      <link>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers.html</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers.html</guid>
+      <description>ngrok介绍 看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的</description>
+    </item>
+    
+    <item>
+      <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</title>
+      <link>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7.html</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7.html</guid>
+      <description>1.前言 以前介绍过了，我的网站使用人称“军哥”维护的LNMP一键安装包(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LN</description>
+    </item>
+    
+    <item>
+      <title>Emoji表情，美化Typecho</title>
+      <link>https://Reddy.Wang/2017/07/03/emoji-for-typecho.html</link>
+      <pubDate>Mon, 03 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/07/03/emoji-for-typecho.html</guid>
+      <description>1.前言 我天真的以为Emoji表情都是那可爱呢。天天哭着闹着想在微信或QQ里发Emoji表情。 2.typecho支持Emoji 于是通过修改据</description>
+    </item>
+    
+    <item>
+      <title>Google Chrome 59 浏览器macOS版及禁用flash插件的方法</title>
+      <link>https://Reddy.Wang/2017/06/25/google-chrome-block-flash.html</link>
+      <pubDate>Sun, 25 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/06/25/google-chrome-block-flash.html</guid>
+      <description>1.前言 众所周知，Chrome可以算是当今天最优秀的浏览器之一，其实几乎可以省略后面的之一。但是由于第三方插件Flash是Chrome的朋友</description>
+    </item>
+    
+    <item>
+      <title>解决路由端阿里DDNS失效的方法</title>
+      <link>https://Reddy.Wang/2017/06/17/solution-aliddns-failure.html</link>
+      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/06/17/solution-aliddns-failure.html</guid>
+      <description>1.前言 现在倡导互联网+观念，我们享受着无尽的网络风暴。家庭网络带宽不断在增长，我就亲身经历过，2000年左右的网是256kb的拨号上网，到</description>
+    </item>
+    
+    <item>
+      <title>Typecho博客利用Mysql语句批量替换内容</title>
+      <link>https://Reddy.Wang/2017/06/11/typecho-mysql.html</link>
+      <pubDate>Sun, 11 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2017/06/11/typecho-mysql.html</guid>
+      <description>1.前言 我博客搬远无数次家,好多图片都是记录了不同网址。有ArcGIS.me xqiushi.cn等等。导致的问题就是图片都是原来的地址。 要想</description>
+    </item>
+    
+    <item>
+      <title>天下苦英语久矣</title>
+      <link>https://Reddy.Wang/2014/05/05/hard-to-learn-english.html</link>
+      <pubDate>Mon, 05 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://Reddy.Wang/2014/05/05/hard-to-learn-english.html</guid>
+      <description>这个“天下”可以特指我的“天下”，我也泛指那些英语不好的孩子的“天下”。如图吧：{:height=&amp;ldquo;500px&amp;rdquo;} P</description>
+    </item>
+    
+  </channel>
+</rss>
