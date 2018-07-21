@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><head>
+    <meta name="google-site-verification" content="9vIieCe-Qpd78QOmBl63rGtIVbhY6sYyuxX3j8XWBA4" />
+    <meta name="baidu-site-verification" content="LRrmH41lz7" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="我是一只牛, 以牛的精神自居, 学了很久英语和Python无果, 放弃了! 最近又喜欢心理学、地理学 ">
+    
+    <meta name="keyword"  content="xqiushi, GIS, Python, Qgis, 心理学, 地理信息系统, 我是一只牛, 博客, 个人网站, MacOS">
+    <link rel="shortcut icon" href="img/favicon.ico">
+
+    <title>Ngrok实现访问内网的远程桌面和web服务器-睿递网 | Reddy.Wang</title>
+
+    <link rel="canonical" href="/2017/07/15/ngrok%E5%AE%9E%E7%8E%B0%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91%E7%9A%84%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%92%8Cweb%E6%9C%8D%E5%8A%A1%E5%99%A8.html/">
+
+    <link rel="stylesheet" href="css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="css/syntax.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    <script src="js/jquery.min.js"></script>
+    
+    
+    <script src="js/bootstrap.min.js"></script>
+    
+    
+    <script src="js/hux-blog.min.js"></script>
+</head>
+</head>
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">睿递网</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="categories/note">Note</a>
+                    </li>
+                    
+
+                    
+		            <li>
+                        <a href="search">SEARCH <img src="img/search.png" height="15" style="cursor: pointer;"></a>
+		            </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header{
+        background-image: url('img/home-bg-jeep.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                       
+                       <a class="tag" href="/tags/centos" title="CentOS">
+                           CentOS
+                        </a>
+                        
+                       <a class="tag" href="/tags/ngrok" title="Ngrok">
+                           Ngrok
+                        </a>
+                        
+                       <a class="tag" href="/tags/%E6%9C%AF" title="术">
+                           术
+                        </a>
+                        
+                    </div>
+                    <h1>Ngrok实现访问内网的远程桌面和web服务器</h1>
+                    <h2 class="subheading">frp更方便、快捷</h2>
+                    <span  class="meta">Posted by xqiushi on Saturday, July 15, 2017
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+		
+		
+
+<h3 id="ngrok介绍">ngrok介绍</h3>
+
+<p>看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的端点和内网(本地)之间建立一个安全的通道.</p>
+
+<h3 id="ngrok功能">ngrok功能</h3>
+
+<p>由于能在公网与内网建议一个安全通道,那么它最大的功能就是实现内网穿透.</p>
+
+<p>比如,我台电脑建了一个typecho博客网站用于平常的测试.这个电脑在内网的IP地址是10.1.102.4,并且我没有网络管理权限,不能做端口映射.当我不在这台电脑旁边但想浏览一下这个电脑上的web内容,这时ngrok就是便可以大显身手.可以将10.1.102.4:80映射到xiangqiushi.com:8080下.便可以在任何公网下输入xiangqiushi.com:8080,便可以访问到10.1.102.4的web服务器内容.从此便可以将博客放在家中电脑,然后在阿里云的ECS上安装ngrok服务.以后搬家就不用备份资料.</p>
+
+<p>那么,映射远程桌面端口也就不成问题了.</p>
+
+<h3 id="ngrok安装-a-name-1-a-sup-1-1-sup-a-name-2-a-sup-2-2-sup">ngrok安装<a name="-1"></a><sup><a href="#1">[1]</a></sup><a name="-2"></a><sup><a href="#2">[2]</a></sup></h3>
+
+<p><strong>服务器端安装,以CentOS 7 64位为例</strong></p>
+
+<blockquote>
+<p>SSH到服务器,下载源码</p>
+</blockquote>
+
+<pre><code>cd /opt
+git clone https://github.com/inconshreveable/ngrok.git ngrok
+</code></pre>
+
+<blockquote>
+<p>配置域名与证书</p>
+</blockquote>
+
+<pre><code>cd /ngrok
+NGROK_DOMAIN=&quot;xiangqiushi.com&quot;
+openssl genrsa -out base.key 2048
+openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pem
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csr
+openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt
+</code></pre>
+
+<blockquote>
+<p>替换默认证书</p>
+</blockquote>
+
+<pre><code>cp server.crt assets/server/tls/snakeoil.crt
+cp server.key assets/server/tls/snakeoil.key
+cp base.pem assets/client/tls/ngrokroot.crt
+
+</code></pre>
+
+<blockquote>
+<p>开始编译,完成后便可以在/opt/ngrok/bin/中看到ngrok、ngrokd 两个可执行文件</p>
+</blockquote>
+
+<pre><code>sudo make release-server release-client
+</code></pre>
+
+<blockquote>
+<p>编译Mac版客户端,完成后便可以在/opt/ngrok/bin/darwin_amd64/中找到ngrok可执行文件</p>
+</blockquote>
+
+<pre><code>GOOS=darwin GOARCH=amd64 make release-client
+</code></pre>
+
+<blockquote>
+<p>编译Windows64位版,完成后便可在生/opt/ngrok/bin/windows_amd64/中打到ngrok.exe可执行文件</p>
+</blockquote>
+
+<pre><code>GOOS=windows GOARCH=amd64 make release-client
+</code></pre>
+
+<blockquote>
+<p>开启ngrok服务</p>
+</blockquote>
+
+<pre><code>sudo ./opt/ngrok/bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;xiangqiushi.com&quot; -httpAddr=&quot;:8080&quot; -httpsAddr=&quot;:8081&quot;
+</code></pre>
+
+<blockquote>
+<p>设置防火墙规则</p>
+</blockquote>
+
+<p>httpAddr和httpsAddr的端口分别是ngrok用来转发http和https服务的端口。但是ngrokd还会默认运行4443端口用来跟客户端通讯（可通过 -tunnelAddr=&rdquo;:xxx&rdquo; 指定），因此,在防火墙中放行这三个端口。</p>
+
+<pre><code>firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --zone=public --add-port=8081/tcp --permanent
+firewall-cmd --zone=public --add-port=4443/tcp --permanent
+</code></pre>
+
+<p>如果添加不了,可参考<a href="https://reddy.wang/2017-07-05-LNMPA-firewall-rules-in-CentOS-7.html">CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</a></p>
+
+<h3 id="ngrok配置">ngrok配置</h3>
+
+<p><strong>客户端设置,以windows为例</strong></p>
+
+<p>下载/opt/ngrok/bin/windows_amd64/ngrok.exe到本地电脑(10.1.102.4).新建ngrok.cfg,内容如下:</p>
+
+<pre><code>server_addr: xiangqiushi.com:4443
+trust_host_root_certs: false
+tunnels:
+    mstsc:
+         remote_port: 33891
+         proto:
+             tcp: 3389
+    mysql:
+         remote_port: 33061
+         proto:
+             tcp: 3306
+    http:
+         subdomain: web
+         proto:
+             http: 80
+    https:
+         subdomain: blog
+         proto:
+             https: 443
+
+</code></pre>
+
+<p>此处不要复制粘贴,最好自己写一下:因为配置文件不能有制表符也就是tab,缩进只能用空格！</p>
+
+<p>在ngrok.exe所在目录,运行:</p>
+
+<pre><code>ngrok -config=ngrok.cfg start mstsc  mysql http https
+</code></pre>
+
+<p>这样就可以同时开启web、数据库和远程桌面的端口穿透.</p>
+
+<p>任一公网电脑上输入web.xiangqiushi.com:8080和blog.xiangqiushi.com:8081便可以10.1.102.4的80和443端口.</p>
+
+<p>用远程访问工具,输入地址xiangqiushi.com:33891就可以实现远程访问了.</p>
+
+<h3 id="小结">小结</h3>
+
+<p>真是有网络就有天下的感觉,当然,这些都是人类智慧的结晶.网络不断的缩小物理距离感,减小世界的延时,加速经济的发展速度,促进文化的交融.</p>
+
+<h2 id="参考与注释">参考与注释</h2>
+
+<p><a name="1"></a>[1]. <a href="http://www.chenweikang.top/2016/11/20/%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E8%87%AA%E5%B7%B1%E7%9A%84ngrok%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">搭建属于自己的ngrok服务器 实现内网穿透</a> 左手代码右手诗<a href="#-1">↩</a></p>
+
+<p><a name="2"></a>[2]. <a href="https://imququ.com/post/self-hosted-ngrokd.html">搭建 ngrok 服务实现内网穿透</a> Jerry Qu<a href="#-2">↩</a></p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/17/ngrok%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E5%90%AF%E5%8A%A8.html/" data-toggle="tooltip" data-placement="top" title="Ngrok服务器与客户端开机自动启动">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/05/centos-7%E4%B8%8Blnmpa%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E5%9C%A8%E9%98%B2%E7%81%AB%E5%A2%99%E8%A7%84%E5%88%99%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%AB%AF%E5%8F%A3%E6%96%B9%E6%B3%95.html/" data-toggle="tooltip" data-placement="top" title="CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+            
+<div id="disqus-comment"></div>
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "xqiushi" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                     
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2014" title="2014">
+                                2014
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/2016" title="2016">
+                                2016
+                            </a>
+                        
+                    
+                        
+                            <a href="/tags/2017" title="2017">
+                                2017
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/google" title="Google">
+                                Google
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%8A%80" title="技">
+                                技
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E6%9C%AF" title="术">
+                                术
+                            </a>
+                        
+                    
+                        
+                    
+                        
+                            <a href="/tags/%E9%81%93" title="道">
+                                道
+                            </a>
+                        
+                    
+                    </div>
+                </section>
+
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                        <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href="" rel="alternate" type="application/rss+xml" title="睿递网" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:gisxqs@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/xqiushi">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 睿递网 , 2017
+                    <br>
+                    CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https'){
+       bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else{
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
