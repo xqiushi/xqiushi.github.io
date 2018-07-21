@@ -163,6 +163,11 @@
                 post-container">
 
 		
+                <header>
+                <h2>TOC</h2>
+                </header>
+                
+		
 		<p>我一直一直都想弄个自己的东西，可是一拖再拖，时间如飞啊！今天有朋友建议我没事就写些这些，对自己有好处。我嘛最爱听有用的话，就开始写了哦！让它记录我的如飞的时间里的一切！</p>
 
 
@@ -183,26 +188,24 @@
 
             
             
-            
+            <div id="gitalk-container"></div>
+            </div>
             <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-            <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
-            <div id="gitalk-container"></div>     <script type="text/javascript">
+            <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            <script type="text/javascript">
                 var gitalk = new Gitalk({
-                id: '2007-01-18 00:00:00 \x2b0000 UTC',
-                title: '光阴似箭',
-                clientID: '565701a617b09943da05',
-                clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
-                repo: 'xqiushi.github.io',
-                owner: 'xqiushi',
-                admin: ['xqiushi'],
-                body: decodeURI(location.href),
-      });
-      gitalk.render('gitalk-container');
-    });
-    gitalk.render('gitalk-container');
-</script> 
-
-
+                    id: '2007-01-18 00:00:00 \x2b0000 UTC',
+                    title: '光阴似箭',
+                    clientID: '565701a617b09943da05',
+                    clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
+                    repo: 'xqiushi.github.io',
+                    owner: 'xqiushi',
+                    admin: ['xqiushi'],
+                    body: decodeURI(location.href),
+                });
+                gitalk.render('gitalk-container');
+            </script>
+            
             </div>
             
             <div class="

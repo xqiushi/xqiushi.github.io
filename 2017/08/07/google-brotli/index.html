@@ -175,6 +175,26 @@
                 post-container">
 
 		
+                <header>
+                <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#brotli简介">brotli简介</a></li>
+<li><a href="#brotli安装-a-name-1-a-sup-1-1-sup">brotli安装<a name="-1"></a><sup><a href="#1">[1]</a></sup></a></li>
+<li><a href="#浏览器支持情况-a-name-2-a-sup-2-2-sup">浏览器支持情况<a name="-2"></a><sup><a href="#2">[2]</a></sup></a></li>
+<li><a href="#小结">小结</a></li>
+</ul></li>
+<li><a href="#参考与注释">参考与注释</a></li>
+</ul></li>
+</ul>
+</nav>
+		
 		
 
 <h3 id="前言">前言</h3>
@@ -362,26 +382,24 @@ systemctl restart nginx
 
             
             
-            
+            <div id="gitalk-container"></div>
+            </div>
             <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-            <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
-            <div id="gitalk-container"></div>     <script type="text/javascript">
+            <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            <script type="text/javascript">
                 var gitalk = new Gitalk({
-                id: '2017-08-07 00:00:00 \x2b0000 UTC',
-                title: '介绍Google神器之Brotli',
-                clientID: '565701a617b09943da05',
-                clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
-                repo: 'xqiushi.github.io',
-                owner: 'xqiushi',
-                admin: ['xqiushi'],
-                body: decodeURI(location.href),
-      });
-      gitalk.render('gitalk-container');
-    });
-    gitalk.render('gitalk-container');
-</script> 
-
-
+                    id: '2017-08-07 00:00:00 \x2b0000 UTC',
+                    title: '介绍Google神器之Brotli',
+                    clientID: '565701a617b09943da05',
+                    clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
+                    repo: 'xqiushi.github.io',
+                    owner: 'xqiushi',
+                    admin: ['xqiushi'],
+                    body: decodeURI(location.href),
+                });
+                gitalk.render('gitalk-container');
+            </script>
+            
             </div>
             
             <div class="

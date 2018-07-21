@@ -171,6 +171,29 @@
                 post-container">
 
 		
+                <header>
+                <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#pagespeed介绍">pagespeed介绍</a></li>
+<li><a href="#pagespeed安装-a-name-1-a-sup-1-1-sup">pagespeed安装<a name="-1"></a><sup><a href="#1">[1]</a></sup></a>
+<ul>
+<li><a href="#下载源码">下载源码</a></li>
+<li><a href="#编译nginx">编译nginx</a></li>
+<li><a href="#配置参数">配置参数</a></li>
+<li><a href="#重启nginx">重启nginx</a></li>
+</ul></li>
+<li><a href="#redis支持">Redis支持</a></li>
+<li><a href="#小结">小结</a></li>
+<li><a href="#参考与注释">参考与注释</a></li>
+</ul></li>
+</ul>
+</nav>
+		
 		
 
 <h2 id="前言">前言</h2>
@@ -371,26 +394,24 @@ pagespeed RedisServer &quot;127.0.0.1:6379&quot;;
 
             
             
-            
+            <div id="gitalk-container"></div>
+            </div>
             <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-            <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
-            <div id="gitalk-container"></div>     <script type="text/javascript">
+            <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            <script type="text/javascript">
                 var gitalk = new Gitalk({
-                id: '2017-08-06 00:00:00 \x2b0000 UTC',
-                title: '介绍Google神器之pagespeed',
-                clientID: '565701a617b09943da05',
-                clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
-                repo: 'xqiushi.github.io',
-                owner: 'xqiushi',
-                admin: ['xqiushi'],
-                body: decodeURI(location.href),
-      });
-      gitalk.render('gitalk-container');
-    });
-    gitalk.render('gitalk-container');
-</script> 
-
-
+                    id: '2017-08-06 00:00:00 \x2b0000 UTC',
+                    title: '介绍Google神器之pagespeed',
+                    clientID: '565701a617b09943da05',
+                    clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
+                    repo: 'xqiushi.github.io',
+                    owner: 'xqiushi',
+                    admin: ['xqiushi'],
+                    body: decodeURI(location.href),
+                });
+                gitalk.render('gitalk-container');
+            </script>
+            
             </div>
             
             <div class="

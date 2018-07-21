@@ -171,6 +171,27 @@
                 post-container">
 
 		
+                <header>
+                <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#1-前言">1.前言</a></li>
+<li><a href="#2-操作">2.操作</a>
+<ul>
+<li><a href="#转数据中心版的代码如下">转数据中心版的代码如下：</a></li>
+</ul></li>
+<li><a href="#3-kms激活">3.KMS激活</a></li>
+<li><a href="#4-小结">4.小结</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		
 		
 
 <h3 id="1-前言">1.前言</h3>
@@ -238,26 +259,24 @@ CSCRIPT OSPP.VBS /DSTATUS
 
             
             
-            
+            <div id="gitalk-container"></div>
+            </div>
             <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-            <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
-            <div id="gitalk-container"></div>     <script type="text/javascript">
+            <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+            <script type="text/javascript">
                 var gitalk = new Gitalk({
-                id: '2018-02-23 00:00:00 \x2b0000 UTC',
-                title: 'Windows Server 2016中文版评估版转VOL版',
-                clientID: '565701a617b09943da05',
-                clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
-                repo: 'xqiushi.github.io',
-                owner: 'xqiushi',
-                admin: ['xqiushi'],
-                body: decodeURI(location.href),
-      });
-      gitalk.render('gitalk-container');
-    });
-    gitalk.render('gitalk-container');
-</script> 
-
-
+                    id: '2018-02-23 00:00:00 \x2b0000 UTC',
+                    title: 'Windows Server 2016中文版评估版转VOL版',
+                    clientID: '565701a617b09943da05',
+                    clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
+                    repo: 'xqiushi.github.io',
+                    owner: 'xqiushi',
+                    admin: ['xqiushi'],
+                    body: decodeURI(location.href),
+                });
+                gitalk.render('gitalk-container');
+            </script>
+            
             </div>
             
             <div class="
