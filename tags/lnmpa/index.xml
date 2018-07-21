@@ -13,10 +13,10 @@
     
     <item>
       <title>CentOS 7下LNMPA介绍以及在防火墙规则中添加端口方法</title>
-      <link>https://Reddy.Wang/2017/07/05/2017-07-05-lnmpa-firewall-rules-in-centos-7/</link>
+      <link>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7/</link>
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Reddy.Wang/2017/07/05/2017-07-05-lnmpa-firewall-rules-in-centos-7/</guid>
+      <guid>https://Reddy.Wang/2017/07/05/lnmpa-firewall-rules-in-centos-7/</guid>
       <description>1.前言 以前介绍过了，我的网站使用人称“军哥”维护的LNMP一键安装包(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LN</description>
     </item>
     

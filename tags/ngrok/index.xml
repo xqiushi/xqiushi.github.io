@@ -13,19 +13,19 @@
     
     <item>
       <title>Ngrok服务器与客户端开机自动启动</title>
-      <link>https://Reddy.Wang/2017/07/17/2017-07-17-ngrok-server-automatically/</link>
+      <link>https://Reddy.Wang/2017/07/17/ngrok-server-automatically/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Reddy.Wang/2017/07/17/2017-07-17-ngrok-server-automatically/</guid>
+      <guid>https://Reddy.Wang/2017/07/17/ngrok-server-automatically/</guid>
       <description>前言 上文中实现了不使用teamviewer或anydesk等工具,便可访问内网远程桌面.但是有个缺点就是,这些工具不是自行化的.特别是win</description>
     </item>
     
     <item>
       <title>Ngrok实现访问内网的远程桌面和web服务器</title>
-      <link>https://Reddy.Wang/2017/07/15/2017-07-15-ngrok-for-remote-desktops-webservers/</link>
+      <link>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers/</link>
       <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Reddy.Wang/2017/07/15/2017-07-15-ngrok-for-remote-desktops-webservers/</guid>
+      <guid>https://Reddy.Wang/2017/07/15/ngrok-for-remote-desktops-webservers/</guid>
       <description>ngrok介绍 看名字就知道跟nginx是同辈的,具有是一个反向代理的功能,但是它又有很多特别地方:当它在外网服务器上,便可以通过外网的公共的</description>
     </item>
     

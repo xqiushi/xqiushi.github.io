@@ -13,10 +13,10 @@
     
     <item>
       <title>Ngrok服务器与客户端开机自动启动</title>
-      <link>https://Reddy.Wang/2017/07/17/2017-07-17-ngrok-server-automatically/</link>
+      <link>https://Reddy.Wang/2017/07/17/ngrok-server-automatically/</link>
       <pubDate>Mon, 17 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://Reddy.Wang/2017/07/17/2017-07-17-ngrok-server-automatically/</guid>
+      <guid>https://Reddy.Wang/2017/07/17/ngrok-server-automatically/</guid>
       <description>前言 上文中实现了不使用teamviewer或anydesk等工具,便可访问内网远程桌面.但是有个缺点就是,这些工具不是自行化的.特别是win</description>
     </item>
     
