@@ -153,16 +153,14 @@
         <div class="row">
 
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            
 
 		
-                <header>
-                <h2>TOC</h2>
-                </header>
-                <nav id="TableOfContents">
+            <header>
+            <h2 style="width: 100px; position: fixed; right: 16%; bottom: 45%;">目录</h2>
+            </header>
+            <div class="", style="position: fixed; right: 5%; bottom: 5%;">
+            <nav id="TableOfContents">
 <ul>
 <li>
 <ul>
@@ -177,7 +175,12 @@
 </ul></li>
 </ul>
 </nav>
-		
+            </div>
+        
+        <div class="
+        col-lg-8 col-lg-offset-2
+        col-md-10 col-md-offset-1
+        post-container">
 		
 
 <h4 id="关于我">关于我：</h4>
@@ -228,7 +231,7 @@
             <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
             <script type="text/javascript">
                 var gitalk = new Gitalk({
-                    id: '0001-01-01 00:00:00 \x2b0000 UTC',
+                    
                     title: '关于我',
                     clientID: '565701a617b09943da05',
                     clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
@@ -236,6 +239,7 @@
                     owner: 'xqiushi',
                     admin: ['xqiushi'],
                     body: decodeURI(location.href),
+                    distractionFreeMode: true 
                 });
                 gitalk.render('gitalk-container');
             </script>

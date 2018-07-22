@@ -161,16 +161,14 @@
         <div class="row">
 
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+            
 
 		
-                <header>
-                <h2>TOC</h2>
-                </header>
-                <nav id="TableOfContents">
+            <header>
+            <h2 style="width: 100px; position: fixed; right: 16%; bottom: 45%;">目录</h2>
+            </header>
+            <div class="", style="position: fixed; right: 5%; bottom: 5%;">
+            <nav id="TableOfContents">
 <ul>
 <li>
 <ul>
@@ -189,7 +187,12 @@
 </ul></li>
 </ul>
 </nav>
-		
+            </div>
+        
+        <div class="
+        col-lg-8 col-lg-offset-2
+        col-md-10 col-md-offset-1
+        post-container">
 		
 
 <h4 id="前言">前言</h4>
@@ -226,13 +229,9 @@
 <pre><code>cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; / dstatus 
 </code></pre>
 
-<p>若返回的是RETAIL(Grace) Channel而不是VOLUME_KMSCLIENT channel。刚需要进一部使用下列的代码，转成VOL版。</p>
-
-<blockquote>
-<p>零售转批量授权版，将以下代码保存为批处理（bat）中运行</p>
-</blockquote>
-
-<p>64位的代码</p>
+<p>若返回的是RETAIL(Grace) Channel而不是VOLUME_KMSCLIENT channel。刚需要进一部使用下列的代码，转成VOL版。
+&gt; 零售转批量授权版，将以下代码保存为批处理（bat）中运行
+64位的代码</p>
 
 <pre><code>@echo off
 :ADMIN
@@ -402,7 +401,7 @@ pause
             <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
             <script type="text/javascript">
                 var gitalk = new Gitalk({
-                    id: '2017-09-05 00:00:00 \x2b0000 UTC',
+                    
                     title: '已安装好的office 2016从零售版转成批量授权版',
                     clientID: '565701a617b09943da05',
                     clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
@@ -410,6 +409,7 @@ pause
                     owner: 'xqiushi',
                     admin: ['xqiushi'],
                     body: decodeURI(location.href),
+                    distractionFreeMode: true 
                 });
                 gitalk.render('gitalk-container');
             </script>
