@@ -179,17 +179,11 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		
-
-<h3 id="1-前言">1.前言</h3>
-
+		<h3 id="1前言">1.前言</h3>
 <p>我天真的以为Emoji表情都是那可爱呢。天天哭着闹着想在微信或QQ里发Emoji表情。
-<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/978631445.jpg" alt="Mobie_Emoji.jpg" /></p>
-
-<h3 id="2-typecho支持emoji">2.typecho支持Emoji</h3>
-
+<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/978631445.jpg" alt="Mobie_Emoji.jpg"></p>
+<h3 id="2typecho支持emoji">2.typecho支持Emoji</h3>
 <p>于是通过修改据库Mysql数的编码，然后修改config.inc.php文件中&rsquo;charset&rsquo; =&gt; &lsquo;utf8mb4&rsquo;,修改后的代码如下：</p>
-
 <pre><code>/** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql', 'typecho_');
 $db-&gt;addServer(array (
@@ -201,42 +195,36 @@ $db-&gt;addServer(array (
   'database' =&gt; 'xqiushi',
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
-</code></pre>
-
-<h3 id="3-如梦初醒">3.如梦初醒</h3>
-
-<p>先看这个几个“可爱的”表情：😂😭😪一大波非苹果系统生态用户懵逼了，这是什么鬼，这么丑，和微信、QQ里的emoji表情简直不是一会事。可是你换成IOS或MacOS看一下呢，原来不同的环境Emoji表情是有差别的。
-&gt; MacOS或IOS环境下，无论是Chrome、Safari还是Firefox都是都是这样子：</p>
-
-<p><img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/885146341.png" alt="MacOS_emoji.png" /></p>
-
+</code></pre><h3 id="3如梦初醒">3.如梦初醒</h3>
+<p>先看这个几个“可爱的”表情：😂😭😪一大波非苹果系统生态用户懵逼了，这是什么鬼，这么丑，和微信、QQ里的emoji表情简直不是一会事。可是你换成IOS或MacOS看一下呢，原来不同的环境Emoji表情是有差别的。</p>
 <blockquote>
-<p>Windwos下是这样子的：
-+ IE下是这样子的：
-<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2633218064.png" alt="Emoji_IE.png" />
-+ Chrome使用<a href="https://chrome.google.com/webstore/detail/chromoji-emojis-for-googl/negakbijaemdgbhklopmghphgaeadmpo">Chomoji插件</a>(ps:无插件跟IE一样丑):
-<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2143562261.png" alt="chromenoemjiPuls.png" />
-+ Firefox原生就是这样子:
-<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2888114532.png" alt="window_firefox.png" /></p>
-
-<h3 id="4-其他emoji资源">4.其他Emoji资源</h3>
-
-<ul>
-<li>对比不同环境下的Emoji表情图示：</li>
-</ul>
+<p>MacOS或IOS环境下，无论是Chrome、Safari还是Firefox都是都是这样子：</p>
 </blockquote>
-
-<p><a href="http://emojipedia.org/face-with-tears-of-joy/">Face With Tears of Joy</a>
-  <img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/1381933928.png" alt="emojipedia.png" /></p>
-
+<p><img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/885146341.png" alt="MacOS_emoji.png"></p>
+<blockquote>
+<p>Windwos下是这样子的：</p>
+</blockquote>
 <ul>
-<li>大图标方式显示，可复制粘贴：<a href="http://getemoji.com">✂ Copy and 📋 Paste Emoji 👍</a></li>
+<li>IE下是这样子的：
+<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2633218064.png" alt="Emoji_IE.png"></li>
+<li>Chrome使用<a href="https://chrome.google.com/webstore/detail/chromoji-emojis-for-googl/negakbijaemdgbhklopmghphgaeadmpo">Chomoji插件</a>(ps:无插件跟IE一样丑):
+<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2143562261.png" alt="chromenoemjiPuls.png"></li>
+<li>Firefox原生就是这样子:
+<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/2888114532.png" alt="window_firefox.png"></li>
 </ul>
-
-<p><img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/1053496030.png" alt="Copy and Paste Emoji.png" /></p>
-
-<h3 id="5-小结">5.小结</h3>
-
+<h3 id="4其他emoji资源">4.其他Emoji资源</h3>
+<ul>
+<li>
+<p>对比不同环境下的Emoji表情图示：</p>
+<p><a href="http://emojipedia.org/face-with-tears-of-joy/">Face With Tears of Joy</a>
+<img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/1381933928.png" alt="emojipedia.png"></p>
+</li>
+<li>
+<p>大图标方式显示，可复制粘贴：<a href="http://getemoji.com">✂ Copy and 📋 Paste Emoji 👍</a></p>
+<p><img src="https://p.Reddy.Wang:9227/usr/uploads/2017/07/1053496030.png" alt="Copy and Paste Emoji.png"></p>
+</li>
+</ul>
+<h3 id="5小结">5.小结</h3>
 <p>同样的Emoji表情，在不同的环境中，表现出了距大的差别。其实人也是一样，硬件条件相同，不同的行业或岗位，可能发挥的力量是完全不一样。
 如果大环境不好的时候，我们应该更加努力地提高软件来弥补缺陷。</p>
 
@@ -246,12 +234,12 @@ Typecho_Db::set($db);
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/07/04/a-different-person/" data-toggle="tooltip" data-placement="top" title="一个完美的神经病">&larr; Previous Post</a>
+                        <a href="/2017/06/25/google-chrome-block-flash/" data-toggle="tooltip" data-placement="top" title="Google Chrome 59 浏览器macOS版及禁用flash插件的方法">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/06/25/google-chrome-block-flash/" data-toggle="tooltip" data-placement="top" title="Google Chrome 59 浏览器macOS版及禁用flash插件的方法">Next Post &rarr;</a>
+                        <a href="/2017/07/04/a-different-person/" data-toggle="tooltip" data-placement="top" title="一个完美的神经病">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -332,8 +320,8 @@ Typecho_Db::set($db);
                         
                     
                         
-                            <a href="/tags/google/" title="Google">
-                                Google
+                            <a href="/tags/google/" title="google">
+                                google
                             </a>
                         
                     
@@ -523,9 +511,9 @@ Typecho_Db::set($db);
                     
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 睿递网 , 2017
-                    <br>
                     CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">蜀ICP备16015373号-2</a> @ COPYRIGHT <a href="https://Reddy.Wang">睿递网</a> 2020 
                     
                 </p>
             </div>

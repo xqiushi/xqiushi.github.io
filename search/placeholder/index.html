@@ -13,9 +13,9 @@
     <meta name="keyword"  content="xqiushi, GIS, Python, Qgis, 心理学, 地理信息系统, 我是一只牛, 博客, 个人网站, MacOS">
     <link rel="shortcut icon" href="https://Reddy.Wang/img/favicon.ico">
 
-    <title>Typecho博客利用Mysql语句批量替换内容-睿递网 | Reddy.Wang</title>
+    <title>睿递网 | Reddy.Wang</title>
 
-    <link rel="canonical" href="https://Reddy.Wang/2017/06/11/typecho-mysql/">
+    <link rel="canonical" href="https://Reddy.Wang/search/placeholder/">
 
     <link rel="stylesheet" href="https://Reddy.Wang/css/iDisqus.min.css"/>
 	
@@ -140,22 +140,10 @@
                 <div class="post-heading">
                     <div class="tags">
                        
-                       <a class="tag" href="/tags/typecho" title="Typecho">
-                           Typecho
-                        </a>
-                        
-                       <a class="tag" href="/tags/mysql" title="Mysql">
-                           Mysql
-                        </a>
-                        
-                       <a class="tag" href="/tags/%E5%8D%9A%E5%AE%A2" title="博客">
-                           博客
-                        </a>
-                        
                     </div>
-                    <h1>Typecho博客利用Mysql语句批量替换内容</h1>
-                    <h2 class="subheading">感谢多年陪伴的Typecho</h2>
-                    <span  class="meta">Posted by xqiushi on Sunday, June 11, 2017
+                    <h1></h1>
+                    <h2 class="subheading"></h2>
+                    <span  class="meta">Posted by 睿递网 on Monday, January 1, 0001
                         
                     </span>
                 </div>
@@ -179,46 +167,19 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		<h3 id="1前言">1.前言</h3>
-<p>我<a href="https://xiangqiush.com">博客</a>搬远无数次家,好多图片都是记录了不同网址。有ArcGIS.me xqiushi.cn等等。导致的问题就是图片都是原来的地址。</p>
-<p>要想网站图片能正常打开不开。笨办法就是要一个一个编辑，对于一个抄或写了十年人来说（虽然不到100篇文章）一个一个的编辑也太Low了吧。</p>
-<p>AI时代，一切问题都要考虑批量出发。此时便可以使用phpmyadmin的SQL语句来实现。</p>
-<h3 id="2普通替换">2.普通替换</h3>
-<blockquote>
-<p>实例1：将原xiangqiushi.cn的所有地址，替换成xiangqiushi.com</p>
-</blockquote>
-<p>具体代码如下：</p>
-<pre><code>UPDATE `rd_contents` SET `text` = REPLACE(`text`,'xiangqiushi.cn','xiangqiushi.com'); 
-</code></pre>
-<p><!-- raw HTML omitted -->rd_contents为你自己的数据库表的名字。<!-- raw HTML omitted --></p>
-<h3 id="3转义替换">3.转义替换</h3>
-<p>如果全站添加了SSL，执行上述代码后，有可能还是不出现“绿小锁”是会报错的。需要进一步替换成https网址。此时要注意使用转义字符&rdquo;&quot;,如下操作：</p>
-<blockquote>
-<p>实例2：将旧http://xiangqiushi.cn的所有地址，替换成新https://xiangqiushi.com</p>
-</blockquote>
-<p>具体代码如下：</p>
-<pre><code>UPDATE `rd_contents` SET `text` = REPLACE(`text`,'\http://xiangqiushi.cn','\https://xiangqiushi.com'); 
-</code></pre>
-<p><!-- raw HTML omitted -->必须使用转义字符&rdquo;&quot;。<!-- raw HTML omitted --></p>
-<h3 id="4语句推广">4.语句推广</h3>
-<blockquote>
-<p><!-- raw HTML omitted -->UPDATE <em>表名</em> SET <em>字段名</em> = REPLACE (<em>字段名</em>, &lsquo;原内容&rsquo;, &lsquo;新内容&rsquo;);<!-- raw HTML omitted --></p>
-</blockquote>
-<h3 id="5结束">5.结束</h3>
-<p><!-- raw HTML omitted -->所以经验教训就是：博客要多写字，少放图片。<!-- raw HTML omitted --></p>
-
+		
 
                 <hr>
 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/02/03/friend/" data-toggle="tooltip" data-placement="top" title="为什么关闭了朋友圈">&larr; Previous Post</a>
+                        <a href="about.html" data-toggle="tooltip" data-placement="top" title="关于我">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/06/17/solution-aliddns-failure/" data-toggle="tooltip" data-placement="top" title="解决路由端阿里DDNS失效的方法">Next Post &rarr;</a>
+                        <a href="/2007/01/18/begin/" data-toggle="tooltip" data-placement="top" title="光阴似箭">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -231,8 +192,8 @@
             <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
             <script type="text/javascript">
                 var gitalk = new Gitalk({
-                    id: '2017-06-11 00:00:00 \x2b0000 UTC',
-                    title: 'Typecho博客利用Mysql语句批量替换内容',
+                    id: '0001-01-01 00:00:00 \x2b0000 UTC',
+                    title: '',
                     clientID: '565701a617b09943da05',
                     clientSecret: 'fc299339b3e371a3161584cb5fed6b35bd5ba9f5',
                     repo: 'xqiushi.github.io',

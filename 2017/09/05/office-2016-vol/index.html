@@ -175,46 +175,29 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		
-
-<h4 id="前言">前言</h4>
-
+		<h4 id="前言">前言</h4>
 <p>众所周知，windows系统一般都可以分别是Retail（零售）版和VOL（批量授权）版。其实office套装也是这样的。</p>
-
 <h4 id="vol版">VOL版:</h4>
-
 <p>VOL版：volume licensing for organizations，名字就可以看出是团体批量许可证（大量采购授权合约）。通常也叫批量授权版本。所以VOL版本一个key可以激活指定数量的机器，VOL版可以使用KMS服务器(其原理多述，可以自行搜索一下)激活，或使用MAK密钥永久激活。</p>
-
 <h4 id="retail版">Retail版:</h4>
-
 <p>Retail版：也可以从名字看出来是零售版，也就是平时在商店里买的Office安装光盘里面的版本。Retail版本的key只能激活一台机器。</p>
-
 <h4 id="功能完全相同">功能完全相同</h4>
-
 <p>这两个版本的系统或office套装，区别仅是授权方式不同，功能和组件是完全一样的。零售版是针对个人最终客户，而大量授权版则针对批量授权的企业。</p>
-
 <h4 id="转成vol版">转成VOL版</h4>
-
-<p>至于为什么要转成VOL版，这个必须自行脑补一下了。
-&gt; 查看office版本信息，在CMD中运行下列代码</p>
-
+<p>至于为什么要转成VOL版，这个必须自行脑补一下了。</p>
+<blockquote>
+<p>查看office版本信息，在CMD中运行下列代码</p>
+</blockquote>
 <pre><code>注意：以下的64位或32位是指：微软官网下载的已经安装到操作系统中的office套装本身，而不是指操作系统。
-</code></pre>
-
-<p>64位的命令</p>
-
+</code></pre><p>64位的命令</p>
 <pre><code>cscript &quot;C:\Program Files\Microsoft Office\Office16\OSPP.VBS&quot; / dstatus 
-</code></pre>
-
-<p>32位的命令</p>
-
+</code></pre><p>32位的命令</p>
 <pre><code>cscript &quot;C:\Program Files (x86)\Microsoft Office\Office16\OSPP.VBS&quot; / dstatus 
-</code></pre>
-
-<p>若返回的是RETAIL(Grace) Channel而不是VOLUME_KMSCLIENT channel。刚需要进一部使用下列的代码，转成VOL版。
-&gt; 零售转批量授权版，将以下代码保存为批处理（bat）中运行
+</code></pre><p>若返回的是RETAIL(Grace) Channel而不是VOLUME_KMSCLIENT channel。刚需要进一部使用下列的代码，转成VOL版。</p>
+<blockquote>
+<p>零售转批量授权版，将以下代码保存为批处理（bat）中运行
 64位的代码</p>
-
+</blockquote>
 <pre><code>@echo off
 :ADMIN
 openfiles &gt;nul 2&gt;nul ||(
@@ -282,10 +265,7 @@ echo.
 echo Retail to Volume License conversion finished.
 echo.
 pause
-</code></pre>
-
-<p>32位的代码：</p>
-
+</code></pre><p>32位的代码：</p>
 <pre><code>@echo off
 :ADMIN
 openfiles &gt;nul 2&gt;nul ||(
@@ -353,10 +333,7 @@ echo.
 echo Retail to Volume License conversion finished.
 echo.
 pause
-</code></pre>
-
-<h4 id="重启">重启</h4>
-
+</code></pre><h4 id="重启">重启</h4>
 <p>批处理完成后，再次查看版本，如果没有变化，那么就重启电脑。</p>
 
 
@@ -365,12 +342,12 @@ pause
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/09/07/shared-keyboard-mouse/" data-toggle="tooltip" data-placement="top" title="synergy共享鼠标和键盘">&larr; Previous Post</a>
+                        <a href="/2017/08/08/google-bbr/" data-toggle="tooltip" data-placement="top" title="介绍Google神器之BBR">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/08/08/google-bbr/" data-toggle="tooltip" data-placement="top" title="介绍Google神器之BBR">Next Post &rarr;</a>
+                        <a href="/2017/09/07/shared-keyboard-mouse/" data-toggle="tooltip" data-placement="top" title="synergy共享鼠标和键盘">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -451,8 +428,8 @@ pause
                         
                     
                         
-                            <a href="/tags/google/" title="Google">
-                                Google
+                            <a href="/tags/google/" title="google">
+                                google
                             </a>
                         
                     
@@ -642,9 +619,9 @@ pause
                     
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 睿递网 , 2017
-                    <br>
                     CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">蜀ICP备16015373号-2</a> @ COPYRIGHT <a href="https://Reddy.Wang">睿递网</a> 2020 
                     
                 </p>
             </div>

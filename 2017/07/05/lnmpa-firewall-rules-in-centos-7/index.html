@@ -179,91 +179,64 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		
-
-<h3 id="1-前言">1.前言</h3>
-
+		<h3 id="1前言">1.前言</h3>
 <p>以前介绍过了，我的网站使用人称“军哥”维护的<a href="http://lnmp.org">LNMP一键安装包</a>(当然还有几个LNMP一键包）中的LNMPA。今天写个备忘录，关于LNMPA以及无法添加端口的处理办法方法。</p>
-
-<h3 id="2-名词术语">2.名词术语</h3>
-
+<h3 id="2名词术语">2.名词术语</h3>
 <blockquote>
-<p>Nginx:（发音同engine x）是一个网页服务器软件，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。<a name="-1"></a><sup><a href="#1">[1]</a></sup></p>
-
-<p>Apache:（Apache HTTP Server的简称）是一个开放源码的网页服务器软件。由于其跨平台和安全性，被广泛使用。是最流行的Web服务器软体之一。可通过简单的API扩充，将Perl／Python等直译器编译到服务器中。<a name="-2"></a><sup><a href="#2">[2]</a></sup></p>
+<p>Nginx:（发音同engine x）是一个网页服务器软件，它能反向代理HTTP, HTTPS, SMTP, POP3, IMAP的协议链接，以及一个负载均衡器和一个HTTP缓存。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><a href="#1">[1]</a><!-- raw HTML omitted --></p>
 </blockquote>
-
+<blockquote>
+<p>Apache:（Apache HTTP Server的简称）是一个开放源码的网页服务器软件。由于其跨平台和安全性，被广泛使用。是最流行的Web服务器软体之一。可通过简单的API扩充，将Perl／Python等直译器编译到服务器中。<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><a href="#2">[2]</a><!-- raw HTML omitted --></p>
+</blockquote>
 <p>Linux与Mysql就不复制粘贴了。自己查一下。下面说重主要的</p>
-
 <blockquote>
 <p>LAMP：是指Linux下Apache、MySQL、PHP这种网站服务器架构；</p>
-
+</blockquote>
+<blockquote>
 <p>LNMP：是指Linux下Nginx、MySQL、PHP这种网站服务器架构；</p>
-
+</blockquote>
+<blockquote>
 <p>LNMPA：是指Linux下Nginx、MySQL、PHP、Apache这种网站服务器架构</p>
 </blockquote>
-
-<h3 id="3-工作模式-a-name-3-a-sup-3-3-sup">3.工作模式<a name="-3"></a><sup><a href="#3">[3]</a></sup></h3>
-
-<p>相信军哥已经说明白了这种结构的安装要求。可以简单的理解工作模式如下：
-&gt; Nginx年轻，身材苗条，反应快但不喜欢动脑。</p>
-
+<h3 id="3工作模式a-name-3asup33sup">3.工作模式<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --><a href="#3">[3]</a><!-- raw HTML omitted --></h3>
+<p>相信军哥已经说明白了这种结构的安装要求。可以简单的理解工作模式如下：</p>
+<blockquote>
+<p>Nginx年轻，身材苗条，反应快但不喜欢动脑。</p>
+</blockquote>
 <blockquote>
 <p>Apache年长，身材微胖，稳重喜欢脑力活动。</p>
 </blockquote>
-
 <p>所以，我们安排年轻身材好的Nginx在前线工作，与客户交流，能满足客户需要的js，jpg静态类的请求，并能同时搞定多个客户的类似简单请求。这就类似于人脑中的快思考，但是可能出现速则不达的情况。当超级大量的客户，并提出需要一些动态的php,asp等类的请求，她只级交给成熟稳重、经历丰富在后台工作的Apache。</p>
-
 <p>所以窃以为，只是她们同时好好工作，才算一个好网站，于是采用这样的结构。</p>
-
-<h3 id="4-centos7的防火墙">4.CentOS7的防火墙</h3>
-
-<p>CentOS7下的防火墙已经由iptables改为firewall，
-&gt; 启动防火墙服务</p>
-
-<pre><code>systemctl start firewalld.service
-</code></pre>
-
+<h3 id="4centos7的防火墙">4.CentOS7的防火墙</h3>
+<p>CentOS7下的防火墙已经由iptables改为firewall，</p>
 <blockquote>
+<p>启动防火墙服务</p>
+</blockquote>
+<pre><code>systemctl start firewalld.service
+</code></pre><blockquote>
 <p>启动防火墙服</p>
 </blockquote>
-
 <pre><code>systemctl enable firewalld
-</code></pre>
-
-<blockquote>
+</code></pre><blockquote>
 <p>开启80端口（http）、443端口（https）、开启22端口（ssh）：</p>
 </blockquote>
-
 <pre><code>firewall-cmd --zone=public --add-port=80/tcp --permanent
 firewall-cmd --zone=public --add-port=443/tcp --permanent
 firewall-cmd --zone=public --add-port=22/tcp --permanent
-</code></pre>
-
-<blockquote>
-<p><a name="firewall-reload">重新加载防火墙</a></p>
+</code></pre><blockquote>
+<p><!-- raw HTML omitted -->重新加载防火墙<!-- raw HTML omitted --></p>
 </blockquote>
-
 <pre><code>firewall-cmd --reload
-</code></pre>
-
-<blockquote>
+</code></pre><blockquote>
 <p>查看防火墙状态</p>
 </blockquote>
-
 <pre><code>firewall-cmd --list-all
-</code></pre>
-
-<h3 id="5-其他端口">5.其他端口</h3>
-
+</code></pre><h3 id="5其他端口">5.其他端口</h3>
 <p>因为80、443和22都是默认开启的。当是我有时候要用其他端口，比如：Redis的6379，他会报错：Error: INVALID_SERVICE: &lsquo;nginx&rsquo; not among existing services</p>
-
 <pre><code>[root@CentOS ~]# firewall-cmd --zone=public --add-port=6379/tcp --permanent
 Error: INVALID_SERVICE: 'nginx' not among existing services
-</code></pre>
-
-<p>我试着关掉nginx也不行。</p>
-
+</code></pre><p>我试着关掉nginx也不行。</p>
 <pre><code>[root@CentOS ~]# lnmp nginx stop
 +-------------------------------------------+
 |    Manager for LNMP, Written by Licess    |
@@ -273,10 +246,7 @@ Error: INVALID_SERVICE: 'nginx' not among existing services
 Stoping nginx...  done
 [root@CentOS ~]# sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
 Error: INVALID_SERVICE: 'nginx' not among existing services
-</code></pre>
-
-<p>我试着关掉LNMPA还是不行。</p>
-
+</code></pre><p>我试着关掉LNMPA还是不行。</p>
 <pre><code>[root@CentOS ~]# lnmp stop
 +-------------------------------------------+
 |    Manager for LNMP, Written by Licess    |
@@ -289,13 +259,9 @@ Shutting down MySQL. SUCCESS!
 stop apache...  done
 [root@CentOS ~]# sudo firewall-cmd --zone=public --add-port=6379/tcp --permanent
 Error: INVALID_SERVICE: 'nginx' not among existing services
-</code></pre>
-
-<h3 id="6-解决办法">6.解决办法</h3>
-
+</code></pre><h3 id="6解决办法">6.解决办法</h3>
 <p>最终使用cyberduck（MacOS下的WinSCP）登陆服务器，编辑/etc/firewalld/zones下的public.xml。如下：</p>
-
-<pre><code class="language-&lt;?xml">&lt;zone&gt;
+<pre><code class="language-<?xml" data-lang="<?xml">&lt;zone&gt;
   &lt;short&gt;Public&lt;/short&gt;
   &lt;description&gt;For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accepted.&lt;/description&gt;
   &lt;service name=&quot;dhcpv6-client&quot;/&gt;
@@ -305,21 +271,14 @@ Error: INVALID_SERVICE: 'nginx' not among existing services
   &lt;port protocol=&quot;tcp&quot; port=&quot;6379&quot;/&gt; # 关键修改的位置
   &lt;service name=&quot;nginx&quot;/&gt;
 &lt;/zone&gt;
-</code></pre>
-
-<blockquote>
+</code></pre><blockquote>
 <p>别忘了<a href="#firewall-reload">重新加载防火墙</a></p>
 </blockquote>
-
 <p>如果您有更好的方法，回帖告知。</p>
-
 <h2 id="参考与注释">参考与注释</h2>
-
-<p><a name="1"></a>[1]. <a href="https://zh.wikipedia.org/zh-hans/Nginx">nginx</a> 维基百科<a href="#-1">↩</a></p>
-
-<p><a name="2"></a>[2]. <a href="https://zh.wikipedia.org/zh-hans/Apache_HTTP_Server">Apache HTTP服务器</a> 维基百科<a href="#-2">↩</a></p>
-
-<p><a name="3"></a>[3]. <a href="https://lnmp.org/lnmpa.html">LNMPA</a> LNMP一键包官方<a href="#-3">↩</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->[1]. <a href="https://zh.wikipedia.org/zh-hans/Nginx">nginx</a> 维基百科<a href="#-1">↩</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->[2]. <a href="https://zh.wikipedia.org/zh-hans/Apache_HTTP_Server">Apache HTTP服务器</a> 维基百科<a href="#-2">↩</a></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->[3]. <a href="https://lnmp.org/lnmpa.html">LNMPA</a> LNMP一键包官方<a href="#-3">↩</a></p>
 
 
                 <hr>
@@ -327,12 +286,12 @@ Error: INVALID_SERVICE: 'nginx' not among existing services
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/07/15/ngrok-for-remote-desktops-webservers/" data-toggle="tooltip" data-placement="top" title="Ngrok实现访问内网的远程桌面和web服务器">&larr; Previous Post</a>
+                        <a href="/2017/07/04/a-different-person/" data-toggle="tooltip" data-placement="top" title="一个完美的神经病">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/07/04/a-different-person/" data-toggle="tooltip" data-placement="top" title="一个完美的神经病">Next Post &rarr;</a>
+                        <a href="/2017/07/15/ngrok-for-remote-desktops-webservers/" data-toggle="tooltip" data-placement="top" title="Ngrok实现访问内网的远程桌面和web服务器">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -413,8 +372,8 @@ Error: INVALID_SERVICE: 'nginx' not among existing services
                         
                     
                         
-                            <a href="/tags/google/" title="Google">
-                                Google
+                            <a href="/tags/google/" title="google">
+                                google
                             </a>
                         
                     
@@ -604,9 +563,9 @@ Error: INVALID_SERVICE: 'nginx' not among existing services
                     
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 睿递网 , 2017
-                    <br>
                     CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">蜀ICP备16015373号-2</a> @ COPYRIGHT <a href="https://Reddy.Wang">睿递网</a> 2020 
                     
                 </p>
             </div>

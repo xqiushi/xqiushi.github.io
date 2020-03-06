@@ -175,55 +175,42 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		
-
-<h3 id="前言">前言</h3>
-
+		<h3 id="前言">前言</h3>
 <p><a href="https://xiangqiushi.com/2017/07/15/myself-hosted-ngrokd.html">上文</a>中实现了不使用teamviewer或anydesk等工具,便可访问内网远程桌面.但是有个缺点就是,这些工具不是自行化的.特别是windows客户端,你总不可能每次都先登陆一下,然后运行egrok.exe吧.这样有反自动化流程.经过探索,我找到了一个方法,就是利用window自带的计划任务为主要工具.</p>
-
 <h3 id="服务器端自动化">服务器端自动化</h3>
-
-<p><strong>CentOS自行化,非常的方便.</strong>
-&gt; 设置开机启动, 将该命令行写入到/etc/rc.local.</p>
-
-<pre><code>/opt/ngrok/bin/ngrokd -tlsKey=/opt/ngrok/server.key -tlsCrt=/opt/ngrok/server.crt -domain=xiangqiushi.com -httpAddr=:8080 -httpsAddr=:8081 &gt; /opt/ngrok/ngrok.log &amp;
-</code></pre>
-
+<p><strong>CentOS自行化,非常的方便.</strong></p>
 <blockquote>
+<p>设置开机启动, 将该命令行写入到/etc/rc.local.</p>
+</blockquote>
+<pre><code>/opt/ngrok/bin/ngrokd -tlsKey=/opt/ngrok/server.key -tlsCrt=/opt/ngrok/server.crt -domain=xiangqiushi.com -httpAddr=:8080 -httpsAddr=:8081 &gt; /opt/ngrok/ngrok.log &amp;
+</code></pre><blockquote>
 <p>修复权限,这步非常必要,很多时候,开机不能启动的原因都是这文件的权限问题.</p>
 </blockquote>
-
 <pre><code>chmod +x /etc/rc.d/rc.local
-</code></pre>
-
-<h3 id="客户端自动化">客户端自动化</h3>
-
-<p><strong>window下自动化,流程有点多,今天只说重要内容.</strong>
-&gt; 新建一个批处理文件,名如:ngrok.bat.内容如下:</p>
-
-<pre><code>ngrok -config=ngrok.cfg start mstsc  mysql http https
-</code></pre>
-
+</code></pre><h3 id="客户端自动化">客户端自动化</h3>
+<p><strong>window下自动化,流程有点多,今天只说重要内容.</strong></p>
 <blockquote>
+<p>新建一个批处理文件,名如:ngrok.bat.内容如下:</p>
+</blockquote>
+<pre><code>ngrok -config=ngrok.cfg start mstsc  mysql http https
+</code></pre><blockquote>
 <p>使用Bat_To_Exe_Converter(x64)工具将bat转成exe. 可见&ndash;隐形应用程序,如下图:</p>
-
+</blockquote>
+<blockquote>
 <p>添加计划任务.</p>
 </blockquote>
-
 <p>win+R,输入Taskschd.msc,创建基本任务,根据自己需要设置时间等,然后下一步.</p>
-
 <ul>
-<li><p><strong>关键1</strong>:起始于(可选)必须指定上述转的exe所在目录.设置如图:</p></li>
-
-<li><p><strong>关键2</strong>:完成后,双击才创建的任务,编辑属性:不管用户是否登录都要运行(W).设置如图:</p></li>
+<li>
+<p><strong>关键1</strong>:起始于(可选)必须指定上述转的exe所在目录.设置如图:</p>
+</li>
+<li>
+<p><strong>关键2</strong>:完成后,双击才创建的任务,编辑属性:不管用户是否登录都要运行(W).设置如图:</p>
+</li>
 </ul>
-
 <p>这样,只要电脑一通电启动系统后,便可以使用远程桌面了.</p>
-
 <h3 id="小结">小结</h3>
-
 <p>我最开始想的办法就是添加成服务便可以实现通电开机就可以远程访问桌面,结果服务死活不能正常启动.最终使用计划任务的试来完成.并在计划任务中加入了定时关机,结合BIOS的定时开机.基本上可以随时控制这个电脑.</p>
-
 <p><strong>条条大路通罗马,而那些出生在罗马的人,无聊的时候就俯视我们的折腾</strong></p>
 
 
@@ -232,12 +219,12 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/07/24/alipay-free-withdrawal-method/" data-toggle="tooltip" data-placement="top" title="支付宝免费提现的方法">&larr; Previous Post</a>
+                        <a href="/2017/07/15/ngrok-for-remote-desktops-webservers/" data-toggle="tooltip" data-placement="top" title="Ngrok实现访问内网的远程桌面和web服务器">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/07/15/ngrok-for-remote-desktops-webservers/" data-toggle="tooltip" data-placement="top" title="Ngrok实现访问内网的远程桌面和web服务器">Next Post &rarr;</a>
+                        <a href="/2017/07/24/alipay-free-withdrawal-method/" data-toggle="tooltip" data-placement="top" title="支付宝免费提现的方法">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -318,8 +305,8 @@
                         
                     
                         
-                            <a href="/tags/google/" title="Google">
-                                Google
+                            <a href="/tags/google/" title="google">
+                                google
                             </a>
                         
                     
@@ -509,9 +496,9 @@
                     
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 睿递网 , 2017
-                    <br>
                     CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">蜀ICP备16015373号-2</a> @ COPYRIGHT <a href="https://Reddy.Wang">睿递网</a> 2020 
                     
                 </p>
             </div>

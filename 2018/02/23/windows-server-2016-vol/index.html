@@ -179,57 +179,39 @@
         col-lg-8 col-lg-offset-2
         col-md-10 col-md-offset-1
         post-container">
-		
-
-<h3 id="1-前言">1.前言</h3>
-
+		<h3 id="1前言">1.前言</h3>
 <p>约六个月前，我在<a href="https://www.microsoft.com/zh-cn/evalcenter/evaluate-windows-server-2016">微软官网</a>申请了评估版（valuation版）。申请过程也非常简单，自己打开官网随便填一填资料。然而真的只可以用180天。我把软件路由和NAS都放在上面的，结果年三十那天机器就自动断网。我远程桌面登陆一看，显示评估版到期了。纠结于每180天都要重新申请，还不如直接转成正式版。</p>
-
-<h3 id="2-操作">2.操作</h3>
-
+<h3 id="2操作">2.操作</h3>
 <p>虽然网上到处都有类似的资料，有时候你不一定能找到那些网站。所以我在此记录一下操作过程，就算是一个备忘录。</p>
-
 <ul>
 <li>按win+R，输入cmd(注意是管理员权限)；</li>
 <li>查看Edition ID，输入“DISM /online /Get-CurrentEdition”。例如Datacenter，一般就DatacenterEval。把后面Eval那四字母去了就是你的Edition ID。</li>
-<li>接着输入“DISM /online /Set-Edition:<em><Edition ID></em> /ProductKey:<em>XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</em> /AcceptEula”</li>
+<li>接着输入“DISM /online /Set-Edition:<em><!-- raw HTML omitted --></em> /ProductKey:<em>XXXXX-XXXXX-XXXXX-XXXXX-XXXXX</em> /AcceptEula”</li>
 </ul>
-
 <blockquote>
 <p>注意：Edition ID出现第二步中，ProductKey后面是序列号，也就是VOL密钥。</p>
 </blockquote>
-
 <h4 id="转数据中心版的代码如下">转数据中心版的代码如下：</h4>
-
-<p><code>
-DISM /online /Set-Edition:ServerDatacenter /ProductKey:CB7KF-BWN84-R7R2Y-793K2-8XDDG /AcceptEula
-</code></p>
-
-<h3 id="3-kms激活">3.KMS激活</h3>
-
-<p>KMS服务器这里就不多介绍了，自行找一下。假如巨硬件全家桶工具箱的IP地址就是192.168.2.1。那么如下操作就可以。
-&gt; 激活windos</p>
-
+<p><code>DISM /online /Set-Edition:ServerDatacenter /ProductKey:CB7KF-BWN84-R7R2Y-793K2-8XDDG /AcceptEula</code></p>
+<h3 id="3kms激活">3.KMS激活</h3>
+<p>KMS服务器这里就不多介绍了，自行找一下。假如巨硬件全家桶工具箱的IP地址就是192.168.2.1。那么如下操作就可以。</p>
+<blockquote>
+<p>激活windos</p>
+</blockquote>
 <pre><code>cd C:\Windows\System32
 CSCRIPT /NOLOGO SLMGR.VBS /SKMS 192.168.2.1
 CSCRIPT /NOLOGO SLMGR.VBS /ATO
 CSCRIPT /NOLOGO SLMGR.VBS /XPR
 
-</code></pre>
-
-<blockquote>
+</code></pre><blockquote>
 <p><del>随手送上</del>激活Office2016（以64位为例子）</p>
 </blockquote>
-
 <pre><code>cd C:\Program Files\Microsoft Office\Office16
 CSCRIPT OSPP.VBS /SETHST:192.168.2.1
 CSCRIPT OSPP.VBS /ACT
 CSCRIPT OSPP.VBS /DSTATUS
 
-</code></pre>
-
-<h3 id="4-小结">4.小结</h3>
-
+</code></pre><h3 id="4小结">4.小结</h3>
 <p>其中一定要注意2中的CMD是管理员权限，输入命令后会删除原来的评估版相关的信息，这时需要耐心等上一些时间。其他的交给KMS服务器会自动自理就好了。</p>
 
 
@@ -237,10 +219,10 @@ CSCRIPT OSPP.VBS /DSTATUS
 
                 <ul class="pager">
                     
-                    
-                    <li class="next">
-                        <a href="/2017/09/07/shared-keyboard-mouse/" data-toggle="tooltip" data-placement="top" title="synergy共享鼠标和键盘">Next Post &rarr;</a>
+                    <li class="previous">
+                        <a href="/2017/09/07/shared-keyboard-mouse/" data-toggle="tooltip" data-placement="top" title="synergy共享鼠标和键盘">&larr; Previous Post</a>
                     </li>
+                    
                     
                 </ul>
 
@@ -320,8 +302,8 @@ CSCRIPT OSPP.VBS /DSTATUS
                         
                     
                         
-                            <a href="/tags/google/" title="Google">
-                                Google
+                            <a href="/tags/google/" title="google">
+                                google
                             </a>
                         
                     
@@ -511,9 +493,9 @@ CSCRIPT OSPP.VBS /DSTATUS
                     
                 </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; 睿递网 , 2018
-                    <br>
                     CDN on <a href="https://console.upyun.com/register/?invite=BJpYqxa7Q">UpYun</a> |<a href="https://console.upyun.com/register/?invite=BJpYqxa7Q"><img src="/img/upyun_logo7.png" height="28"></a>&amp;&nbsp;Theme by <a href="https://zhaohuabing.com">Huabing</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">蜀ICP备16015373号-2</a> @ COPYRIGHT <a href="https://Reddy.Wang">睿递网</a> 2020 
                     
                 </p>
             </div>
