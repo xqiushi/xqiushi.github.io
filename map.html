@@ -249,7 +249,12 @@
                 switch(layerType) {
                     case 'tianditu':
                         // 天地图影像图层
-                        var tk = '0a13ce97874d199747a85aefc06daf39';
+                        var tk = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
+                        if (!tk) {
+                            console.warn('天地图API密钥缺失，将使用默认密钥或导致地图加载失败。');
+                            // 可以选择提供一个默认的公共密钥，或者让用户知道需要填写密钥
+                            // tk = 'YOUR_DEFAULT_TIANDITU_KEY'; // 如果有默认公共密钥，可以在这里设置
+                        }
                         var imageURL = "http://t0.tianditu.gov.cn/img_w/wmts?" +
                             "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles" +
                             "&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}" +
@@ -275,7 +280,12 @@
                         console.log('加载四川图...');
                         
                         var sichuanImageLoaded = false;
-                        var scKey = '995de9f927expbzopa9b847f60d125a5'; // 浏览器端key（已验证有效）
+                        var scKey = localStorage.getItem('sichuan_api_key') || document.getElementById('input-sichuan-key').value.trim();
+                        if (!scKey) {
+                            console.warn('四川图API密钥缺失，将使用默认密钥或导致地图加载失败。');
+                            // 可以选择提供一个默认的公共密钥，或者让用户知道需要填写密钥
+                            // scKey = 'YOUR_DEFAULT_SICHUAN_KEY'; // 如果有默认公共密钥，可以在这里设置
+                        }
                         
                         try {
                             console.log('加载四川图影像服务...');
@@ -321,7 +331,11 @@
                             console.log('四川图不可用，使用天地图影像作为替代');
                             
                             try {
-                                var tk = '0a13ce97874d199747a85aefc06daf39';
+                                var tk = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
+                            if (!tk) {
+                                console.warn('天地图API密钥缺失，将使用默认密钥或导致地图加载失败。');
+                                // tk = 'YOUR_DEFAULT_TIANDITU_KEY'; // 如果有默认公共密钥，可以在这里设置
+                            }
                                 var imageURL = "http://t0.tianditu.gov.cn/img_w/wmts?" +
                                     "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles" +
                                     "&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}" +
