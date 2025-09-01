@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>天地图+高德逆地理编码（广安市）</title>
-    <script type="text/javascript" src="http://api.tianditu.gov.cn/api?v=4.0&tk="></script>
-    <script>
-        // 在页面加载完成后动态加载天地图API
-        window.addEventListener('DOMContentLoaded', function() {
-            var tiandituApiKey = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
-            if (tiandituApiKey) {
-                var script = document.createElement('script');
-                script.type = 'text/javascript';
-                script.src = 'http://api.tianditu.gov.cn/api?v=4.0&tk=' + tiandituApiKey;
-                script.onload = function() {
-                    console.log('天地图API加载成功');
-                    // 初始化地图
-                    if (typeof initMap === 'function') {
-                        initMap();
-                    }
-                };
-                script.onerror = function() {
-                    console.error('天地图API加载失败，请检查API密钥');
-                    alert('天地图API加载失败，请检查API密钥');
-                };
-                document.head.appendChild(script);
-            }
-        });
-    </script>
-    <script src="https://unpkg.com/wind-layer@2.1.0/dist/wind-layer.min.js"></script>
+    <script type="text/javascript" id="tianditu-api-script"></script>
     <!-- Leaflet CSS removed as Windy API loads its own fixed styles -->
     <style>
         body {
@@ -207,23 +183,19 @@
         <!-- 经度纬度输入框 -->
         <div style="margin-bottom:8px;">
             <label style="display:block;color:#555;margin-bottom:3px;font-size:12px;">经度:</label>
-            <input type="number" id="info-lon" placeholder="如: 106.633" step="0.000001" 
-                   style="width:100%;padding:5px;border:1px solid #ddd;border-radius:3px;font-size:12px;" value="106.633">
+            <input type="number" id="info-lon" placeholder="如: 106.63572" step="0.000001" 
+                   style="width:100%;padding:5px;border:1px solid #ddd;border-radius:3px;font-size:12px;" value="106.63572">
         </div>
         <div style="margin-bottom:10px;">
             <label style="display:block;color:#555;margin-bottom:3px;font-size:12px;">纬度:</label>
-            <input type="number" id="info-lat" placeholder="如: 30.455" step="0.000001" 
-                   style="width:100%;padding:5px;border:1px solid #ddd;border-radius:3px;font-size:12px;" value="30.455">
+            <input type="number" id="info-lat" placeholder="如: 30.463984" step="0.000001" 
+                   style="width:100%;padding:5px;border:1px solid #ddd;border-radius:3px;font-size:12px;" value="30.463984">
         </div>
         
 
         <div class="info-item">
             <span class="info-label">详细地址:</span>
             <span class="info-value" id="address">点击地图获取位置信息</span>
-        </div>
-        <div class="info-item" style="display:none;">
-            <span class="info-label">完整地址:</span>
-            <span class="info-value" id="merged_address"></span>
         </div>
         <div class="info-item">
             <span class="info-label">最近POI:</span>
@@ -234,8 +206,8 @@
             <span class="info-value" id="road">--</span>
         </div>
         <div class="info-item">
-            <span class="info-label">天气信息:</span>
-            <span class="info-value" id="weather-summary">--</span>
+            <span class="info-label">天气状况:</span>
+            <span class="info-value" id="weather">--</span>
         </div>
     </div>
     
@@ -275,9 +247,8 @@
                         // 天地图影像图层
                         var tk = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
                         if (!tk) {
-                            console.warn('天地图API密钥缺失，将使用默认密钥或导致地图加载失败。');
-                            // 可以选择提供一个默认的公共密钥，或者让用户知道需要填写密钥
-                            // tk = 'YOUR_DEFAULT_TIANDITU_KEY'; // 如果有默认公共密钥，可以在这里设置
+                            alert('请先输入天地图API密钥');
+                            return;
                         }
                         var imageURL = "http://t0.tianditu.gov.cn/img_w/wmts?" +
                             "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles" +
@@ -295,7 +266,6 @@
                         map.addLayer(imgAnnoLayer);
                         currentLayers.push(imgLayer, imgAnnoLayer);
                         
-                        // 移除当前图层显示
                         console.log('天地图图层加载成功');
                         break;
                         
@@ -306,42 +276,36 @@
                         var sichuanImageLoaded = false;
                         var scKey = localStorage.getItem('sichuan_api_key') || document.getElementById('input-sichuan-key').value.trim();
                         if (!scKey) {
-                            console.warn('四川图API密钥缺失，将使用默认密钥或导致地图加载失败。');
-                            // 可以选择提供一个默认的公共密钥，或者让用户知道需要填写密钥
-                            // scKey = 'YOUR_DEFAULT_SICHUAN_KEY'; // 如果有默认公共密钥，可以在这里设置
+                            alert('请先输入四川图API密钥');
+                            return;
                         }
                         
                         try {
                             console.log('加载四川图影像服务...');
                             
-                            // 使用文件1中的正确格式：ak参数和returnTipTile参数
                             var scImageURL = 'https://www.scgis.net/services/newtianditudom_w/tile/{z}/{y}/{x}?returnTipTile=true&ak=' + scKey;
                             var scImageAnnoURL = 'https://www.scgis.net/services/newtianditudomdlg_w/tile/{z}/{y}/{x}?returnTipTile=true&ak=' + scKey;
                             
                             console.log('影像底图URL模板:', scImageURL);
                             console.log('影像注记URL模板:', scImageAnnoURL);
                             
-                            // 创建影像底图图层
                             var scImageLayer = new T.TileLayer(scImageURL, { 
                                 minZoom: 1, 
                                 maxZoom: 18,
                                 errorTileUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
                             });
                             
-                            // 创建影像注记图层
                             var scImageAnnoLayer = new T.TileLayer(scImageAnnoURL, { 
                                 minZoom: 1, 
                                 maxZoom: 18,
                                 errorTileUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='
                             });
                             
-                            // 添加两个图层到地图（先底图，再注记）
                             map.addLayer(scImageLayer);
                             map.addLayer(scImageAnnoLayer);
                             currentLayers.push(scImageLayer, scImageAnnoLayer);
                             sichuanImageLoaded = true;
                             
-                            // 移除当前图层显示
                             console.log('四川图加载成功');
                             
                         } catch (sichuanImageError) {
@@ -356,10 +320,10 @@
                             
                             try {
                                 var tk = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
-                            if (!tk) {
-                                console.warn('天地图API密钥缺失，将使用默认密钥或导致地图加载失败。');
-                                // tk = 'YOUR_DEFAULT_TIANDITU_KEY'; // 如果有默认公共密钥，可以在这里设置
-                            }
+                                if (!tk) {
+                                    alert('请先输入天地图API密钥');
+                                    return;
+                                }
                                 var imageURL = "http://t0.tianditu.gov.cn/img_w/wmts?" +
                                     "SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles" +
                                     "&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}" +
@@ -376,12 +340,10 @@
                                 map.addLayer(imgAnnoLayer);
                                 currentLayers.push(imgLayer, imgAnnoLayer);
                                 
-                                // 移除当前图层显示
                                 console.log('天地图影像替代方案加载成功');
                                 
                             } catch (fallbackError) {
                                 console.error('影像替代方案也失败，回退到天地图');
-                                // 移除当前图层显示
                                 document.getElementById('tianditu').checked = true;
                                 switchLayer('tianditu');
                                 return;
@@ -389,19 +351,8 @@
                         }
                         break;
                         
-                    case 'windy':
-                        console.log('切换到Windy天气地图');
-                        // 隐藏天地图容器，显示Windy容器
-                        document.getElementById('mapDiv').style.display = 'none';
-                        document.getElementById('windy').style.display = 'block';
-                        // 这里需要根据Windy API的实际集成方式来加载风场图层
-                        // 由于wind-layer是基于Leaflet的，而天地图API不是Leaflet，这里无法直接集成
-                        // 暂时只做UI切换，不加载实际的粒子风场图层
-                        console.warn('Windy天气地图功能需要单独集成，当前仅显示其容器。');
-                        break;
                     default:
                         console.warn('未知的图层类型:', layerType);
-                        // 默认使用天地图
                         switchLayer('tianditu');
                         return;
                 }
@@ -410,7 +361,6 @@
             } catch (error) {
                 console.error('图层切换失败:', error);
 
-                // 错误时回退到天地图
                 if (layerType !== 'tianditu') {
                     console.log('回退到天地图');
                     document.getElementById('tianditu').checked = true;
@@ -419,22 +369,38 @@
             }
         }
         
-        // 绑定图层切换事件（已合并到setupMapTypeListeners中）
         function bindLayerEvents() {
-            // 此函数已废弃，功能合并到setupMapTypeListeners
             console.log('bindLayerEvents已废弃，使用setupMapTypeListeners');
+        }
+        
+        function loadTiandituAPI() {
+            return new Promise((resolve, reject) => {
+                var tk = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
+                if (!tk) {
+                    reject(new Error('请先输入天地图API密钥'));
+                    return;
+                }
+                
+                var script = document.getElementById('tianditu-api-script');
+                script.src = 'http://api.tianditu.gov.cn/api?v=4.0&tk=' + tk;
+                script.onload = function() {
+                    console.log('天地图API加载成功');
+                    resolve();
+                };
+                script.onerror = function() {
+                    reject(new Error('天地图API加载失败'));
+                };
+            });
         }
         
         function initMap() {
             console.log('开始初始化地图');
 
             try {
-                // 检查API是否加载
                 if (typeof T === 'undefined') {
                     throw new Error('天地图API未加载');
                 }
                 
-                // 检查必要的类是否存在
                 console.log('检查天地图API类:', {
                     'T.Map': typeof T.Map,
                     'T.LngLat': typeof T.LngLat,
@@ -446,69 +412,50 @@
                     throw new Error('T.Map类不存在');
                 }
                 
-                // 创建地图实例（使用默认配置）
                 map = new T.Map('mapDiv');
                 console.log('地图实例创建成功');
                 
-                // 设置初始经纬度
-                document.getElementById('info-lon').value = '106.63572';
-                document.getElementById('info-lat').value = '30.463984';
-                // 设置中心点（四川省广安市）
                 var centerPoint = new T.LngLat(106.63572, 30.463984);
                 map.centerAndZoom(centerPoint, 12);
                 console.log('地图中心点设置成功');
                 
-                // 根据默认选中的单选按钮初始化图层
                 var defaultMapType = document.querySelector('input[name="mapType"]:checked').value;
                 console.log('默认地图类型:', defaultMapType);
                 switchLayer(defaultMapType);
                 
-                // 绑定图层切换事件
                 bindLayerEvents();
                 console.log('图层切换事件绑定成功');
                 
-                // 添加点击事件
                 map.addEventListener('click', function(e) {
                     console.log('地图被点击');
                     var lngLat = e.lnglat;
                     var lon = lngLat.getLng();
                     var lat = lngLat.getLat();
                     
-                    // 经纬度信息将在getAddress函数中与地址合并显示
-                    
-                    // 同步更新到地理位置信息面板的经纬度输入框
                     document.getElementById('info-lon').value = lon.toFixed(6);
                     document.getElementById('info-lat').value = lat.toFixed(6);
                     
                     console.log('点击位置已同步到输入框:', lon.toFixed(6), lat.toFixed(6));
                     
-                    // 移除旧标记
                     if (currentMarker) {
                         map.removeOverLay(currentMarker);
                     }
                     
-                    // 添加新标记
                     currentMarker = new T.Marker(lngLat);
                     map.addOverLay(currentMarker);
                     
-                    // 获取地址
                     getAddress(lon, lat);
                 });
                 
-console.log('地图初始化完成');
-            
-            // 先加载保存的API密钥
-            loadAllApiKeys();
-            
-            // 设置输入事件监听
-            setupInputEvents();
-            
-
+                console.log('地图初始化完成');
+                
+                setupInputEvents();
+                
+                loadAllApiKeys();
                 
             } catch (error) {
                 console.error('地图初始化失败:', error);
 
-                // 显示详细错误信息
                 document.getElementById('mapDiv').innerHTML = 
                     '<div style="display:flex;justify-content:center;align-items:center;height:100%;background:#f5f5f5;flex-direction:column;">' +
                     '<h2 style="color:#e74c3c;">地图加载失败</h2>' +
@@ -519,36 +466,38 @@ console.log('地图初始化完成');
             }
         }
         
-        // 将风向角度转换为方位角描述
         function getWindDirectionText(degrees) {
+            // 更准确的16方位风向文本，符合中国气象标准
             var directions = [
-                '北', '北东北', '东北', '东东北',
-                '东', '东东南', '东南', '南东南',
-                '南', '南西南', '西南', '西西南',
-                '西', '西西北', '西北', '北西北'
+                '北风', '北东北风', '东北风', '东东北风',
+                '东风', '东东南风', '东南风', '南东南风', 
+                '南风', '南西南风', '西南风', '西西南风',
+                '西风', '西西北风', '西北风', '北西北风'
             ];
-            var index = Math.round(degrees / 22.5) % 16;
+            // 将角度标准化到0-360度范围
+            var normalizedDegrees = ((degrees % 360) + 360) % 360;
+            // 计算最接近的方位索引
+            var index = Math.round(normalizedDegrees / 22.5) % 16;
             return directions[index];
         }
         
-        // 获取Windy天气数据
         function getWindyWeather(lon, lat) {
-            // 获取Windy API密钥（point）用于天气信息
             var windyApiKey = localStorage.getItem('windy_api_key') || document.getElementById('input-windy-apikey').value.trim();
             if (!windyApiKey) {
-                document.getElementById('weather-summary').textContent = '未配置Windy API（point）';
+                document.getElementById('weather').textContent = '未配置Windy API（point）';
+                document.getElementById('temperature').textContent = '--';
+                document.getElementById('windspeed').textContent = '--';
+                document.getElementById('winddirection').textContent = '--';
                 return;
             }
             
-            // 显示加载状态
-            document.getElementById('weather-summary').textContent = '获取天气信息中...';
+            document.getElementById('weather').textContent = '获取中...';
             
-            // 使用Windy Point Forecast API
             var requestData = {
                 "lat": parseFloat(lat.toFixed(2)),
                 "lon": parseFloat(lon.toFixed(2)),
                 "model": "gfs",
-                "parameters": ["temp", "wind", "precip", "rh", "lclouds", "mclouds", "hclouds"],
+                "parameters": ["temp", "wind", "precip", "rh", "lclouds", "mclouds", "hclouds", "snowPrecip"],
                 "levels": ["surface"],
                 "key": windyApiKey
             };
@@ -570,155 +519,124 @@ console.log('地图初始化完成');
                 console.log('Windy天气数据:', data);
                 
                 if (data.ts && data.ts.length > 0) {
-                    // 获取最新的天气数据（第一个时间点）
                     var currentIndex = 0;
                     
-                    // 收集天气数据
-                    var weatherData = {
-                        temperature: '无数据',
-                        humidity: '无数据',
-                        windSpeed: '无数据',
-                        windDirection: '无数据',
-                        location: '当前位置',
-                        weatherCondition: '晴'
-                    };
+                    var temp = '', windSpeed = '', windDirection = '', windDirectionText = '', weatherCondition = '', humidity = '';
                     
-                    // 温度数据
                     if (data['temp-surface'] && data['temp-surface'][currentIndex] !== null) {
-                        var temp = Math.round(data['temp-surface'][currentIndex] - 273.15); // 转换为摄氏度
-                        weatherData.temperature = temp + '°C';
+                        temp = Math.round(data['temp-surface'][currentIndex] - 273.15) + '°C';
+                    } else {
+                        temp = '无数据';
                     }
                     
-                    // 湿度数据
-                    if (data['rh-surface'] && data['rh-surface'][currentIndex] !== null) {
-                        var humidity = Math.round(data['rh-surface'][currentIndex]);
-                        weatherData.humidity = humidity + '%';
-                    }
-                    
-                    // 风速和风向数据
                     if (data['wind_u-surface'] && data['wind_v-surface'] && 
                         data['wind_u-surface'][currentIndex] !== null && data['wind_v-surface'][currentIndex] !== null) {
                         var u = data['wind_u-surface'][currentIndex];
                         var v = data['wind_v-surface'][currentIndex];
-                        var windSpeed = Math.sqrt(u * u + v * v);
-                        weatherData.windSpeed = windSpeed.toFixed(1) + 'm/s';
+                        windSpeed = Math.sqrt(u * u + v * v).toFixed(1) + ' m/s';
                         
-                        // 计算风向（角度）
-                        var windDirection = Math.atan2(u, v) * 180 / Math.PI;
+                        windDirection = Math.atan2(u, v) * 180 / Math.PI;
                         if (windDirection < 0) windDirection += 360;
                         
-                        // 转换为方位角描述
-                        var directionText = getWindDirectionText(windDirection);
-                        weatherData.windDirection = directionText;
-                    }
-                    
-                    // 获取地址信息作为位置
-                    var addressElement = document.getElementById('merged_address');
-                    if (addressElement && addressElement.textContent && addressElement.textContent !== '--') {
-                        var fullAddress = addressElement.textContent;
-                        // 提取区县信息作为位置
-                        var match = fullAddress.match(/(\S+市\S+区|\S+市\S+县|\S+区|\S+县)/);
-                        if (match) {
-                            weatherData.location = match[1];
-                        }
-                    }
-                    
-                    // 生成合并的天气信息（需要在降水数据处理后）
-                    // 这里先设置一个临时值，实际的天气信息会在降水数据处理后更新
-                    
-                    // 降水数据和云量数据处理，判断天气状况
-                    var precip = 0;
-                    if (data['precip-surface'] && data['precip-surface'][currentIndex] !== null) {
-                        precip = data['precip-surface'][currentIndex];
-                        console.log('降水量:', precip);
-                    }
-                    
-                    // 获取云量数据
-                    var lowClouds = 0, midClouds = 0, highClouds = 0;
-                    if (data['lclouds-surface'] && data['lclouds-surface'][currentIndex] !== null) {
-                        lowClouds = data['lclouds-surface'][currentIndex];
-                    }
-                    if (data['mclouds-surface'] && data['mclouds-surface'][currentIndex] !== null) {
-                        midClouds = data['mclouds-surface'][currentIndex];
-                    }
-                    if (data['hclouds-surface'] && data['hclouds-surface'][currentIndex] !== null) {
-                        highClouds = data['hclouds-surface'][currentIndex];
-                    }
-                    
-                    console.log('云量数据 - 低云:', lowClouds, '中云:', midClouds, '高云:', highClouds);
-                    
-                    // 计算总云量（取最大值作为主要云量指标）
-                    var totalCloudCover = Math.max(lowClouds, midClouds, highClouds);
-                    
-                    // 根据降水量和云量综合判断天气状况
-                    if (precip > 2.0) {
-                        weatherData.weatherCondition = '雨';
-                    } else if (precip > 0.1) {
-                        weatherData.weatherCondition = '小雨';
-                    } else if (totalCloudCover > 80) {
-                        weatherData.weatherCondition = '阴';
-                    } else if (totalCloudCover > 50) {
-                        weatherData.weatherCondition = '多云';
-                    } else if (totalCloudCover > 20) {
-                        weatherData.weatherCondition = '少云';
+                        windDirectionText = getWindDirectionText(windDirection);
                     } else {
-                        weatherData.weatherCondition = '晴';
+                        windSpeed = '无数据';
+                        windDirectionText = '无数据';
+                        windDirection = '无数据';
                     }
-                     
-                     // 生成最终的天气信息显示
-                     var weatherSummary = weatherData.location + '，' + weatherData.weatherCondition + 
-                                        '，温度' + weatherData.temperature + 
-                                        '，湿度' + weatherData.humidity + 
-                                        '，' + weatherData.windDirection + weatherData.windSpeed;
-                     
-                     document.getElementById('weather-summary').textContent = weatherSummary;
+                    
+                    // 获取各种天气数据
+                    var precipValue = (data['precip-surface'] && data['precip-surface'][currentIndex] !== null) ? data['precip-surface'][currentIndex] : 0;
+                    var snowValue = (data['snowprecip-surface'] && data['snowprecip-surface'][currentIndex] !== null) ? data['snowprecip-surface'][currentIndex] : 0;
+                    var lowClouds = (data['lclouds-surface'] && data['lclouds-surface'][currentIndex] !== null) ? data['lclouds-surface'][currentIndex] : 0;
+                    var midClouds = (data['mclouds-surface'] && data['mclouds-surface'][currentIndex] !== null) ? data['mclouds-surface'][currentIndex] : 0;
+                    var highClouds = (data['hclouds-surface'] && data['hclouds-surface'][currentIndex] !== null) ? data['hclouds-surface'][currentIndex] : 0;
+                    var totalClouds = Math.max(lowClouds, midClouds, highClouds);
+                    
+                    // 判断天气状况
+                    if (snowValue > 0.1) {
+                        weatherCondition = '雪天';
+                    } else if (precipValue > 1.0) {
+                        weatherCondition = '大雨';
+                    } else if (precipValue > 0.1) {
+                        weatherCondition = '雨天';
+                    } else if (totalClouds > 80) {
+                        weatherCondition = '阴天';
+                    } else if (totalClouds > 50) {
+                        weatherCondition = '多云';
+                    } else if (totalClouds > 20) {
+                        weatherCondition = '少云';
+                    } else {
+                        weatherCondition = '晴天';
+                    }
+                    
+                    // 湿度信息（如果API提供）
+                    if (data['rh-surface'] && data['rh-surface'][currentIndex] !== null) {
+                        humidity = Math.round(data['rh-surface'][currentIndex]) + '%';
+                    } else {
+                        humidity = '--';
+                    }
+                    
+                    // 获取当前区域名称用于天气信息显示
+                    var districtTownshipElement = document.getElementById('district-township-info');
+                    var regionName = districtTownshipElement ? districtTownshipElement.textContent : '当前区域';
+                    if (!regionName || regionName === '查询超时' || regionName === '查询失败' || regionName === '数据解析错误' || regionName === '网络请求失败') {
+                        regionName = '当前区域';
+                    }
+                    
+                    // 格式化天气信息："区域名称，天气状况，风向(角度)，风速，温度，湿度"
+                    var formattedWeather = '';
+                    if (windDirectionText !== '无数据' && windDirection !== '无数据') {
+                        var windSpeedValue = windSpeed.replace(' m/s', '');
+                        formattedWeather = weatherCondition + ',' + windDirectionText + '(' + windDirection.toFixed(0) + '°),' + windSpeedValue + 'm/s,' + temp + ',' + humidity;
+                    } else {
+                        formattedWeather = weatherCondition + ',风向未知,风速未知,' + temp + ',' + humidity;
+                    }
+                    
+                    document.getElementById('weather').textContent = formattedWeather;
                 } else {
-                    document.getElementById('weather-summary').textContent = '无数据';
+                    document.getElementById('weather').textContent = '无数据';
                 }
             })
             .catch(error => {
                 console.error('获取Windy天气数据失败:', error);
-                document.getElementById('weather-summary').textContent = 'API错误';
+                document.getElementById('weather').textContent = 'API错误';
             });
         }
         
         function getAddress(lon, lat) {
             console.log('开始获取地址:', lon, lat);
             
-            // 获取用户输入的API密钥
             var apiKey = localStorage.getItem('amap_api_key') || document.getElementById('input-apikey').value.trim();
             console.log('当前高德API密钥:', apiKey ? '已填写' : '未填写');
             if (!apiKey) {
                 console.error('高德API密钥缺失，无法查询地址。');
                 document.getElementById('address').textContent = '请先输入高德API密钥';
-                document.getElementById('merged_address').textContent = '请先输入高德API密钥，' + lon.toFixed(6) + ',' + lat.toFixed(6);
                 document.getElementById('input-status').innerHTML = '<span style="color:#e74c3c;">⚠️ 请输入API密钥</span>';
                 return;
             }
             
-            // 同时获取天气数据
             getWindyWeather(lon, lat);
             
-            // 显示加载状态
             document.getElementById('address').textContent = '正在查询地址...';
-            document.getElementById('merged_address').textContent = '正在查询地址...';
             document.getElementById('poi').textContent = '--';
             document.getElementById('road').textContent = '--';
             
-            // 使用高德地图逆地理编码API
             var script = document.createElement('script');
             var callbackName = 'amapCallback' + Date.now().toString();
             
             console.log('创建高德地图回调函数:', callbackName);
             console.log('使用API密钥:', apiKey.substring(0, 8) + '...');
             
-            // 设置超时处理
             var timeoutId = setTimeout(function() {
                 console.error('高德地图地址查询超时，经纬度:', lon.toFixed(6), lat.toFixed(6));
                 document.getElementById('address').textContent = '查询超时，请重试';
-                document.getElementById('merged_address').textContent = '查询超时，请重试，' + lon.toFixed(6) + ',' + lat.toFixed(6);
+                // 查询超时时清空隐藏的区县乡镇信息
+                var hiddenElement = document.getElementById('district-township-info');
+                if (hiddenElement) {
+                    hiddenElement.textContent = '查询超时';
+                }
                 
-                // 清理资源
                 if (script.parentNode) {
                     document.body.removeChild(script);
                 }
@@ -727,7 +645,6 @@ console.log('地图初始化完成');
                 }
             }, 15000);
             
-            // 定义回调函数
             window[callbackName] = function(data) {
                 clearTimeout(timeoutId);
                 console.log('收到高德地图地址查询响应:', data);
@@ -739,34 +656,26 @@ console.log('地图初始化完成');
                         var regeocode = data.regeocode;
                         console.log('解析高德地图数据:', regeocode);
                         
-                        // 显示主要地址（应用区县替换）
                         var mainAddress = regeocode.formatted_address || '地址信息不可用';
-                        // 如果有地址组件，应用区县替换
                         if (regeocode.addressComponent && regeocode.addressComponent.district) {
                             var ac = regeocode.addressComponent;
                             var mappedDistrict = mapDistrictName(ac.district, ac.township);
-                            // 替换原地址中的区县名称
                             if (ac.district && mappedDistrict !== ac.district) {
                                 mainAddress = mainAddress.replace(ac.district, mappedDistrict);
                             }
                         }
                         document.getElementById('address').textContent = mainAddress;
                         
-                        // 解析地址组件
                         if (regeocode.addressComponent) {
                             var ac = regeocode.addressComponent;
                             console.log('地址组件:', ac);
                             
-                            // 城市区域与具体地址合并显示（不显示省市）
                             var cityInfo = '';
-                            // 只显示区县及以下信息，不显示省和市
                             if (ac.district) {
-                                // 区域映射：将原属于前锋区的特定地方改为经开区
                                 var mappedDistrict = mapDistrictName(ac.district, ac.township);
                                 cityInfo += mappedDistrict;
                             }
                             
-                            // 具体地址信息
                             var specificText = '';
                             if (ac.township) specificText += ac.township;
                             if (ac.neighborhood && ac.neighborhood.name) {
@@ -776,23 +685,28 @@ console.log('地图初始化完成');
                                 specificText += ac.building.name;
                             }
                             
-                            // 合并显示地址和经纬度
-                            var mergedText = '';
+                            // 存储区县乡镇信息用于复制功能
+                            var districtTownshipInfo = '';
                             if (cityInfo) {
-                                mergedText += cityInfo;
+                                districtTownshipInfo += cityInfo;
                             }
                             if (specificText) {
-                                mergedText += specificText;
+                                districtTownshipInfo += (districtTownshipInfo ? ' ' : '') + specificText;
                             }
-                            if (!mergedText) {
-                                mergedText = regeocode.formatted_address || '地址信息不可用';
+                            if (!districtTownshipInfo) {
+                                districtTownshipInfo = '未知地区';
                             }
-                            mergedText += '，' + lon.toFixed(6) + ',' + lat.toFixed(6);
-                            document.getElementById('merged_address').textContent = mergedText;
+                            // 将区县乡镇信息存储到隐藏元素中供复制使用
+                            var hiddenElement = document.getElementById('district-township-info') || document.createElement('span');
+                            hiddenElement.id = 'district-township-info';
+                            hiddenElement.style.display = 'none';
+                            hiddenElement.textContent = districtTownshipInfo;
+                            if (!document.getElementById('district-township-info')) {
+                                document.body.appendChild(hiddenElement);
+                            }
                             
-                            // POI信息 - 高德地图返回的是附近POI列表
                             if (regeocode.pois && regeocode.pois.length > 0) {
-                                var poi = regeocode.pois[0]; // 取第一个最近的POI
+                                var poi = regeocode.pois[0];
                                 var poiText = poi.name;
                                 if (poi.distance !== undefined) {
                                     poiText += ' (' + poi.distance + '米)';
@@ -805,9 +719,8 @@ console.log('地图初始化完成');
                                 document.getElementById('poi').textContent = '--';
                             }
                             
-                            // 道路信息 - 高德地图返回的是道路列表
                             if (regeocode.roads && regeocode.roads.length > 0) {
-                                var road = regeocode.roads[0]; // 取第一条最近的道路
+                                var road = regeocode.roads[0];
                                 var roadText = road.name;
                                 if (road.distance !== undefined) {
                                     roadText += ' (' + road.distance + '米)';
@@ -835,16 +748,23 @@ console.log('地图初始化完成');
                             errorMsg += ' (状态:' + data.status + ')';
                         }
                         document.getElementById('address').textContent = errorMsg;
-                        document.getElementById('merged_address').textContent = errorMsg + '，' + lon.toFixed(6) + ',' + lat.toFixed(6);
+                        // 错误时清空隐藏的区县乡镇信息
+                        var hiddenElement = document.getElementById('district-township-info');
+                        if (hiddenElement) {
+                            hiddenElement.textContent = '查询失败';
+                        }
                     }
                 } catch (parseError) {
                     console.error('解析高德地图数据失败:', parseError);
                     console.error('错误详情:', parseError.message);
                     document.getElementById('address').textContent = '数据解析错误';
-                    document.getElementById('merged_address').textContent = '数据解析错误，' + lon.toFixed(6) + ',' + lat.toFixed(6);
+                    // 解析错误时清空隐藏的区县乡镇信息
+                    var hiddenElement = document.getElementById('district-township-info');
+                    if (hiddenElement) {
+                        hiddenElement.textContent = '数据解析错误';
+                    }
                 }
                 
-                // 清理资源
                 if (script.parentNode) {
                     document.body.removeChild(script);
                 }
@@ -853,35 +773,34 @@ console.log('地图初始化完成');
                 }
             };
             
-            // 构建高德地图逆地理编码API请求URL
-            // 注意：高德地图的经纬度格式是：经度,纬度
             var location = lon + ',' + lat;
             var baseUrl = 'https://restapi.amap.com/v3/geocode/regeo';
             var params = [
                 'location=' + encodeURIComponent(location),
                 'key=' + encodeURIComponent(apiKey),
                 'radius=1000',
-                'extensions=all', // 使用all获取更详细的信息（包括POI和道路）
+                'extensions=all',
                 'callback=' + callbackName
             ];
             var url = baseUrl + '?' + params.join('&');
             
             console.log('高德地图请求URL:', url);
             
-            // 设置脚本属性
             script.src = url;
             script.async = true;
             script.charset = 'utf-8';
             
-            // 错误处理
             script.onerror = function(error) {
                 console.error('高德地图脚本加载失败，请检查网络或API密钥。');
                 clearTimeout(timeoutId);
                 console.error('高德地图脚本加载失败:', error);
                 document.getElementById('address').textContent = '网络请求失败';
-                document.getElementById('merged_address').textContent = '网络请求失败，' + lon.toFixed(6) + ',' + lat.toFixed(6);
+                // 网络错误时清空隐藏的区县乡镇信息
+                var hiddenElement = document.getElementById('district-township-info');
+                if (hiddenElement) {
+                    hiddenElement.textContent = '网络请求失败';
+                }
                 
-                // 清理资源
                 if (script.parentNode) {
                     document.body.removeChild(script);
                 }
@@ -890,13 +809,10 @@ console.log('地图初始化完成');
                 }
             };
             
-            // 添加到文档
             document.body.appendChild(script);
         }
         
-        // 手动输入经纬度查询地址
         function queryByCoordinates() {
-            // 优先读取地理位置信息面板的输入框，如果为空则读取坐标查询面板的输入框
             var infoLon = document.getElementById('info-lon').value;
             var infoLat = document.getElementById('info-lat').value;
             
@@ -904,13 +820,11 @@ console.log('地图初始化完成');
             var lat = parseFloat(infoLat);
             var statusDiv = document.getElementById('input-status');
             
-            // 验证输入
             if (isNaN(lon) || isNaN(lat)) {
                 statusDiv.innerHTML = '<span style="color:#e74c3c;">⚠️ 请输入有效的经纬度</span>';
                 return;
             }
             
-            // 验证经纬度范围
             if (lon < -180 || lon > 180 || lat < -90 || lat > 90) {
                 statusDiv.innerHTML = '<span style="color:#e74c3c;">⚠️ 经度范围: -180到180，纬度范围: -90到90</span>';
                 return;
@@ -920,50 +834,37 @@ console.log('地图初始化完成');
             
             console.log('手动输入经纬度查询:', lon, lat);
             
-            // 注意：这里不需要更新经纬度显示，因为相关元素不存在
-            
-            // 移除之前的标记
             if (currentMarker) {
                 map.removeOverLay(currentMarker);
             }
             
-            // 创建新标记并移动地图
             var lngLat = new T.LngLat(lon, lat);
             currentMarker = new T.Marker(lngLat);
             map.addOverLay(currentMarker);
             
-            // 移动地图中心到指定位置
             map.panTo(lngLat);
             
-            // 获取地址信息
             getAddress(lon, lat);
-            
-            // 获取天气信息
-            getWindyWeather(lon, lat);
             
             statusDiv.innerHTML = '<span style="color:#4caf50;">✓ 查询完成</span>';
         }
         
-        // 清空输入框
         function clearInputs() {
             document.getElementById('input-lon').value = '';
             document.getElementById('input-lat').value = '';
             document.getElementById('input-status').innerHTML = '📋 请输入经纬度坐标';
         }
         
-        // 清空所有API密钥
         function clearAllApiKeys() {
             var statusDiv = document.getElementById('input-status');
             
             try {
-                // 清空输入框
                 document.getElementById('input-tianditu-key').value = '';
                 document.getElementById('input-sichuan-key').value = '';
                 document.getElementById('input-apikey').value = '';
                 document.getElementById('input-windy-apikey').value = '';
                 document.getElementById('input-windy-map-apikey').value = '';
                 
-                // 从localStorage删除
                 localStorage.removeItem('tianditu_api_key');
                 localStorage.removeItem('sichuan_api_key');
                 localStorage.removeItem('amap_api_key');
@@ -972,7 +873,6 @@ console.log('地图初始化完成');
                 
                 statusDiv.innerHTML = '<span style="color:#666;">🗑️ 密钥已清空</span>';
                 
-                // 3秒后恢复默认状态
                 setTimeout(function() {
                     statusDiv.innerHTML = '📋 请输入经纬度坐标';
                 }, 3000);
@@ -981,24 +881,22 @@ console.log('地图初始化完成');
             }
         }
         
-        // 保存所有API密钥到本地存储
-function saveAllApiKeys() {
-    var tiandituKey = document.getElementById('input-tianditu-key').value.trim();
-    var sichuanKey = document.getElementById('input-sichuan-key').value.trim();
-    var amapKey = document.getElementById('input-apikey').value.trim();
-    var windyPointKey = document.getElementById('input-windy-apikey').value.trim();
-    var windyMapKey = document.getElementById('input-windy-map-apikey').value.trim();
-    
-    localStorage.setItem('tianditu_api_key', tiandituKey);
-    localStorage.setItem('sichuan_api_key', sichuanKey);
-    localStorage.setItem('amap_api_key', amapKey);
-    localStorage.setItem('windy_api_key', windyPointKey);
-    localStorage.setItem('windy_map_api_key', windyMapKey);
-    
-    alert('所有API密钥已保存到本地存储');
-}
+        function saveAllApiKeys() {
+            var tiandituKey = document.getElementById('input-tianditu-key').value.trim();
+            var sichuanKey = document.getElementById('input-sichuan-key').value.trim();
+            var amapKey = document.getElementById('input-apikey').value.trim();
+            var windyPointKey = document.getElementById('input-windy-apikey').value.trim();
+            var windyMapKey = document.getElementById('input-windy-map-apikey').value.trim();
+            
+            localStorage.setItem('tianditu_api_key', tiandituKey);
+            localStorage.setItem('sichuan_api_key', sichuanKey);
+            localStorage.setItem('amap_api_key', amapKey);
+            localStorage.setItem('windy_api_key', windyPointKey);
+            localStorage.setItem('windy_map_api_key', windyMapKey);
+            
+            alert('所有API密钥已保存到本地存储');
+        }
         
-        // 加载所有API密钥
         function loadAllApiKeys() {
             try {
                 var savedTiandituKey = localStorage.getItem('tianditu_api_key');
@@ -1035,19 +933,16 @@ function saveAllApiKeys() {
             }
         }
         
-        // 区域名称映射函数：将特定地方的区县名称进行映射
         function mapDistrictName(district, township) {
-            // 定义现在属于经开区的地方（不论原来属于哪个区县）
             var economicZoneAreas = [
-                '枣山园区',     // 枣山园区
-                '枣山街道',     // 枣山街道
-                '奎阁街道',     // 奎阁街道
-                '新桥街道',     // 新桥街道
-                '穿石镇',       // 穿石镇
-                '护安镇'        // 护安镇
+                '枣山园区',
+                '枣山街道',
+                '奎阁街道',
+                '新桥街道',
+                '穿石镇',
+                '护安镇'
             ];
             
-            // 检查街道/镇名称是否在经开区列表中
             if (township) {
                 for (var i = 0; i < economicZoneAreas.length; i++) {
                     if (township.indexOf(economicZoneAreas[i]) !== -1) {
@@ -1057,63 +952,51 @@ function saveAllApiKeys() {
                 }
             }
             
-            // 如果不在经开区列表中，返回原区名
             return district || '--';
         }
         
-        // 从完整地址中提取区县与乡镇信息
         function extractDistrictAndTownship(fullAddress) {
-            // 移除省份信息，只保留区县及以下级别
             var address = fullAddress.replace(/^[^省市]*[省市]/, '');
             
-            // 提取区县信息（包含"区"、"县"、"市"等关键字）
-            var districtMatch = address.match(/([^,，]*?[区县市])/); 
+            var districtMatch = address.match(/([^,，]*?[区县市])/);
             var district = districtMatch ? districtMatch[1] : '';
             
-            // 提取乡镇信息（包含"镇"、"乡"、"街道"等关键字）
-            var townshipMatch = address.match(/([^,，]*?[镇乡]|[^,，]*?街道)/); 
+            var townshipMatch = address.match(/([^,，]*?[镇乡]|[^,，]*?街道)/);
             var township = townshipMatch ? townshipMatch[1] : '';
             
-            // 组合区县与乡镇信息
             var result = '';
             if (district) {
                 result += district;
             }
-            // 避免重复，如果乡镇信息已经包含了区县信息，则不再重复添加区县
-            if (township && township !== district && !township.includes(district)) {
+            if (township && township !== district) {
                 result += (result ? ' ' : '') + township;
-            } else if (township && township.includes(district)) {
-                result = township; // 如果乡镇信息包含了区县信息，直接使用乡镇信息
             }
             
             return result || '未知地区';
         }
         
-        // 复制合并后的地址和经纬度信息到剪贴板
         function copyLocationInfo() {
-            var mergedText = document.getElementById('merged_address').textContent;
+            var districtTownshipElement = document.getElementById('district-township-info');
+            var districtTownshipInfo = districtTownshipElement ? districtTownshipElement.textContent : '';
             
-            // 检查是否有有效信息
-            if (!mergedText || mergedText === '--' || mergedText === '点击地图获取位置信息' || mergedText === '正在查询地址...') {
+            if (!districtTownshipInfo || districtTownshipInfo === '查询超时' || districtTownshipInfo === '查询失败' || districtTownshipInfo === '数据解析错误' || districtTownshipInfo === '网络请求失败') {
                 alert('⚠️ 请先点击地图获取位置信息');
                 return;
             }
             
-            // 从面板中获取经度纬度数据
             var lon = document.getElementById('info-lon').value;
             var lat = document.getElementById('info-lat').value;
             
-            // 从完整地址中提取区县与乡镇信息
-            var districtAndTownship = extractDistrictAndTownship(mergedText);
+            if (!lon || !lat) {
+                alert('⚠️ 经纬度信息不完整');
+                return;
+            }
             
-            // 构建复制内容：区县与乡镇 + 经度 + 纬度
-            var copyText = districtAndTownship + ' ' + lon + ',' + lat;
+            var copyText = districtTownshipInfo + ' ' + lon + ',' + lat;
             
             console.log('准备复制的内容:', copyText);
             
-            // 使用现代API复制到剪贴板
             if (navigator.clipboard && window.isSecureContext) {
-                // 使用现代Clipboard API
                 navigator.clipboard.writeText(copyText).then(function() {
                     console.log('复制成功');
                     showCopyStatus('✓ 已复制到剪贴板', 'success');
@@ -1122,17 +1005,14 @@ function saveAllApiKeys() {
                     fallbackCopyTextToClipboard(copyText);
                 });
             } else {
-                // 降级方案：使用传统方法
                 fallbackCopyTextToClipboard(copyText);
             }
         }
         
-        // 降级复制方案（兼容旧浏览器）
         function fallbackCopyTextToClipboard(text) {
             var textArea = document.createElement('textarea');
             textArea.value = text;
             
-            // 避免滚动到底部
             textArea.style.top = '0';
             textArea.style.left = '0';
             textArea.style.position = 'fixed';
@@ -1159,9 +1039,7 @@ function saveAllApiKeys() {
             document.body.removeChild(textArea);
         }
         
-        // 显示复制状态提示
         function showCopyStatus(message, type) {
-            // 创建状态提示元素
             var statusDiv = document.createElement('div');
             statusDiv.textContent = message;
             statusDiv.style.cssText = 
@@ -1179,7 +1057,6 @@ function saveAllApiKeys() {
             
             document.body.appendChild(statusDiv);
             
-            // 3秒后自动移除
             setTimeout(function() {
                 if (statusDiv.parentNode) {
                     statusDiv.style.opacity = '0';
@@ -1191,11 +1068,11 @@ function saveAllApiKeys() {
                 }
             }, 3000);
         }
+        
         function setupInputEvents() {
             var infoLonInput = document.getElementById('info-lon');
             var infoLatInput = document.getElementById('info-lat');
             
-            // 为地理位置信息面板的输入框添加事件监听
             [infoLonInput, infoLatInput].forEach(function(input) {
                 input.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
@@ -1203,7 +1080,6 @@ function saveAllApiKeys() {
                     }
                 });
                 
-                // 输入时同步到坐标查询面板
                 input.addEventListener('input', function() {
                     if (input.id === 'info-lon') {
                         document.getElementById('input-lon').value = input.value;
@@ -1213,79 +1089,72 @@ function saveAllApiKeys() {
                 });
             });
         }
-        // Windy地图相关变量
-         let windyMap = null;
+        
+        let windyMap = null;
 
-        // 初始化Windy地图
-         function initWindyMap() {
-             if (windyMap) return;
-             
-             // 优先使用map密钥，如果没有则使用point密钥
-             const windyMapApiKey = localStorage.getItem('windy_map_api_key') || document.getElementById('input-windy-map-apikey').value.trim();
-             const windyPointApiKey = localStorage.getItem('windy_api_key') || document.getElementById('input-windy-apikey').value.trim();
-             
-             const windyApiKey = windyMapApiKey || windyPointApiKey;
-             
-             if (!windyApiKey) {
-                 alert('请先设置Windy API密钥（map）或（point）');
-                 return;
-             }
-             
-             console.log('使用的Windy API密钥类型:', windyMapApiKey ? 'map密钥' : 'point密钥');
+        function initWindyMap() {
+            if (windyMap) return;
+            
+            const windyMapApiKey = localStorage.getItem('windy_map_api_key') || document.getElementById('input-windy-map-apikey').value.trim();
+            const windyPointApiKey = localStorage.getItem('windy_api_key') || document.getElementById('input-windy-apikey').value.trim();
+            
+            const windyApiKey = windyMapApiKey || windyPointApiKey;
+            
+            if (!windyApiKey) {
+                alert('请先设置Windy API密钥（map）或（point）');
+                return;
+            }
+            
+            console.log('使用的Windy API密钥类型:', windyMapApiKey ? 'map密钥' : 'point密钥');
 
-             const options = {
-                 key: windyApiKey,
-                 lat: 30.4639,
-                 lon: 106.5313,
-                 zoom: 10,
-                 // container参数不需要指定，默认使用id为'windy'的容器
-             };
+            const options = {
+                key: windyApiKey,
+                lat: 30.4639,
+                lon: 106.5313,
+                zoom: 10,
+            };
 
-             console.log('开始初始化Windy地图，API密钥:', windyApiKey.substring(0, 10) + '...');
-             
-             // 检查windyInit函数是否存在
-             if (typeof windyInit === 'undefined') {
-                 console.error('windyInit函数未定义，请检查Windy API库是否正确加载');
-                 alert('Windy API库未正确加载，请刷新页面重试');
-                 return;
-             }
-             
-             windyInit(options, windyAPI => {
-                 console.log('Windy API回调函数被调用');
-                 const { map } = windyAPI;
-                 windyMap = map;
-                 console.log('Windy地图初始化完成，地图对象:', map);
-                 
-                 // 添加点击事件监听
-                 map.on('click', function(e) {
-                     if (currentMapType === 'windy') {
-                         const lat = e.latlng.lat;
-                         const lng = e.latlng.lng;
-                         getAddress(lng, lat);
-                         getWindyWeather(lat, lng);
-                     }
-                 });
-             }).catch(error => {
-                  console.error('Windy地图初始化失败:', error);
-                  
-                  let errorMessage = 'Windy地图初始化失败';
-                  if (error.message && error.message.includes('Invalid API key')) {
-                       errorMessage = '❌ Windy API密钥无效！\n\n请检查：\n1. 确保已在右上角输入框中输入有效的Windy API密钥\n2. 点击"💾 保存密钥"按钮保存密钥\n3. 可在 https://api.windy.com/keys 申请免费API密钥\n\n⚠️ 申请API密钥时必须填写：\n• 网站URL（如：https://mywebsite.com）\n• 应用ID（如：my.application.android）\n• 或iOS应用ID（如：1234567890）\n\n当前错误: ' + error.message;
-                  } else if (error.message && error.message.includes('Unauthorized')) {
-                      errorMessage = '❌ Windy API访问未授权！\n\n请确保：\n1. API密钥格式正确\n2. API密钥未过期\n3. API密钥有足够的使用配额\n\n请访问 https://api.windy.com/keys 检查您的API密钥状态';
-                  } else {
-                      errorMessage += ': ' + error.message;
-                  }
-                  
-                  alert(errorMessage);
-                  
-                  // 切换回天地图
-                  document.getElementById('tianditu').checked = true;
-                  switchMapType('tianditu');
-              });
-         }
+            console.log('开始初始化Windy地图，API密钥:', windyApiKey.substring(0, 10) + '...');
+            
+            if (typeof windyInit === 'undefined') {
+                console.error('windyInit函数未定义，请检查Windy API库是否正确加载');
+                alert('Windy API库未正确加载，请刷新页面重试');
+                return;
+            }
+            
+            windyInit(options, windyAPI => {
+                console.log('Windy API回调函数被调用');
+                const { map } = windyAPI;
+                windyMap = map;
+                console.log('Windy地图初始化完成，地图对象:', map);
+                
+                map.on('click', function(e) {
+                    if (currentMapType === 'windy') {
+                        const lat = e.latlng.lat;
+                        const lng = e.latlng.lng;
+                        getAddress(lng, lat);
+                        getWindyWeather(lat, lng);
+                    }
+                });
+            }).catch(error => {
+                console.error('Windy地图初始化失败:', error);
+                
+                let errorMessage = 'Windy地图初始化失败';
+                if (error.message && error.message.includes('Invalid API key')) {
+                    errorMessage = '❌ Windy API密钥无效！\n\n请检查：\n1. 确保已在右上角输入框中输入有效的Windy API密钥\n2. 点击"💾 保存密钥"按钮保存密钥\n3. 可在 https://api.windy.com/keys 申请免费API密钥\n\n⚠️ 申请API密钥时必须填写：\n• 网站URL（如：https://mywebsite.com）\n• 应用ID（如：my.application.android）\n• 或iOS应用ID（如：1234567890）\n\n当前错误: ' + error.message;
+                } else if (error.message && error.message.includes('Unauthorized')) {
+                    errorMessage = '❌ Windy API访问未授权！\n\n请确保：\n1. API密钥格式正确\n2. API密钥未过期\n3. API密钥有足够的使用配额\n\n请访问 https://api.windy.com/keys 检查您的API密钥状态';
+                } else {
+                    errorMessage += ': ' + error.message;
+                }
+                
+                alert(errorMessage);
+                
+                document.getElementById('tianditu').checked = true;
+                switchMapType('tianditu');
+            });
+        }
 
-        // 切换地图类型
         function switchMapType(mapType) {
             console.log('切换地图类型到:', mapType);
             const tiandituDiv = document.getElementById('mapDiv');
@@ -1304,12 +1173,10 @@ function saveAllApiKeys() {
                 windyDiv.style.display = 'none';
                 currentMapType = mapType;
                 
-                // 切换天地图图层
                 switchLayer(mapType);
             }
         }
 
-        // 监听地图类型切换
         function setupMapTypeListeners() {
             const radioButtons = document.querySelectorAll('input[name="mapType"]');
             radioButtons.forEach(radio => {
@@ -1321,66 +1188,66 @@ function saveAllApiKeys() {
             });
         }
 
-        // 页面加载完成后初始化
         window.onload = function() {
-            console.log('页面加载完成');
-            
-            // 延迟一点时间确保API完全加载
-            setTimeout(function() {
-                if (typeof T !== 'undefined') {
-                    console.log('天地图API已加载');
-                    initMap();
-                    setupMapTypeListeners();
-                    loadAllApiKeys(); // 加载所有保存的API密钥
-
-                    // 经纬度加载后，模拟点击“查询”按钮
-                    document.getElementById('query-button').click();
-                } else {
-                    console.error('天地图API未加载');
-                    updateStatus('天地图API加载失败，请检查网络连接');
-                    
-                    // 尝试重新加载API
-                    var tiandituApiKey = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
-                    if (!tiandituApiKey) {
-                        updateStatus('请输入有效的天地图API密钥');
-                        return;
-                    }
-                    var script = document.createElement('script');
-                    script.src = 'https://api.tianditu.gov.cn/api?v=4.0&tk=' + tiandituApiKey;
-                    script.onload = function() {
-                        console.log('重新加载API成功');
-                        setTimeout(function() {
-                            initMap();
-                            setupMapTypeListeners();
-                        }, 500);
-                    };
-                    script.onerror = function() {
-                        console.error('重新加载API也失败');
-                        updateStatus('无法连接到天地图服务器');
-                    };
-                    document.head.appendChild(script);
-                }
-            }, 500);
-        };
-        
-        console.log('脚本加载完成');
-    </script>
-    <!-- Leaflet JS for Windy Map -->
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <!-- Windy API -->
-    <script src="https://api.windy.com/assets/map-forecast/libBoot.js" onload="console.log('Windy API库加载成功')" onerror="console.error('Windy API库加载失败')"></script>
-    <script>
-        // 检查Windy API是否加载
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                console.log('检查Windy API状态:');
-                console.log('windyInit函数存在:', typeof windyInit !== 'undefined');
-                console.log('window.windyInit存在:', typeof window.windyInit !== 'undefined');
-                if (typeof windyInit === 'undefined' && typeof window.windyInit === 'undefined') {
-                    console.warn('Windy API可能未正确加载，尝试使用备用CDN');
-                }
-            }, 2000);
-        });
+             console.log('页面加载完成');
+             
+             setTimeout(function() {
+                 loadAllApiKeys();
+                 
+                 var tiandituKey = localStorage.getItem('tianditu_api_key') || document.getElementById('input-tianditu-key').value.trim();
+                 if (tiandituKey) {
+                     loadTiandituAPI().then(() => {
+                         initMap();
+                         setupMapTypeListeners();
+                     }).catch(error => {
+                         console.error('天地图API加载失败:', error);
+                         document.getElementById('mapDiv').innerHTML = 
+                             '<div style="display:flex;justify-content:center;align-items:center;height:100%;background:#f5f5f5;flex-direction:column;">' +
+                             '<h2 style="color:#e74c3c;">天地图API加载失败</h2>' +
+                             '<p>错误信息: ' + error.message + '</p>' +
+                             '<p>请检查API密钥是否正确</p>' +
+                             '<button onclick="location.reload()" style="padding:10px 20px;background:#3498db;color:white;border:none;border-radius:5px;cursor:pointer;">重新加载</button>' +
+                             '</div>';
+                     });
+                 } else {
+                     document.getElementById('mapDiv').innerHTML = 
+                         '<div style="display:flex;justify-content:center;align-items:center;height:100%;background:#f5f5f5;flex-direction:column;">' +
+                         '<h2 style="color:#e74c3c;">请输入天地图API密钥</h2>' +
+                         '<p>请在左上角输入框中输入您的天地图API密钥</p>' +
+                         '<p>可在 <a href="http://lbs.tianditu.gov.cn/" target="_blank" style="color:#2196f3;">天地图开放平台</a> 申请</p>' +
+                         '</div>';
+                 }
+             }, 100);
+         };
+         
+         // 加载Windy API
+         (function() {
+             var script = document.createElement('script');
+             script.src = 'https://unpkg.com/wind-layer@2.1.0/dist/wind-layer.min.js';
+             script.async = true;
+             document.head.appendChild(script);
+         })();
+         
+         // 加载Leaflet（Windy依赖）
+         (function() {
+             var link = document.createElement('link');
+             link.rel = 'stylesheet';
+             link.href = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css';
+             document.head.appendChild(link);
+             
+             var script = document.createElement('script');
+             script.src = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js';
+             script.async = true;
+             document.head.appendChild(script);
+         })();
+         
+         // 加载Windy API
+         (function() {
+             var script = document.createElement('script');
+             script.src = 'https://api.windy.com/assets/map-forecast/libBoot.js';
+             script.async = true;
+             document.head.appendChild(script);
+         })();
     </script>
 </body>
 </html>
